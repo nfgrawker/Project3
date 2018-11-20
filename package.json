@@ -2,7 +2,7 @@
   "name": "project3",
   "version": "1.0.0",
   "description": "funfund",
-  "main": "index.js",
+  "main": "server.js",
   "engines": {
     "node": "8.1.1",
     "npm": "5.0.3"
