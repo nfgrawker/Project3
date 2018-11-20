@@ -10,7 +10,7 @@ class Header extends Component {
           </a>
           <ul className="right">
             <li>
-              <a href="http://localhost:5000/auth/google/" >Login with Google</a>
+              <a href="http://localhost:3001/auth/google/" >Login with Google</a>
             </li>
           </ul>
         </div>
