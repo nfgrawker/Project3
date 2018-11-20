@@ -29,4 +29,5 @@ app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
 
-app.listen(PORT);
+
+console.log(PORT)
