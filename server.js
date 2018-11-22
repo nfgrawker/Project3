@@ -11,6 +11,8 @@ mongoose.connect(keys.mongoURI);
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+
+//passport middleware. set cookie active length and encryption
 app.use(
   cookieSession({
     maxAge: 30 * 24 * 60 * 60 * 1000,
