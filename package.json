@@ -8,18 +8,14 @@
     "npm": "5.0.3"
   },
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build",
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/nfgrawker/Project3.git"
-    }
+    "heroku-postbuild": "npm run build"
   },
   "author": "Denis Plaster <denjeo@gmail.com>",
   "license": "MIT",
@@ -29,7 +25,9 @@
   "homepage": "https://github.com/nfgrawker/Project3#readme",
   "dependencies": {
     "concurrently": "^4.1.0",
+    "cookie-session": "^2.0.0-beta.3",
     "express": "4.16.4",
+    "mongoose": "^5.3.13",
     "passport": "0.4.0",
     "passport-google-oauth20": "1.0.0"
   }

@@ -1,13 +1,30 @@
 const express = require("express");
-require('./services/passport');
+const mongoose = require("mongoose");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const keys = require("./config/keys");
+require("./Models/User");
+require("./services/passport");
+
+mongoose.connect(keys.mongoURI);
+
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+
+//passport middleware. set cookie active length and encryption
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 const path = require("path");
 
 require("./routes/authRoutes")(app);
-
-
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -29,5 +46,4 @@ app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
 
-
-console.log(PORT)
+console.log(PORT);
