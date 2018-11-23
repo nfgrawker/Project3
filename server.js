@@ -6,6 +6,7 @@ const keys = require("./config/keys");
 require("./Models/User");
 require("./services/passport");
 
+const path = require("path");
 mongoose.connect(keys.mongoURI);
 
 const PORT = process.env.PORT || 3001;
@@ -22,7 +23,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-const path = require("path");
+
 
 require("./routes/authRoutes")(app);
 
