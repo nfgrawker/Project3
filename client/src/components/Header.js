@@ -27,6 +27,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <nav>
         <div className="nav-wrapper">
@@ -44,6 +45,9 @@ class Header extends Component {
   }
   function mapStateToProps({auth}) {
     return{auth};
+}
+function mapStateToProps({ auth }) {
+  return { auth };
 }
 
 export default connect(mapStateToProps)(Header);

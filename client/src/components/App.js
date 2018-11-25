@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 // import ProfileHeader from './Profile_header';
 import Header from './Header';
@@ -23,4 +23,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default connect(null, actions)(App);
