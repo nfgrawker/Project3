@@ -1,14 +1,34 @@
-const express = require("express");
-require('./services/passport');
+const express = require('express');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+const authRoutes = require('./routes/auth-routes');
+const profileRoutes = require('./routes/profile-routes');
+
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+require('./models/User')
+require('./config/passport-setup')
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+app.set('view engine', 'ejs');
+
+// set up session cookies
+app.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [keys.session.cookieKey]
+}));
+
+// initialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+
 const path = require("path");
 
-require("./routes/authRoutes")(app);
-
-
-
-
+// connect to mongodb
+mongoose.connect(keys.mongodb.dbURI, () => {
+    console.log('connected to mongodb');
+});
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -17,16 +37,15 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Define API routes here
+// set up routes
+app.use('/auth', authRoutes);
+app.use('/profile', profileRoutes);
 
-// Send every other request to the React app
-// Define any API routes before this runs
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+// create home route
+app.get('/', (req, res) => {
+    res.render('home', { user: req.user });
 });
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
-
-app.listen(PORT);
