@@ -1,29 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { fetchUser } from "../actions/index";
 import axios from "axios";
 require('./App.css');
 
 class Header extends Component {
-    state={
-        auth:null
-    };
 
-    getUser = ()=>{
-        axios.get("/api/currentuser").then(response=>{
-            if(response.data){
-                this.setState({auth:true})
-            }
-            else if (!response.data){
-                this.setState({auth:false})
-            }
+    logout = ()=>{
+      axios.get("/api/logout").then(response=>{
+      }).then(()=>
+        {
+            this.props.onFetchUser()
         })
     };
+
     componentDidMount(){
-        this.getUser()
+        this.props.onFetchUser()
     }
   renderContent = ()=> {
-      switch (this.state.auth) {
+      switch (this.props.auth) {
           case null:
             return;
           case false:
@@ -35,14 +31,14 @@ class Header extends Component {
           default:
             return (
               <li>
-                <a href="/api/logout">Logout</a>
+                <a onClick={this.logout}>Logout</a>
               </li>
             );
     }
-  }
+  };
 
   render() {
-    console.log(this.props);
+    console.log(this.props.auth);
     return (
       <nav>
         <div className="nav-wrapper">
@@ -58,9 +54,15 @@ class Header extends Component {
     );
   }
   }
-
+const mapDispatchToProps = dispatch=> {
+     return {
+         onFetchUser: () =>{
+             dispatch(fetchUser())
+         },
+     }
+};
 function mapStateToProps({auth}) {
     return{auth};
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

@@ -6,8 +6,8 @@ const profileRoutes = require('./routes/profile-routes');
 
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
-require('./models/User')
-require('./config/passport-setup')
+require('./models/User');
+require('./config/passport-setup');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -27,7 +27,7 @@ const path = require("path");
 
 // connect to mongodb
 mongoose.connect(keys.mongodb.dbURI, () => {
-    console.log('connected to mongodb');
+    console.log('connected to mongodb')
 });
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
