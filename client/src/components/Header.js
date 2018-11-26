@@ -12,7 +12,7 @@ class Header extends Component {
     getUser = ()=>{
         axios.get("/api/currentuser").then(response=>{
             if(response.data){
-                this.setState({auth:true})
+              this.setState({thumbnail:response.data.thumbnail, auth:true})
             }
             else if (!response.data){
                 this.setState({auth:false})
@@ -35,7 +35,7 @@ class Header extends Component {
           default:
             return (
               <li>
-                <a href="/api/logout">Logout</a>
+                 <img src={this.state.thumbnail} /><a href="/api/logout">Logout</a>
               </li>
             );
     }
@@ -64,3 +64,4 @@ function mapStateToProps({auth}) {
 }
 
 export default connect(mapStateToProps)(Header);
+
