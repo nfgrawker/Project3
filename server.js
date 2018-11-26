@@ -3,7 +3,6 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const authRoutes = require('./routes/auth-routes');
 const profileRoutes = require('./routes/profile-routes');
-
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 require('./models/User')
@@ -23,7 +22,6 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const path = require("path");
 
 // connect to mongodb
 mongoose.connect(keys.mongodb.dbURI, () => {
