@@ -23,7 +23,7 @@ router.get('/google', passport.authenticate('google', {
 // callback route for google to redirect to
 // hand control to passport to use code to grab profile info
 router.get('/google/redirect', passport.authenticate('google'), (req, res) => {
-    res.redirect('/profile');
+    res.redirect('http://localhost:3000/');
 });
 
 router.get('/api/currentuser', (req, res) => {

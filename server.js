@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 
 // set up session cookies
 app.use(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
+    maxAge: 30* 24* 60 * 60 * 1000,
     keys: [keys.session.cookieKey]
 }));
 
@@ -40,11 +40,9 @@ if (process.env.NODE_ENV === "production") {
 // set up routes
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
+require("./routes/api-routes")(app);
 
 // create home route
-app.get('/', (req, res) => {
-    res.render('home', { user: req.user });
-});
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

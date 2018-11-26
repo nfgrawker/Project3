@@ -2,22 +2,27 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import axios from "axios";
-require('./App.css')
+require('./App.css');
 
 class Header extends Component {
     state={
         auth:null
-    }
+    };
 
     getUser = ()=>{
-        axios.get("http://localhost:3001/api/currentuser").then(response=>{
-            console.log("yep")
-            console.log(response)
+        axios.get("/api/currentuser").then(response=>{
+            if(response.data){
+                this.setState({auth:true})
+            }
+            else if (!response.data){
+                this.setState({auth:false})
+            }
         })
+    };
+    componentDidMount(){
+        this.getUser()
     }
-
   renderContent = ()=> {
-      this.getUser()
       switch (this.state.auth) {
           case null:
             return;
@@ -32,9 +37,6 @@ class Header extends Component {
               <li>
                 <a href="/api/logout">Logout</a>
               </li>
-              //  <li>
-              //      <img src={user.thumnail}/>
-              // </li>
             );
     }
   }
