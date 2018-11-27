@@ -1,4 +1,4 @@
-import { FETCH_USER } from "../actions/types";
+import { FETCH_USER } from "../../thingsForLater/actions/types";
 
 export default function(state = null, action) {
   switch (action.type) {
