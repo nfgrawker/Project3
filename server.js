@@ -1,8 +1,6 @@
 const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
-const authRoutes = require('./routes/auth-routes');
-const profileRoutes = require('./routes/profile-routes');
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
 require('./models/User')
@@ -39,6 +37,7 @@ if (process.env.NODE_ENV === "production") {
 app.use('/auth', authRoutes);
 app.use('/profile', profileRoutes);
 require("./routes/api-routes")(app);
+
 
 // create home route
 
