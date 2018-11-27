@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 // import ProfileHeader from './Profile_header';
-import Header from './Header';
+import Header from './components/Header';
 
 
 const Dashboard = () => <h2>Dashboard</h2>;
