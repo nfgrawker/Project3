@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const donationSchema = new Schema({
   name: { type: String, required: true },
   date: { type: Date, default: Date.now},
-  donations: [{type:Schema.Types.ObjectId, ref:"Donations"}]
+  nonProfit: [{type:Schema.Types.ObjectId, ref:"nonProfit"}]
   
 });
 
