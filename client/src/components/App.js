@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 // import ProfileHeader from './Profile_header';
 import Header from './Header';
@@ -10,13 +10,15 @@ const Landing = () => <h2>Landing</h2>;
 
 const App = () => {
   return (
-    <div className="container">
+    <div>
       <BrowserRouter>
         <div>
           <Header />
+          <div className="container">
           <Route exact path="/" component={Landing} />
           <Route exact path="/profile" component={Dashboard} />
           <Route path="/raffles/new" component={RaffleNew} />
+          </div>
         </div>
       </BrowserRouter>
     </div>
