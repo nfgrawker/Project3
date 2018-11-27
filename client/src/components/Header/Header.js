@@ -11,6 +11,8 @@ import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -19,7 +21,8 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ReactImageFallback from "react-image-fallback";
-require("./App.css");
+require("./style.js");
+require("../../App.css");
 
 const styles = theme => ({
   root: {
@@ -94,6 +97,8 @@ class Header extends React.Component {
   componentDidMount() {
     this.getUser();
   }
+
+  
   renderContent = () => {
     switch (this.state.auth) {
       case null:
@@ -186,7 +191,7 @@ class Header extends React.Component {
         </MenuItem>
         <MenuItem onClick={this.handleProfileMenuOpen}>
           <IconButton color="inherit">
-          <ReactImageFallback
+            <ReactImageFallback
               src={this.state.thumbnail}
               fallbackImage="https://discourse-cdn-sjc1.com/gethopscotch/uploads/default/original/2X/f/f13c9f277b7bebe1ad79f92012d664edec5f6b08.png"
               initialImage="http://profilepicturesdp.com/wp-content/uploads/2018/06/default-facebook-dp-9.jpg"
@@ -201,6 +206,7 @@ class Header extends React.Component {
 
     return (
       <div className={classes.root}>
+     
         <AppBar position="static">
           <Toolbar>
             <IconButton
@@ -218,6 +224,20 @@ class Header extends React.Component {
             >
               Fundtastix
             </Typography>
+         
+            <Tabs
+            // value={2}
+            onChange={this.handleChange}
+            scrollable
+            scrollButtons="on"
+            indicatorColor="primary"
+            color="inherit"
+          >
+            <Tab label="Item One"  />
+            <Tab label="Item Two"  />
+            <Tab label="Item Three"  />
+            <Tab label="Item Four"  />
+            </Tabs>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <IconButton color="inherit">
@@ -249,7 +269,9 @@ class Header extends React.Component {
               </IconButton>
             </div>
           </Toolbar>
+         
         </AppBar>
+
         {renderMenu}
         {renderMobileMenu}
       </div>
