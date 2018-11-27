@@ -2,7 +2,7 @@ body{
     font-family: arial;
     margin: 0;
 }
-nav{
+/* nav{
     background: #ff5353;
     padding: 20px 10px;
 }
@@ -28,7 +28,7 @@ main, header{
     margin: 30px auto;
     padding: 0 10px;
     color: #333;
-}
+} */
 main img{
     width: 40px;
     margin-right: 10px;
@@ -37,4 +37,8 @@ main img{
 }
 main p{
     display: inline-block;
+}
+.rounded{
+    border-radius: 90px;
+    width: 40px;
 }
