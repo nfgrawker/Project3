@@ -18,8 +18,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import ReactImageFallback from "react-image-fallback";
 require("./App.css");
-
 
 const styles = theme => ({
   root: {
@@ -72,7 +72,8 @@ class Header extends React.Component {
   constructor() {
     super();
     this.style = {
-       listStyle: "none",
+      listStyle: "none",
+      color: "white"
     };
   }
 
@@ -99,14 +100,22 @@ class Header extends React.Component {
         return;
       case false:
         return (
-          <li>
-            <a href="http://localhost:3001/auth/google">Login</a>
+          <li style={this.style}>
+            <h6 style={this.style}>
+              <a href="http://localhost:3001/auth/google">Login</a>
+            </h6>
           </li>
         );
       default:
         return (
           <li style={this.style}>
-            <img className="rounded" src={this.state.thumbnail} alt="" />
+            <ReactImageFallback
+              src={this.state.thumbnail}
+              fallbackImage="https://discourse-cdn-sjc1.com/gethopscotch/uploads/default/original/2X/f/f13c9f277b7bebe1ad79f92012d664edec5f6b08.png"
+              initialImage="http://profilepicturesdp.com/wp-content/uploads/2018/06/default-facebook-dp-9.jpg"
+              alt="cool image should be here"
+              className="rounded"
+            />
           </li>
         );
     }
@@ -177,7 +186,13 @@ class Header extends React.Component {
         </MenuItem>
         <MenuItem onClick={this.handleProfileMenuOpen}>
           <IconButton color="inherit">
-            <AccountCircle />
+          <ReactImageFallback
+              src={this.state.thumbnail}
+              fallbackImage="https://discourse-cdn-sjc1.com/gethopscotch/uploads/default/original/2X/f/f13c9f277b7bebe1ad79f92012d664edec5f6b08.png"
+              initialImage="http://profilepicturesdp.com/wp-content/uploads/2018/06/default-facebook-dp-9.jpg"
+              alt="cool image should be here"
+              className="rounded"
+            />
           </IconButton>
           <p>Profile</p>
         </MenuItem>
@@ -201,7 +216,7 @@ class Header extends React.Component {
               color="inherit"
               noWrap
             >
-              Material-UI
+              Fundtastix
             </Typography>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
@@ -249,21 +264,3 @@ Header.propTypes = {
 };
 
 export default withStyles(styles)(Header);
-
-// render() {
-//   console.log(this.props);
-//   return (
-//     <nav>
-//       <div className="nav-wrapper">
-//         <Link
-//           to={this.props.user ? "/profile" : "/"}
-//           className="left brand-logo"
-//         >
-//           Fundtastix
-//         </Link>
-//         <ul className="right">{this.renderContent()}</ul>
-//       </div>
-//     </nav>
-//   );
-// }
-// }
