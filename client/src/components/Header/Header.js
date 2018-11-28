@@ -1,13 +1,10 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
@@ -276,9 +273,7 @@ class Header extends React.Component {
     );
   }
 }
-function mapStateToProps({ auth }) {
-  return { auth };
-}
+
 Header.propTypes = {
   classes: PropTypes.object.isRequired
 };
