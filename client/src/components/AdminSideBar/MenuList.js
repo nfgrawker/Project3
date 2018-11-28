@@ -39,6 +39,7 @@ class MenuList extends React.Component {
 
     return (
       <List className={classes.root} >
+
         <ListItem button>
           <ListItemIcon>
             <SendIcon />
@@ -51,6 +52,7 @@ class MenuList extends React.Component {
           </ListItemIcon>
           <ListItemText inset primary="Notifications" />
         </ListItem>
+
         <ListItem button onClick={this.handleClick}>
           <ListItemIcon>
             <InboxIcon />
@@ -74,6 +76,7 @@ class MenuList extends React.Component {
             </ListItem>
           </List>
         </Collapse>
+
         <ListItem button onClick={this.handleClick}>
           <ListItemIcon>
             <StarBorder />
@@ -81,6 +84,17 @@ class MenuList extends React.Component {
           <ListItemText inset primary="Settings" />
           {this.state.open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
+        <Collapse in={this.state.open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            <ListItem button className={classes.nested}>
+              <ListItemIcon>
+                <StarBorder />
+              </ListItemIcon>
+              <ListItemText inset primary="Create" />
+            </ListItem>
+          </List>
+        </Collapse>
+
       </List>
     );
   }

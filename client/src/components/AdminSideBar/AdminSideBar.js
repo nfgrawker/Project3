@@ -18,8 +18,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
-import AdminMain from '../AdminMain/AdminMain';
-import MenuList from './MenuList';
+import AdminMain from "../AdminMain/AdminMain";
+import MenuList from "./MenuList";
+import { Grid } from "@material-ui/core";
 
 const drawerWidth = 240;
 
@@ -150,21 +151,13 @@ class AdminSideBar extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <MenuList />
-          {/* <List>
-            {["Dashboard", "Raffles", "Notifications", "Settings"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
-          </List> */}
+            <MenuList />
           <Divider />
         </Drawer>
-        <AdminMain />
 
+           <AdminMain /> 
+
+        
       </div>
     );
   }
