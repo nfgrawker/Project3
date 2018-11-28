@@ -43,7 +43,11 @@ const styles = theme => ({
   imageButton: {
     position: 'absolute',
     left: 0,
+<<<<<<< HEAD
     right: 0,
+=======
+    right: 10,
+>>>>>>> 1b8800fe2e5f46504dd586a0a7544f721d150a5b
     top: 0,
     bottom: 0,
     display: 'flex',
@@ -60,6 +64,10 @@ const styles = theme => ({
     bottom: 0,
     backgroundSize: 'cover',
     backgroundPosition: 'center 40%',
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 1b8800fe2e5f46504dd586a0a7544f721d150a5b
 
   },
   imageBackdrop: {
@@ -92,20 +100,35 @@ const images = [
   {
     url: 'https://www.digitaldealer.com/wp-content/uploads/2016/10/img-icon-exhibit-hall.png',
     title: 'Sponsor',
+<<<<<<< HEAD
     width: '30%',
     margin: 20,
 
+=======
+    width: '25%',
+    margin: 20,
+>>>>>>> 1b8800fe2e5f46504dd586a0a7544f721d150a5b
   },
   {
     url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2dItSP_NumIAaCwi1z81Kn0ZAl3zZZu8w8jlZHHjN3uGeRIof',
     title: 'Raffles',
+<<<<<<< HEAD
     width: '30%',
 
+=======
+    width: '25%',
+    margin: 20,
+>>>>>>> 1b8800fe2e5f46504dd586a0a7544f721d150a5b
   },
   {
     url: 'https://1adn3cp4l2-flywheel.netdna-ssl.com/wp-content/uploads/2013/10/Donation-plugins-for-WordPress1.jpg',
     title: 'Donations',
+<<<<<<< HEAD
     width: '30%',
+=======
+    width: '25%',
+    margin: 20,
+>>>>>>> 1b8800fe2e5f46504dd586a0a7544f721d150a5b
   },
 ];
 
@@ -122,13 +145,23 @@ function ButtonBases(props) {
           focusVisibleClassName={classes.focusVisible}
           style={{
             width: image.width,
+<<<<<<< HEAD
             margin: image.border,
+=======
+            margin: image.margin,
+            fontSize: image.fontSize,
+
+>>>>>>> 1b8800fe2e5f46504dd586a0a7544f721d150a5b
           }}
         >
           <span
             className={classes.imageSrc}
             style={{
               backgroundImage: `url(${image.url})`,
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1b8800fe2e5f46504dd586a0a7544f721d150a5b
             }}
           />
           <span className={classes.imageBackdrop} />
