@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 // import ProfileHeader from './Profile_header';
 import Header from './components/Header';
-import ButtonBases from './components/UserButton'
+import ButtonBases from './components/ButtonBases'
+import RaffleItems from './components/RaffleItems'
 
 
 const Dashboard = () => <h2>Dashboard</h2>;
@@ -19,7 +20,7 @@ const App = () => {
           <div className="container">
           <Route exact path="/" component={ButtonBases} />
           <Route exact path="/profile" component={Dashboard} />
-          <Route path="/raffles/new" component={RaffleNew} />
+          <Route path="/raffles/new" component={RaffleItems} />
           </div>
         </div>
       </BrowserRouter>
