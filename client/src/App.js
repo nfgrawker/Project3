@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from './components/Header';
 import ButtonBases from './components/ButtonBases'
 import RaffleItems from './components/RaffleItems'
+import AdminPage from './components/pages/AdminPage';
 
 
 const Dashboard = () => <h2>Dashboard</h2>;
@@ -21,6 +22,7 @@ const App = () => {
           <Route exact path="/" component={ButtonBases} />
           <Route exact path="/profile" component={Dashboard} />
           <Route path="/raffles/new" component={RaffleItems} />
+          <Route path="/admin" component={AdminPage} />
           </div>
         </div>
       </BrowserRouter>
