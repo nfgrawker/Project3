@@ -7,6 +7,8 @@ require('./models/User')
 require('./config/passport-setup')
 const PORT = process.env.PORT || 3001;
 const app = express();
+const authRoutes = require("./routes/authRoutes");
+
 
 app.set('view engine', 'ejs');
 
@@ -35,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
 
 // set up routes
 app.use('/auth', authRoutes);
-app.use('/profile', profileRoutes);
+// app.use('/profile', profileRoutes);
 require("./routes/api-routes")(app);
 
 
