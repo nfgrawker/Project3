@@ -2,14 +2,11 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 // import ProfileHeader from './Profile_header';
 import Header from './components/Header';
-import ButtonBases from './components/ButtonBases'
-import RaffleItems from './components/RaffleItems'
-import AdminPage from './components/pages/AdminPage';
+import Home from './components/Pages/Landing'
+import Profile from './components/Pages/Profile'
+import AdminPage from './components/pages/AdminPage'
 
 
-const Dashboard = () => <h2>Dashboard</h2>;
-const RaffleNew = () => <h2>RaffleNew</h2>;
-const Landing = () => <h2>Landing</h2>;
 
 
 const App = () => {
@@ -17,13 +14,12 @@ const App = () => {
     <div>
       <BrowserRouter>
         <div>
-          <Header />
-          <div className="container">
-          <Route exact path="/" component={ButtonBases} />
-          <Route exact path="/profile" component={Dashboard} />
-          <Route path="/raffles/new" component={RaffleItems} />
+        
+          <Route exact path="/" component={Home} />
+          <Route exact path="/profile" component={Profile} />
+          <Route path="/raffles/new" component={Profile} />
           <Route path="/admin" component={AdminPage} />
-          </div>
+
         </div>
       </BrowserRouter>
     </div>
@@ -31,3 +27,4 @@ const App = () => {
 };
 
 export default App;
+
