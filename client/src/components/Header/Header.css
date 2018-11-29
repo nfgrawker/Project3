@@ -1,0 +1,18 @@
+main img {
+  width: 40px;
+  margin-right: 10px;
+  position: relative;
+  top: 12px;
+}
+main p {
+  display: inline-block;
+}
+.rounded {
+  border-radius: 90px;
+  width: 35px;
+}
+#headerList {
+  margin-top: 20px;
+  text-align: center;
+  background-color: #212121;
+}

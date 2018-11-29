@@ -29,16 +29,3 @@ main, header{
     padding: 0 10px;
     color: #333;
 } */
-main img{
-    width: 40px;
-    margin-right: 10px;
-    position: relative;
-    top: 12px;
-}
-main p{
-    display: inline-block;
-}
-.rounded{
-    border-radius: 90px;
-    width: 40px;
-}

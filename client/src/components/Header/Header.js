@@ -15,8 +15,8 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ReactImageFallback from "react-image-fallback";
-require("./style.js");
-require("../../App.css");
+import NavLinks from './NavLinks/NavLinks'
+require("./Header.css");
 
 const styles = theme => ({
     root: {
@@ -151,6 +151,7 @@ class Header extends React.Component {
                 open={isMenuOpen}
                 onClose={this.handleMenuClose}
             >
+                
                 <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
                 <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
                 <MenuItem onClick={this.handleMenuClose}>
@@ -167,6 +168,7 @@ class Header extends React.Component {
                 open={isMobileMenuOpen}
                 onClose={this.handleMobileMenuClose}
             >
+                <MenuItem onClick={this.handleMenuClose}><NavLinks /></MenuItem>
                 <MenuItem>
                     <IconButton color="inherit">
                         <Badge badgeContent={4} color="secondary">
@@ -201,7 +203,9 @@ class Header extends React.Component {
         return (
             <div className={classes.root}>
 
-                <AppBar position="static">
+                <AppBar position="static" style={{
+                backgroundColor: "#212121"
+              }}>
                     <Toolbar>
                         <IconButton
                             className={classes.menuButton}
@@ -216,22 +220,13 @@ class Header extends React.Component {
                             color="inherit"
                             noWrap
                         >
-                            Fundtastix
+                           WonderFund
                         </Typography>
+                        
 
-                        <Tabs
-                            // value={2}
-                            onChange={this.handleChange}
-                            indicatorColor="primary"
-                            color="inherit"
-                        >
-                            <Tab label="Item One"  />
-                            <Tab label="Item Two"  />
-                            <Tab label="Item Three"  />
-                            <Tab label="Item Four"  />
-                        </Tabs>
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
+                        <NavLinks id="headerList" />
                             <IconButton color="inherit">
                                 <Badge badgeContent={4} color="secondary">
                                     <MailIcon />
@@ -242,6 +237,7 @@ class Header extends React.Component {
                                     <NotificationsIcon />
                                 </Badge>
                             </IconButton>
+                            
                             <IconButton
                                 aria-owns={isMenuOpen ? "material-appbar" : undefined}
                                 aria-haspopup="true"

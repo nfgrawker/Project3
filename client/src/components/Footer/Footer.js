@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Links from './Links'
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-require('./Footer.css')
+
 
 const styles = theme => ({
 
@@ -35,7 +35,7 @@ function Album(props) {
           
         </Typography>
         <Typography variant="subtitle1" align="center" color="primary" component="p">
-       <p> © 2018 Copyright: Fundtastix.com</p>
+       <p> © 2018 Copyright: Wonderfundgroup.com</p>
       
         </Typography>
       </footer>

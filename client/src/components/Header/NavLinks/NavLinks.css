@@ -1,0 +1,32 @@
+
+li#headerLinks {
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+.text-uppercase {
+  display: inline-block;
+  margin: 0px 5px;
+}
+h6 {
+  color: white;
+}
+p {
+  color: #fff;
+}
+#navlink {
+  color: #fff;
+  padding: 10px;
+}
+#navlink:hover {
+  color: rgba(136, 135, 135, 0.849);
+}
+.fa {
+  font-size: 30px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.fa:hover {
+  font-size: 40px;
+  transform: rotate(45deg);
+}

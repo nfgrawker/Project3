@@ -1,10 +1,10 @@
-ul {
+ul#footerList {
   display: block;
 
   text-align: center;
 }
 
-li {
+li#footerLinks {
   display: inline-block;
   margin: 0px 10px;
 }
@@ -19,11 +19,11 @@ h6 {
 p {
     color: #FFF;
 }
-a {
+#footer {
     color: #FFF;
     padding: 10px;
   }
-  a:hover {
+  #footer:hover {
      color: #000;
      background-color: #FFF;
   }
