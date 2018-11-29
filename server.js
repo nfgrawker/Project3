@@ -8,6 +8,7 @@ require('./config/passport-setup')
 const PORT = process.env.PORT || 3001;
 const app = express();
 const authRoutes = require("./routes/authRoutes");
+const path = require("path")
 
 
 app.set('view engine', 'ejs');
@@ -29,6 +30,7 @@ mongoose.connect(keys.mongodb.dbURI, () => {
 });
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -42,7 +44,9 @@ require("./routes/api-routes")(app);
 
 
 // create home route
-
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });

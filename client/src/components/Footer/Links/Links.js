@@ -7,40 +7,40 @@ class Links extends Component {
   render() {
     return (
       <div>
-        <ul>
-          <li>
+        <ul id="footerList">
+          <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a href="#!">About us</a>
+              <a id="footer" href="#!">About us</a>
             </h6>
           </li>
 
-          <li>
+          <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a href="#!">Products</a>
+              <a id="footer" href="#!">Products</a>
             </h6>
           </li>
 
-          <li>
+          <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a href="#!">Awards</a>
+              <a id="footer" href="#!">Awards</a>
             </h6>
           </li>
 
-          <li>
+          <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a href="#!">Help</a>
+              <a id="footer" href="#!">Help</a>
             </h6>
           </li>
 
-          <li>
+          <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a href="#!">Contact</a>
+              <a id="footer" href="#!">Contact</a>
             </h6>
           </li>
         </ul>
         <br />
-        <ul className="list-unstyled list-inline text-center">
-          <li className="list-inline-item">
+        <ul id="footerList" className="list-unstyled list-inline text-center">
+          <li id='footerLinks' className="list-inline-item">
             <a
               className="btn-floating btn-fb mx-1"
               style={{
@@ -52,7 +52,7 @@ class Links extends Component {
 
             </a>
           </li>
-          <li className="list-inline-item">
+          <li id='footerLinks' className="list-inline-item">
             <a
               className="btn-floating btn-tw mx-1"
               style={{
@@ -62,7 +62,7 @@ class Links extends Component {
               <i className="fa fa-twitter"> </i>
             </a>
           </li>
-          <li className="list-inline-item">
+          <li id='footerLinks' className="list-inline-item">
             <a
               className="btn-floating btn-gplus mx-1"
               style={{
@@ -72,7 +72,7 @@ class Links extends Component {
               <i className="fa fa-google-plus"> </i>
             </a>
           </li>
-          <li className="list-inline-item">
+          <li id='footerLinks' className="list-inline-item">
             <a
               className="btn-floating btn-li mx-1"
               style={{

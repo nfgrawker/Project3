@@ -99,9 +99,6 @@ class Checkout extends React.Component {
         <CssBaseline />
         <Header />
           <Toolbar>
-            <Typography variant="h6" color="inherit" noWrap>
-              Company name
-            </Typography>
           </Toolbar>
         <main className={classes.layout}>
           <Paper className={classes.paper}>
