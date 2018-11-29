@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 // import ProfileHeader from './Profile_header';
 import Header from './components/Header';
-import Home from './components/pages/Landing'
+import Home from './components/pages/Home'
 import Profile from './components/pages/profile'
+import AdminPage from './components/pages/admin-page'
 
 
 

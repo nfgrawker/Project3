@@ -21,6 +21,7 @@ import MailIcon from "@material-ui/icons/Mail";
 import AdminMain from "../AdminMain/AdminMain";
 import MenuList from "./MenuList";
 import { Grid } from "@material-ui/core";
+import ImageAvatars from "./Avatar";
 
 const drawerWidth = 240;
 
@@ -88,7 +89,7 @@ const styles = theme => ({
 
 class AdminSideBar extends React.Component {
   state = {
-    open: false
+    open: true
   };
 
   handleDrawerOpen = () => {
@@ -150,14 +151,19 @@ class AdminSideBar extends React.Component {
               )}
             </IconButton>
           </div>
+
+          {/* User Avatar Image */}
+          <ImageAvatars
+            userImage="https://via.placeholder.com/80"
+            userName="NonProfit Name"
+          />
+          {/* Menu List Items */}
           <Divider />
-            <MenuList />
+          <MenuList />
           <Divider />
         </Drawer>
 
-           <AdminMain /> 
-
-        
+        <AdminMain />
       </div>
     );
   }
