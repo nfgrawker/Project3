@@ -19,11 +19,11 @@ h6 {
 p {
     color: #FFF;
 }
-#footer {
+a#footer {
     color: #FFF;
     padding: 10px;
   }
-  #footer:hover {
+  a#footer:hover {
      color: #000;
      background-color: #FFF;
   }
