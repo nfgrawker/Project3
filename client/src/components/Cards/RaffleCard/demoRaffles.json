@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "raffleName": "Vikings Helmet",
+        "image": "https://images-na.ssl-images-amazon.com/images/I/81ZmizwMCGL._SX425_.jpg",
+        "raffleSummary": "Win a signed helmet from the Minnesota Vikings."
+    },
+    {
+        "id": 2,
+        "name": "Moped",
+        "image": "http://safervideos.com/pictures/ags/F10-50cc_g.jpg",
+        "raffleSummary": "A scooter."
+    },
+    {
+        "id": 3,
+        "name": "NotMoped",
+        "image": "http://safervideos.com/pictures/ags/F10-50cc_g.jpg",
+        "raffleSummary": "Not a scooter."
+    }
+]
