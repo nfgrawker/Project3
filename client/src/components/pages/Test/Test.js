@@ -12,7 +12,9 @@ const styles = theme => ({
 class Test extends React.Component {
 
     render() {
-        return ()
+        return (
+            <h1>test</h1>
+        )
     }
 }
 
