@@ -13,15 +13,11 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import AdminMain from "../AdminMain/AdminMain";
 import MenuList from "./MenuList";
-import { Grid } from "@material-ui/core";
+import { Grid, ListItem } from "@material-ui/core";
 import ImageAvatars from "./Avatar";
+import Test from "./Test";
 
 const drawerWidth = 240;
 
@@ -159,7 +155,11 @@ class AdminSideBar extends React.Component {
           />
           {/* Menu List Items */}
           <Divider />
-          <MenuList />
+
+                <MenuList >
+                  <ListItem />
+                </MenuList>
+
           <Divider />
         </Drawer>
 

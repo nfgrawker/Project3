@@ -9,7 +9,7 @@ class AdminMain extends Component {
   render() {
     return (
       <Grid id="adminMain" container={true}>
-        <div className="adminMain">
+        <div className="adminMain" main={this.main}>
           <h1>Admin Page</h1>
         </div>
         <StatBoxes />
