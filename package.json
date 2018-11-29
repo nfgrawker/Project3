@@ -4,19 +4,19 @@
   "description": "wonderfund",
   "main": "server.js",
   "engines": {
-    "node": "8.1.1",
-    "npm": "5.0.3",
+    "node": "8.12.0",
+    "npm": "6.4.1",
     "yarn": "^1.12.3"
   },
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start": "if-env NODE_ENV=production && yarn start:prod || yarn start:dev",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"yarn client\"",
+    "client": "cd client && yarn start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && yarn install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "build": "cd client && yarn build",
+    "heroku-postbuild": "yarn build"
   },
   "author": "Denis Plaster <denjeo@gmail.com>",
   "license": "MIT",
