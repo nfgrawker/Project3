@@ -13,12 +13,11 @@ const App = () => {
     <div>
       <BrowserRouter>
         <div>
-        
-          
+
           <Route exact path="/" component={Home} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/checkout" component={Checkout} />
-        
+
         </div>
       </BrowserRouter>
     </div>
@@ -26,4 +25,3 @@ const App = () => {
 };
 
 export default App;
-
