@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-
+import { withStyles } from '@material-ui/core/styles';
 
 const styles = {
   card: {
@@ -20,36 +22,52 @@ const styles = {
   },
 };
 
-const RaffleCard = (props) => {
+const cards = [1, 2, 3];
+
+function RaffleCardAlbum(props) {
   const { classes } = props;
+
   return (
-    <Card className={classes.card} id={props.id}>
-      <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={props.image}
-          title="Raffle Preview"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.raffleName}
-          </Typography>
-          <Typography component="p">
-            {props.raffleSummary}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          View Raffle Info
-        </Button>
-      </CardActions>
-    </Card>
+    <React.Fragment>
+      <CssBaseline />
+      <div className={classNames(classes.layout, classes.cardGrid)}>
+      <main>
+          <Grid container spacing={40}>
+            {cards.map(card => (
+              <Grid item key={card} sm={6} md={4} lg={3}>
+                <Card className={classes.card}>
+                  <CardActionArea>
+                    <CardMedia
+                      className={classes.media}
+                      image="http://images.pitchero.com/ui/1781722/image_5bc8413691589.png"
+                      title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="h2">
+                        Raffle Name
+                      </Typography>
+                      <Typography component="p">
+                        This is the summary of a demo raffle. It contains lots of valuable information about the prize that you could win.
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      Learn more about this raffle
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+      </main>
+      </div>
+    </React.Fragment>
   );
 }
 
-RaffleCard.propTypes = {
+RaffleCardAlbum.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RaffleCard);
+export default withStyles(styles)(RaffleCardAlbum);
