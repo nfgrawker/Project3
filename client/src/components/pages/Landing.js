@@ -11,7 +11,6 @@ class Home extends Component {
   render() {
     return (
         <div>
-        <Header />
         <div className="Site-content">
            
                 
@@ -20,7 +19,6 @@ class Home extends Component {
                 {/* <Container /> */}
             </div>
         </div>
-        <Footer />
     </div>
     );
   }
