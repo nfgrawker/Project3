@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header";
 // import Container from "../Container";
-// import Footer from "../Footer";
+import Footer from "../Footer/index";
 import ButtonBases from '../ButtonBases'
 
 
@@ -18,7 +18,7 @@ class Profile extends Component {
             {/* <Container /> */}
           </div>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }

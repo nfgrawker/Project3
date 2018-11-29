@@ -1,28 +1,22 @@
 import React, { Component } from "react";
-import { Route, Redirect } from 'react-router'
-import { Link } from "react-router-dom";
 import axios from "axios";
-import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ReactImageFallback from "react-image-fallback";
-require("./style.js");
-require("../../App.css");
+import NavLinks from './NavLinks/NavLinks'
+require("./Header.css");
 
 const styles = theme => ({
     root: {
@@ -157,6 +151,7 @@ class Header extends React.Component {
                 open={isMenuOpen}
                 onClose={this.handleMenuClose}
             >
+                
                 <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
                 <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
                 <MenuItem onClick={this.handleMenuClose}>
@@ -173,6 +168,7 @@ class Header extends React.Component {
                 open={isMobileMenuOpen}
                 onClose={this.handleMobileMenuClose}
             >
+                <MenuItem onClick={this.handleMenuClose}><NavLinks /></MenuItem>
                 <MenuItem>
                     <IconButton color="inherit">
                         <Badge badgeContent={4} color="secondary">
@@ -207,7 +203,9 @@ class Header extends React.Component {
         return (
             <div className={classes.root}>
 
-                <AppBar position="static">
+                <AppBar position="static" style={{
+                backgroundColor: "#212121"
+              }}>
                     <Toolbar>
                         <IconButton
                             className={classes.menuButton}
@@ -222,24 +220,13 @@ class Header extends React.Component {
                             color="inherit"
                             noWrap
                         >
-                            Fundtastix
+                           WonderFund
                         </Typography>
+                        
 
-                        <Tabs
-                            // value={2}
-                            onChange={this.handleChange}
-                            scrollable
-                            scrollButtons="on"
-                            indicatorColor="primary"
-                            color="inherit"
-                        >
-                            <Tab label="Item One"  />
-                            <Tab label="Item Two"  />
-                            <Tab label="Item Three"  />
-                            <Tab label="Item Four"  />
-                        </Tabs>
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
+                        <NavLinks id="headerList" />
                             <IconButton color="inherit">
                                 <Badge badgeContent={4} color="secondary">
                                     <MailIcon />
@@ -250,6 +237,7 @@ class Header extends React.Component {
                                     <NotificationsIcon />
                                 </Badge>
                             </IconButton>
+                            
                             <IconButton
                                 aria-owns={isMenuOpen ? "material-appbar" : undefined}
                                 aria-haspopup="true"
