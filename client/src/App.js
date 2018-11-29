@@ -1,12 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import Home from './components/pages/Landing'
-import Profile from './components/pages/profile'
+import Landing from './components/pages/Landing'
+import Profile from './components/pages/Profile'
 import Checkout from './components/pages/Checkout/Index'
 import Header from './components/Header'
 import Footer from './components/Footer'
-
-
+import AdminPage from './components/pages/AdminPage'
 
 
 const App = () => {
