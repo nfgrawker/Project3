@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../Header';
+import Footer from '../Footer/index'
 // import Container from '../Container';
 // import Footer from '../Footer/';
 
@@ -19,7 +20,7 @@ class Home extends Component {
                 {/* <Container /> */}
             </div>
         </div>
-        {/* <Footer /> */}
+        <Footer />
     </div>
     );
   }

@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-// import ProfileHeader from './Profile_header';
-import Header from './components/Header';
 import Home from './components/pages/Landing'
-import Profile from './components/pages/profile'
+import Profile from './components/pages/Profile'
+import Checkout from './components/pages/Checkout/Index'
+
 
 
 
@@ -14,10 +14,9 @@ const App = () => {
       <BrowserRouter>
         <div>
 
-
           <Route exact path="/" component={Home} />
           <Route exact path="/profile" component={Profile} />
-          <Route path="/raffles/new" component={Profile} />
+          <Route exact path="/checkout" component={Checkout} />
 
         </div>
       </BrowserRouter>

@@ -1,0 +1,38 @@
+ul {
+  display: block;
+
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  margin: 0px 10px;
+}
+
+.text-uppercase {
+    display: inline-block;
+    margin: 0px 5px;
+}
+h6 {
+    color: white;
+}
+p {
+    color: #FFF;
+}
+a {
+    color: #FFF;
+    padding: 10px;
+  }
+  a:hover {
+     color: #000;
+     background-color: #FFF;
+  }
+  .fa{
+    font-size:30px;
+   -webkit-transition: all 0.5s;
+   transition: all 0.5s;
+}
+.fa:hover{
+ font-size: 40px;
+ transform: rotate(45deg);
+}
