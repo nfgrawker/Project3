@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from 'react-router-dom'
 import axios from "axios";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -87,6 +88,11 @@ class Header extends React.Component {
                 this.setState({ auth: false });
             }
         });
+    };
+    renderRedirect = () => {
+        if (this.state.auth === false) {
+            return <Redirect to='/' />
+        }
     };
     componentDidMount() {
         this.getUser();
@@ -202,7 +208,7 @@ class Header extends React.Component {
 
         return (
             <div className={classes.root}>
-
+                {this.renderRedirect()}
                 <AppBar position="static" style={{
                 backgroundColor: "#212121"
               }}>

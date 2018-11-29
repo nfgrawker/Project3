@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Links from "./Links";
+import Links from "./Links/Links";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 

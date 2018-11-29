@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Header from "../Header";
+import Header from "../../Header";
 // import Container from "../Container";
-import Footer from "../Footer/index";
-import ButtonBases from '../ButtonBases'
+import Footer from "../../Footer/index";
+import PrizeCard from '../../Cards/PrizeCard'
 
 
-class Profile extends Component {
+class Prizes extends Component {
   render() {
     return (
       <div className="App Site">
@@ -14,7 +14,7 @@ class Profile extends Component {
             <Header />
           </div>
           <div className="main">
-            <ButtonBases />
+            <PrizeCard />
             {/* <Container /> */}
           </div>
         </div>
@@ -24,4 +24,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default Prizes;

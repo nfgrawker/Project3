@@ -97,7 +97,6 @@ class Checkout extends React.Component {
     return (
       <React.Fragment>
         <CssBaseline />
-        <Header />
           <Toolbar>
           </Toolbar>
         <main className={classes.layout}>
