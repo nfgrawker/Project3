@@ -43,8 +43,8 @@ function Album(props) {
   );
 }
 
-Album.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+// Album.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
 export default withStyles(styles)(Album);
