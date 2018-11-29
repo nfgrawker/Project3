@@ -3,7 +3,6 @@ import Header from "../Header";
 // import Container from "../Container";
 import Footer from "../Footer/index";
 import ButtonBases from '../ButtonBases'
-import RaffleCard from '../Cards/RaffleCard'
 
 
 class Profile extends Component {
@@ -16,7 +15,6 @@ class Profile extends Component {
           <div className="main">
             <ButtonBases />
             {/* <Container /> */}
-            <RaffleCard />
           </div>
         </div>
       </div>
