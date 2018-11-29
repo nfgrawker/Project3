@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from './components/pages/Landing'
-import Profile from './components/pages/Profile'
+import Profile from './components/pages/profile'
 import Checkout from './components/pages/Checkout/Index'
 
 
