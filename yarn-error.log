@@ -1,33 +1,37 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\nfgra\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js start
+  /usr/local/bin/node /usr/local/bin/yarn version
 
 PATH: 
-  C:\Users\nfgra\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\nfgra\bin;C:\Anaconda;C:\Anaconda\Library\mingw-w64\bin;C:\Anaconda\Library\usr\bin;C:\Anaconda\Library\bin;C:\Anaconda\Scripts;C:\Program Files (x86)\Intel\iCLS Client;C:\Program Files\Intel\iCLS Client;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn;C:\Program Files\Microsoft SQL Server\140\Tools\Binn;C:\Program Files\Microsoft SQL Server\140\DTS\Binn;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Program Files\MongoDB\Server\4.0\bin;C:\Users\nfgra\AppData\Local\Microsoft\WindowsApps;C:\Users\nfgra\AppData\Local\GitHubDesktop\bin;C:\Users\nfgra\AppData\Local\atom\bin;C:\Program Files\heroku\bin;C:\Users\nfgra\AppData\Roaming\npm;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  /bin:/usr/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 Yarn version: 
   1.12.3
 
 Node version: 
-  8.11.3
+  8.12.0
 
 Platform: 
-  win32 x64
+  darwin x64
 
 Trace: 
-  SyntaxError: C:\Users\nfgra\Documents\GitHub\Project3\package.json: Unexpected end of JSON input
-      at JSON.parse (<anonymous>)
-      at C:\Users\nfgra\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1631:59
-      at Generator.next (<anonymous>)
-      at step (C:\Users\nfgra\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:304:30)
-      at C:\Users\nfgra\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:315:13
-      at <anonymous>
+  Error: canceled
+      at Interface.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:125278:13)
+      at emitNone (events.js:106:13)
+      at Interface.emit (events.js:208:7)
+      at Interface._ttyWrite (readline.js:774:16)
+      at ReadStream.onkeypress (readline.js:158:10)
+      at emitTwo (events.js:126:13)
+      at ReadStream.emit (events.js:214:7)
+      at emitKeys (internal/readline.js:420:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1010:36)
 
 npm manifest: 
   {
     "name": "project3",
     "version": "1.0.0",
-    "description": "funfund",
-    "main": "index.js",
+    "description": "wonderfund",
+    "main": "server.js",
     "engines": {
       "node": "8.1.1",
       "npm": "5.0.3"
@@ -40,10 +44,7 @@ npm manifest:
       "seed": "node scripts/seedDB.js",
       "install": "cd client && yarn install",
       "build": "cd client && npm run build",
-      "heroku-postbuild": "npm run build",
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/nfgrawker/Project3.git"
+      "heroku-postbuild": "npm run build"
     },
     "author": "Denis Plaster <denjeo@gmail.com>",
     "license": "MIT",
@@ -52,9 +53,20 @@ npm manifest:
     },
     "homepage": "https://github.com/nfgrawker/Project3#readme",
     "dependencies": {
+      "axios": "0.18.0",
+      "body-parser": "1.18.3",
+      "concurrently": "^4.1.0",
+      "cookie-session": "2.0.0-beta.3",
+      "ejs": "2.6.1",
       "express": "4.16.4",
+      "express-validator": "5.3.0",
+      "i": "0.3.6",
+      "mongoose": "5.3.13",
+      "npm": "6.4.1",
+      "parseurl": "1.3.2",
       "passport": "0.4.0",
-      "passport-google-oauth20": "1.0.0"
+      "passport-google-oauth20": "1.0.0",
+      "redux-thunk": "2.3.0"
     }
   }
 

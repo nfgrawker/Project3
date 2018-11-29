@@ -18,6 +18,7 @@ const App = () => {
                 <Route exact path="/profile" component={Profile} />
                 <Route exact path="/checkout" component={Checkout} />
                 <Route exact path='/admin'  component={AdminPage} />
+                <Route exact path="/prizes" component={Prizes} />
             </div>
       </BrowserRouter>
         <Footer />
