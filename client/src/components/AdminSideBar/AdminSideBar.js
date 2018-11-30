@@ -1,11 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { Component } from "react";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
@@ -13,15 +10,8 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import AdminMain from "../AdminMain/AdminMain";
-import MenuList from "./MenuList";
-import { Grid } from "@material-ui/core";
 import ImageAvatars from "./Avatar";
+
 
 const drawerWidth = 240;
 
@@ -87,10 +77,14 @@ const styles = theme => ({
   }
 });
 
-class AdminSideBar extends React.Component {
-  state = {
-    open: true
+class SideBar extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+    open: true,
+    listname: ""
   };
+  }
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -100,20 +94,30 @@ class AdminSideBar extends React.Component {
     this.setState({ open: false });
   };
 
+  handleSideBarClick = event => {
+    console.log("click");
+    const listValue = event.target.attributes.getNamedItem("listname").value;
+    console.log(listValue);
+    this.setState({
+      listname: this.listValue
+    });
+
+  };
+
   render() {
     const { classes, theme } = this.props;
 
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar
+        <div
           position="fixed"
           className={classNames(classes.appBar, {
             [classes.appBarShift]: this.state.open
           })}
         >
           <Toolbar disableGutters={!this.state.open}>
-            <IconButton
+            {/* <IconButton
               color="inherit"
               aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
@@ -122,12 +126,10 @@ class AdminSideBar extends React.Component {
               })}
             >
               <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
-              Fundtastic Admin Page
-            </Typography>
+            </IconButton> */}
+         
           </Toolbar>
-        </AppBar>
+        </div>
         <Drawer
           variant="permanent"
           className={classNames(classes.drawer, {
@@ -159,19 +161,14 @@ class AdminSideBar extends React.Component {
           />
           {/* Menu List Items */}
           <Divider />
-          <MenuList />
+            {this.props.children}
           <Divider />
         </Drawer>
 
-        <AdminMain />
       </div>
     );
   }
 }
 
-AdminSideBar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
-};
 
-export default withStyles(styles, { withTheme: true })(AdminSideBar);
+export default withStyles(styles, { withTheme: true })(SideBar);

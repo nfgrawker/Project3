@@ -5,15 +5,20 @@ import Grid from "@material-ui/core/Grid";
 import StatBoxes from '../AdminCharts/StatBoxes';
 
 
-class AdminMain extends Component {
+class AdminRaffle extends Component {
   render() {
     return (
-      <div id="adminMain">
-       {this.props.children}
-      </div>         
+      <Grid id="adminMain" container={true}>
+        <div className="adminMain" main={this.main}>
+          <h1>RAFFLES</h1>
+        </div>
+
+      </Grid>
+
+          
 
     );
   }
 }
 
-export default AdminMain;
+export default AdminRaffle;
