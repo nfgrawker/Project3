@@ -6,7 +6,6 @@ require('dotenv').config();
 
 const User = mongoose.model("users");
 
-process.env.googleId
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -22,8 +21,8 @@ passport.use(
   new GoogleStrategy(
     {
       // options for google strategy
-      clientID: process.ENV.googleclientID,
-      clientSecret: process.ENV.googleclientSecret,
+      clientID: process.env.googleclientID,
+      clientSecret: process.env.googleclientSecret,
       callbackURL: "/auth/google/redirect"
     },
     (accessToken, refreshToken, profile, done) => {

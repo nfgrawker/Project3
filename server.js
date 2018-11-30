@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 // set up session cookies
 app.use(cookieSession({
     maxAge: 30* 24* 60 * 60 * 1000,
-    keys: [process.ENV.sessioncookieKey]
+    keys: [process.env.sessioncookieKey]
 }));
 
 // initialize passport
@@ -25,7 +25,7 @@ app.use(passport.session());
 
 
 // connect to mongodb
-mongoose.connect(process.ENV.mongodbURI, () => {
+mongoose.connect(process.env.mongodbURI, () => {
     console.log('connected to mongodb');
 });
 // Define middleware here
