@@ -7,6 +7,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import AdminPage from './components/pages/AdminPage'
 import Prizes from './components/pages/Prizes'
+import Raffle from './components/pages/Raffle'
 
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
                 <Route exact path="/checkout" component={Checkout} />
                 <Route exact path='/admin'  component={AdminPage} />
                 <Route exact path="/prizes" component={Prizes} />
+                <Route exact path="/raffle/:id" component={Raffle} />
             </div>
         </BrowserRouter>
         <Footer />
