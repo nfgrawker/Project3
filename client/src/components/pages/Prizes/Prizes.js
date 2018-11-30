@@ -1,27 +1,21 @@
 import React, { Component } from "react";
-import Header from "../../Header";
-// import Container from "../Container";
-import Footer from "../../Footer/index";
-import PrizeCard from '../../Cards/PrizeCard'
+import RaffleItems from "../../RaffleItems";
+import Grid from '@material-ui/core/Grid';
+import NonProfitInfo from "../../NonProfitInfo";
 
+class PrizePage extends Component {
 
-class Prizes extends Component {
   render() {
     return (
-      <div className="App Site">
-        <div className="Site-content">
-          <div className="App-header">
-            <Header />
-          </div>
-          <div className="main">
-            <PrizeCard />
-            {/* <Container /> */}
-          </div>
-        </div>
-        <Footer />
+      <div className="prizes-page">
+        <Grid>
+        <NonProfitInfo></NonProfitInfo>
+        
+        <RaffleItems>
+        </RaffleItems>
+        </Grid>
       </div>
     );
   }
 }
-
-export default Prizes;
+export default PrizePage;
