@@ -2,7 +2,7 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
-const keys = require('./config/keys');
+require('dotenv').config();
 require('./models/User')
 require('./config/passport-setup')
 const PORT = process.env.PORT || 3001;
