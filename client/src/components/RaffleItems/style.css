@@ -1,0 +1,19 @@
+.card {
+margin: 10px,
+}
+
+#title {
+text-align: center;
+font-size: 36px;
+}
+
+#RoundRaffles {
+margin: 10px;
+width: 200px;
+height: 200px;
+}
+
+.bigAvatar:hover { 
+    transform: scale(1.1);
+    border: 3px solid gray;
+}
