@@ -145,7 +145,6 @@ class Checkout extends React.Component {
             </React.Fragment>
           </Paper>
         </main>
-        <Footer />
       </React.Fragment>
     );
   }

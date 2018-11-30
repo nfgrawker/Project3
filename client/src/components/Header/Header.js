@@ -209,7 +209,7 @@ class Header extends React.Component {
         return (
             <div className={classes.root}>
                 {this.renderRedirect()}
-                <AppBar position="static" style={{
+                <AppBar position="fixed" style={{
                 backgroundColor: "#212121"
               }}>
                     <Toolbar>
