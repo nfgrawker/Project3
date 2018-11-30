@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import Header from '../Header';
-import Footer from '../Footer/index'
-// import Container from '../Container';
-// import Footer from '../Footer/';
+
+
+import homeBg from "../../homeBg.svg";
+
+var sectionStyle = {
+  height: "2800px",
+  width: "100%",
+  backgroundSize: "100%",
+  backgroundImage: `url(${homeBg})`
+};
 
 
 class Home extends Component {
@@ -10,7 +16,7 @@ class Home extends Component {
  
   render() {
     return (
-        <div>
+        <div style={sectionStyle}>
         <div className="Site-content">
            
                 
