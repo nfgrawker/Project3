@@ -150,8 +150,8 @@ class Checkout extends React.Component {
   }
 }
 
-Checkout.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// Checkout.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default withStyles(styles)(Checkout);
