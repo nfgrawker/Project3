@@ -107,7 +107,7 @@ class Header extends React.Component {
                 return (
                     <li style={this.style}>
                         <h6 style={this.style}>
-                            <a href="http://localhost:3001/auth/google">Login</a>
+                            <a href="/auth/google">Login</a>
                         </h6>
                     </li>
                 );
