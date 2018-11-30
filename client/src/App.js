@@ -5,7 +5,7 @@ import Profile from './components/pages/Profile.js'
 import Checkout from './components/pages/Checkout';
 import Header from './components/Header'
 import Footer from './components/Footer'
-import AdminPage from './components/pages/AdminPage'
+import AdminPage from './components/pages/Admin/Admin';
 import Prizes from './components/pages/Prizes'
 
 

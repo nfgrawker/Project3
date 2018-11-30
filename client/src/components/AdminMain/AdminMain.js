@@ -8,14 +8,9 @@ import StatBoxes from '../AdminCharts/StatBoxes';
 class AdminMain extends Component {
   render() {
     return (
-      <Grid id="adminMain" container={true}>
-        <div className="adminMain" main={this.main}>
-          <h1 listname={this.listname}>Admin Page</h1>
-        </div>
-        <StatBoxes />
-      </Grid>
-
-          
+      <div id="adminMain">
+       {this.props.children}
+      </div>         
 
     );
   }
