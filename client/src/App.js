@@ -6,6 +6,7 @@ import Checkout from './components/pages/Checkout/Index'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import AdminPage from './components/pages/AdminPage'
+import Prizes from './components/pages/Prizes'
 
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
                 <Route exact path='/admin'  component={AdminPage} />
                 <Route exact path="/prizes" component={Prizes} />
             </div>
-      </BrowserRouter>
+        </BrowserRouter>
         <Footer />
     </div>
   );
