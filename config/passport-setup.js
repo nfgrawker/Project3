@@ -40,7 +40,8 @@ passport.use(
               username: profile.displayName,
               thumbnail: profile._json.image.url,
               firstName: profile.name.givenName,
-              lastName: profile.name.familyName
+              lastName: profile.name.familyName,
+              email: profile.emails[0].value,
 
 
           })
