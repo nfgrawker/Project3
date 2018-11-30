@@ -11,7 +11,7 @@ router.get('/login', (req, res) => {
 
 // auth with google+
 router.get('/google', passport.authenticate('google', {
-    scope: ['profile']
+    scope: ['profile', "email "]
 }));
 
 

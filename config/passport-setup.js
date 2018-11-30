@@ -26,6 +26,8 @@ passport.use(
       callbackURL: "/auth/google/redirect"
     },
     (accessToken, refreshToken, profile, done) => {
+        console.log("Profile: ", profile);
+        console.log("accessToken: ", accessToken)
       // check if user already exists in our own db
       console.log("Profile: ", profile);
       console.log("accessToken: ", accessToken);
@@ -37,9 +39,14 @@ passport.use(
         } else {
           // if not, create user in our db
           new User({
-            googleId: profile.id,
-            username: profile.displayName,
-            thumbnail: profile._json.image.url
+              googleId: profile.id,
+              username: profile.displayName,
+              thumbnail: profile._json.image.url,
+              firstName: profile.name.givenName,
+              lastName: profile.name.familyName,
+              email: profile.emails[0].value,
+
+
           })
             .save()
             .then(user => {

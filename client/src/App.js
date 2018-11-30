@@ -6,6 +6,7 @@ import Profile from './components/pages/Profile.js'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import AdminPage from './components/pages/AdminPage'
+import PrizePage from './components/pages/Prizes/Prizes'
 
 
 const App = () => {
@@ -18,9 +19,14 @@ const App = () => {
                 <Route exact path="/profile" component={Profile} />
                 {/* <Route exact path="/checkout" component={Checkout} /> */}
                 <Route exact path='/admin'  component={AdminPage} />
+<<<<<<< HEAD
                 {/* <Route exact path="/prizes" component={Prizes} /> */}
+=======
+                <Route exact path="/prizes" component={PrizePage} />
+
+>>>>>>> 3cf120697f6f32bf04607b645fe25afbbf104ef8
             </div>
-      </BrowserRouter>
+        </BrowserRouter>
         <Footer />
     </div>
   );
