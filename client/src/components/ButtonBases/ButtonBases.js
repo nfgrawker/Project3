@@ -155,8 +155,8 @@ function ButtonBases(props) {
   );
 }
 
-ButtonBases.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// ButtonBases.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default withStyles(styles)(ButtonBases);
