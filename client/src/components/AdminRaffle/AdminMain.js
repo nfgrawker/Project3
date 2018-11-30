@@ -5,14 +5,14 @@ import Grid from "@material-ui/core/Grid";
 import StatBoxes from '../AdminCharts/StatBoxes';
 
 
-class AdminMain extends Component {
+class AdminRaffle extends Component {
   render() {
     return (
       <Grid id="adminMain" container={true}>
         <div className="adminMain" main={this.main}>
-          <h1 listname={this.listname}>Admin Page</h1>
+          <h1>RAFFLES</h1>
         </div>
-        <StatBoxes />
+
       </Grid>
 
           
@@ -21,4 +21,4 @@ class AdminMain extends Component {
   }
 }
 
-export default AdminMain;
+export default AdminRaffle;

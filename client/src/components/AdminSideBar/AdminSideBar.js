@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
@@ -83,10 +83,15 @@ const styles = theme => ({
   }
 });
 
-class AdminSideBar extends React.Component {
-  state = {
-    open: true
+class AdminSideBar extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+    open: true,
+    listname: ""
   };
+  }
+  
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -94,6 +99,16 @@ class AdminSideBar extends React.Component {
 
   handleDrawerClose = () => {
     this.setState({ open: false });
+  };
+
+  handleSideBarClick = event => {
+    console.log("click");
+    const listValue = event.target.attributes.getNamedItem("listname").value;
+    console.log(listValue);
+    this.setState({
+      listname: this.listValue
+    });
+    
   };
 
   render() {
@@ -156,10 +171,10 @@ class AdminSideBar extends React.Component {
           {/* Menu List Items */}
           <Divider />
 
-                <MenuList >
-                  <ListItem />
-                </MenuList>
-
+          <MenuList  >
+            <ListItem value="works" onClick={this.value} />
+          </MenuList>
+            
           <Divider />
         </Drawer>
 
