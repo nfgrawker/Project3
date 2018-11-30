@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Header from '../../Header'
-import Footer from '../../Footer/index'
 import Toolbar from '@material-ui/core/Toolbar';
 import Paper from '@material-ui/core/Paper';
 import Stepper from '@material-ui/core/Stepper';
@@ -145,14 +142,13 @@ class Checkout extends React.Component {
             </React.Fragment>
           </Paper>
         </main>
-        <Footer />
       </React.Fragment>
     );
   }
 }
 
-Checkout.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
+// Checkout.propTypes = {
+//   classes: PropTypes.object.isRequired,
+// };
 
 export default withStyles(styles)(Checkout);

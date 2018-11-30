@@ -107,7 +107,7 @@ class Header extends React.Component {
                 return (
                     <li style={this.style}>
                         <h6 style={this.style}>
-                            <a href="http://localhost:3001/auth/google">Login</a>
+                            <a href="/auth/google">Login</a>
                         </h6>
                     </li>
                 );
@@ -209,7 +209,7 @@ class Header extends React.Component {
         return (
             <div className={classes.root}>
                 {this.renderRedirect()}
-                <AppBar position="static" style={{
+                <AppBar position="fixed" style={{
                 backgroundColor: "#212121"
               }}>
                     <Toolbar>

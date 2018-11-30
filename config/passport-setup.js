@@ -1,10 +1,11 @@
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const mongoose = require("mongoose");
-const keys = require("./keys");
+require('dotenv').config();
 
 
 const User = mongoose.model("users");
+
 
 passport.serializeUser((user, done) => {
   done(null, user.id);
@@ -20,14 +21,16 @@ passport.use(
   new GoogleStrategy(
     {
       // options for google strategy
-      clientID: keys.google.clientID,
-      clientSecret: keys.google.clientSecret,
+      clientID: process.env.googleclientID,
+      clientSecret: process.env.googleclientSecret,
       callbackURL: "/auth/google/redirect"
     },
     (accessToken, refreshToken, profile, done) => {
         console.log("Profile: ", profile);
         console.log("accessToken: ", accessToken)
       // check if user already exists in our own db
+      console.log("Profile: ", profile);
+      console.log("accessToken: ", accessToken);
       User.findOne({ googleId: profile.id }).then(currentUser => {
         if (currentUser) {
           // already have this user
