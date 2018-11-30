@@ -11,11 +11,16 @@ router.get('/login', (req, res) => {
 
 // auth with google+
 router.get('/google', passport.authenticate('google', {
-    scope: ['profile']
+    scope: ['profile', "email "]
 }));
 
 
-router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get(
+    "/auth/google",
+    passport.authenticate("google", {
+        scope: ["profile", "email"]
+    })
+);
 
 router.get(
     "/auth/google/callback",
