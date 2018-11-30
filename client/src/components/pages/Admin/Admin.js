@@ -39,7 +39,11 @@ class AdminPage extends Component {
     render() {
   
       return (
-        <Grid className="admin-page" >
+        <Grid container
+            direction="row"
+            justify="flex-start"
+            alignItems="stretch"
+            className="admin-page" >
         <Grid item sm={4} className="sidebar">
             <SideBar  showContent={this.showContent} />
         </Grid>
