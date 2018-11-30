@@ -20,6 +20,7 @@ const App = () => {
                 <Route exact path="/checkout" component={Checkout} />
                 <Route exact path='/admin'  component={AdminPage} />
                 <Route exact path="/prizes" component={PrizePage} />
+
             </div>
         </BrowserRouter>
         <Footer />
