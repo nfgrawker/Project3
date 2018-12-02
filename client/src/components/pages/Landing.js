@@ -1,34 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+// import impact from "../../impact.png";
+import NonProfitBanner from "../Banners/NonProfitBanner";
+require("./Landing.css");
 
+// var sectionStyle = {
+//   height: "300px",
+//   width: "100%",
+//   backgroundSize: "100%",
+//   backgroundImage: `url(${homeBg})`
 
-import homeBg from "../../homeBg.svg";
-
-var sectionStyle = {
-  height: "2800px",
-  width: "100%",
-  backgroundSize: "100%",
-  backgroundImage: `url(${homeBg})`
-};
-
+// };
 
 class Home extends Component {
-
- 
   render() {
     return (
-        <div style={sectionStyle}>
-        <div className="Site-content">
-           
-                
-            
-            <div className="main">
-                {/* <Container /> */}
-            </div>
-        </div>
-    </div>
+      <div>
+        {/* <NonProfitBanner /> */}
+
+      
+      </div>
     );
   }
 }
-
 
 export default Home;
