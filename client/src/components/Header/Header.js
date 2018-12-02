@@ -17,6 +17,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ReactImageFallback from "react-image-fallback";
 import NavLinks from './NavLinks/NavLinks'
+import logo from '../../logo.svg'
 require("./Header.css");
 
 const styles = theme => ({
