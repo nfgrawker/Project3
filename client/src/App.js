@@ -7,7 +7,11 @@ import Footer from './components/Footer'
 import AdminPage from './components/pages/Admin/Admin';
 import PrizePage from './components/pages/Prizes/Prizes'
 import RafflePage from './components/pages/Raffle'
+<<<<<<< HEAD
 import { ParallaxProvider } from 'react-scroll-parallax';
+=======
+import Home from './components/pages/landing/LandingPage.jsx'
+>>>>>>> 33137be9c71d96f3396c08eac80cd1ea305230e2
 
 
 
@@ -17,8 +21,8 @@ const App = () => {
       <ParallaxProvider>
         <BrowserRouter>
             <div>
-                <Route path="/" component={Header} />
-                <Route exact path="/" component={Landing} />
+                <Header />
+                <Route exact path="/" component={Home} />
                 <Route exact path="/profile" component={Profile} />
                 {/* <Route exact path="/checkout" component={Checkout} /> */}
                 <Route exact path="/admin"  component={AdminPage} />

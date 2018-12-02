@@ -1,7 +1,19 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import Parallax from "react-springy-parallax";
+=======
+// import impact from "../../impact.png";
+import NonProfitBanner from "../Banners/NonProfitBanner";
+require("./Landing.css");
+>>>>>>> 33137be9c71d96f3396c08eac80cd1ea305230e2
 
+// var sectionStyle = {
+//   height: "300px",
+//   width: "100%",
+//   backgroundSize: "100%",
+//   backgroundImage: `url(${homeBg})`
 
+<<<<<<< HEAD
 import { SSL_OP_ALLOW_UNSAFE_LEGACY_RENEGOTIATION } from "constants";
 import homeBg from "../../homeBg.svg";
 
@@ -11,10 +23,14 @@ var sectionStyle = {
   backgroundSize: "100%",
   backgroundImage: `url(${homeBg})`
 };
+=======
+// };
+>>>>>>> 33137be9c71d96f3396c08eac80cd1ea305230e2
 
 class Home extends Component {
   render() {
     return (
+<<<<<<< HEAD
       
         <div style={sectionStyle}>
           <div className="Site-content">
@@ -36,6 +52,13 @@ class Home extends Component {
           </div>
         </div>
       
+=======
+      <div>
+        {/* <NonProfitBanner /> */}
+
+      
+      </div>
+>>>>>>> 33137be9c71d96f3396c08eac80cd1ea305230e2
     );
   }
 }
