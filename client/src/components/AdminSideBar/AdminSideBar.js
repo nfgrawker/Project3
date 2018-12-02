@@ -12,7 +12,6 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ImageAvatars from "./Avatar";
 
-
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -78,12 +77,12 @@ const styles = theme => ({
 });
 
 class SideBar extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-    open: true,
-    listname: ""
-  };
+      open: true,
+      listname: ""
+    };
   }
 
   handleDrawerOpen = () => {
@@ -92,16 +91,6 @@ class SideBar extends Component {
 
   handleDrawerClose = () => {
     this.setState({ open: false });
-  };
-
-  handleSideBarClick = event => {
-    console.log("click");
-    const listValue = event.target.attributes.getNamedItem("listname").value;
-    console.log(listValue);
-    this.setState({
-      listname: this.listValue
-    });
-
   };
 
   render() {
@@ -117,7 +106,7 @@ class SideBar extends Component {
           })}
         >
           <Toolbar disableGutters={!this.state.open}>
-            {/* <IconButton
+            <IconButton
               color="inherit"
               aria-label="Open drawer"
               onClick={this.handleDrawerOpen}
@@ -126,8 +115,7 @@ class SideBar extends Component {
               })}
             >
               <MenuIcon />
-            </IconButton> */}
-         
+            </IconButton>
           </Toolbar>
         </div>
         <Drawer
@@ -161,14 +149,12 @@ class SideBar extends Component {
           />
           {/* Menu List Items */}
           <Divider />
-            {this.props.children}
+          {this.props.children}
           <Divider />
         </Drawer>
-
       </div>
     );
   }
 }
-
 
 export default withStyles(styles, { withTheme: true })(SideBar);

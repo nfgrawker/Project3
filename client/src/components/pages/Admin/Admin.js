@@ -25,6 +25,8 @@ class AdminPage extends Component {
         return <Settings />;
       case "test":
         return <Test />;
+      default: 
+      return <Dashboard />;
     }
   }
   // On sidebar link click... set the maincontent = button name attribute.getAttribute("name")
@@ -44,13 +46,14 @@ class AdminPage extends Component {
         className="admin-page"
       >
         {/* <MenuList /> */}
-        <Grid item sm={4} className="sidebar">
+        <Grid item sm={3} className="sidebar">
           <SideBar>
             <MenuList showContent={this.showContent} />
           </SideBar>
         </Grid>
+        
         {/* Main Content */}
-        <Grid item sm={8} className="main-content">
+        <Grid item sm={9} className="main-content">
           <AdminMain content={this.state.maincontent}>
             <h3>{this.state.linkValue}</h3>
             {this.renderMainContent()}
