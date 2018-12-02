@@ -6,7 +6,9 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import AdminPage from './components/pages/Admin/Admin';
 import PrizePage from './components/pages/Prizes/Prizes'
-import RafflePage from './components/pages/Raffle'
+import RafflePage from './components/pages/Raffle';
+import AppPay from "./components/pages/Payment/AppPay";
+
 
 
 
@@ -22,6 +24,7 @@ const App = () => {
                 <Route exact path="/admin"  component={AdminPage} />
                 <Route exact path="/prizes" component={PrizePage} />
                 <Route exact path="/raffle/:id" component={RafflePage} />
+                <Route exact path="/Paymentpage" component={AppPay} />
 
             </div>
         </BrowserRouter>
