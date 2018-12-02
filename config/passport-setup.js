@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 require('dotenv').config();
 
 
-const User = mongoose.model("users");
+const User = mongoose.model("User");
 
 
 passport.serializeUser((user, done) => {
@@ -26,15 +26,10 @@ passport.use(
       callbackURL: "/auth/google/redirect"
     },
     (accessToken, refreshToken, profile, done) => {
-        console.log("Profile: ", profile);
-        console.log("accessToken: ", accessToken)
       // check if user already exists in our own db
-      console.log("Profile: ", profile);
-      console.log("accessToken: ", accessToken);
       User.findOne({ googleId: profile.id }).then(currentUser => {
         if (currentUser) {
           // already have this user
-          console.log("user is: ", currentUser);
           done(null, currentUser);
         } else {
           // if not, create user in our db
