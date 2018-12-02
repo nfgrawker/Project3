@@ -7,12 +7,14 @@ import Footer from './components/Footer'
 import AdminPage from './components/pages/Admin/Admin';
 import PrizePage from './components/pages/Prizes/Prizes'
 import RafflePage from './components/pages/Raffle'
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 
 
 const App = () => {
   return (
     <div>
+      <ParallaxProvider>
         <BrowserRouter>
             <div>
                 <Route path="/" component={Header} />
@@ -25,6 +27,7 @@ const App = () => {
 
             </div>
         </BrowserRouter>
+        </ParallaxProvider>
         <Footer />
     </div>
   );
