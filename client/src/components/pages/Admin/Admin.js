@@ -23,10 +23,12 @@ const styles = theme => ({
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0
+    flexShrink: 0,
+    top: '64px'
   },
   drawerPaper: {
-    width: drawerWidth
+    width: drawerWidth,
+    top: '64px'
   },
   content: {
     flexGrow: 1,
