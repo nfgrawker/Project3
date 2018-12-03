@@ -1,5 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import './style.css';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CountUp from 'react-countup';
@@ -26,10 +27,16 @@ function CurrentRaffle(props) {
         <Grid item xs={12} sm={8}>
           <Paper className={classes.paper}>
             <h4>Current Raffle </h4>
-            <Grid item xs={12} sm={6}>
-                <img src={props.image} />
+            {/* raffle image */}
+            <Grid item xs={6} >
+                <img className="raffle-img" src={props.image} />
             </Grid>
-            <Grid item xs={12} sm={6}></Grid>
+            
+   
+            <div className="smBox">
+                <li>{props.itemName}</li>
+                <li>Time remaining</li>
+            </div>
           </Paper>
         </Grid>
 

@@ -112,13 +112,14 @@ const adminUser = {
       daysJoined: 8
     },
     raffles: {
-      itemName: "my item",
+      itemName: "Item Title",
       description: "description goes here",
       image: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12193133/German-Shepherd-Puppy-Fetch.jpg",
-      raffleLength: "",
+      raffleTime: "",
       bidders: 20
     }
   };
+// ---------------------------------------------------------------------
 
 // Components for main content section
 class Dashboard extends Component {
@@ -134,10 +135,12 @@ class Dashboard extends Component {
     let profit = adminUser.statistics.profit;
     let followers = adminUser.statistics.followers;
     let image = adminUser.raffles.image;
+    let itemName = adminUser.raffles.itemName;
     this.setState({
       counter: 200,
       profit: profit,
       followers: followers,
+      itemName: itemName,
       image: image
     })
   }
@@ -151,7 +154,10 @@ class Dashboard extends Component {
             profit={this.state.profit}
             followers={this.state.followers}
         />
-        <CurrentRaffle image={this.state.image}/>
+        <CurrentRaffle 
+            image={this.state.image}
+            itemName={this.state.itemName}
+          />
       </div>
     );
   }
