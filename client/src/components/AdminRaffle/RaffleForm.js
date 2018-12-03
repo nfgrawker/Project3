@@ -11,6 +11,10 @@ const styles = theme => ({
   container: {
     display: 'flex',
     flexWrap: 'wrap',
+    padding: '0 30px'
+  },
+  buttonDiv: {
+    display: 'inline-block'
   },
   button: {
     margin: theme.spacing.unit,
@@ -37,9 +41,11 @@ class RaffleForm extends React.Component {
     return (
       <form className={classes.container} noValidate autoComplete="off">
         <TextInput />
+        <div className={classes.buttonDiv}>
         <Button variant="outlined" className={classes.button}>
             Submit
         </Button>
+        </div>
       </form>
     );
   }

@@ -22,11 +22,16 @@ function CurrentRaffle(props) {
     <div className={classes.root}>
       <Grid container spacing={24}>
 
+        {/* rafflecard */}
         <Grid item xs={12} sm={8}>
           <Paper className={classes.paper}>
             <h4>Current Raffle </h4>
+            <Grid item xs={12} sm={8}></Grid>
+            <Grid item xs={12} sm={8}></Grid>
           </Paper>
         </Grid>
+
+        {/* other things */}
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
           
