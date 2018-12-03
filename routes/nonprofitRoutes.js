@@ -14,9 +14,12 @@ module.exports = function(app) {
 
     app.post("/api/create/nonprofit", function (req, res) {
         NonProfit.create({ imageLink: req.body.image, name: req.body.name, address: req.body.address,
-            description:req.body.description, contactName: req.body.contactName, contactNumber: req.body.contactNumber, website: req.body.website }, function (err, small) {
+            description:req.body.description, contactName: req.body.contactName, contactNumber: req.body.contactNumber, website: req.body.website,
+        followers: req.body.followers, amountRaised:req.body.amountRaised}, function (err, result) {
             if (err) console.log(err);
-            // saved!
+            else{
+                console.log(result)
+            }
         });
         res.end()
     });
