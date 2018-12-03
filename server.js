@@ -35,9 +35,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(express.json());
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("client/build"));
+// }
 app.use(express.static("public"));
 
 // set up routes
@@ -47,9 +47,9 @@ require("./routes/api-routes")(app);
 require("./routes/nonprofitRoutes")(app);
 
 // create home route
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+// });
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
 });

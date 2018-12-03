@@ -1,3 +1,11 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+    background: inherit;
+}
+
 #sq-cvv {
     width: 60px;
   }
@@ -40,6 +48,7 @@
   
   #sq-card-number {
     width: 200px;
+    background-color: inherit;
   }
   
   #cc-field-wrapper {
