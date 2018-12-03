@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import AdminMain from "../../AdminMain";
 import "./index.css";
 import MenuList from "../../AdminMenu/MenuList";
@@ -11,8 +12,7 @@ import Divider from "@material-ui/core/Divider";
 import StatBoxes from "../../AdminDashboard/StatBoxes";
 import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
-import CountUp from 'react-countup';
-
+import CountUp from "react-countup";
 
 // sidebar style
 const drawerWidth = 170;
@@ -45,9 +45,25 @@ class AdminPage extends Component {
     super(props);
     this.state = {
       maincontent: "Main Content",
-      linkValue: ""
+      linkValue: "",
+      username: "",
+      image: "",
+      website: "",
+      description: ""
     };
     this.showContent = this.showContent.bind(this);
+  }
+  componentDidMount() {
+    console.log(this.props.match.params.id);
+    axios.get("/api/NonProfit/" + this.props.match.params.id).then(res => {
+      console.log("hello");
+      this.setState({
+        username: res.data.name,
+        image: res.data.image,
+        website: res.data.website,
+        description: res.data.description
+      });
+    });
   }
 
   // switch case to set main content
@@ -72,6 +88,7 @@ class AdminPage extends Component {
   };
   render() {
     const { classes } = this.props;
+
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -93,7 +110,11 @@ class AdminPage extends Component {
 
         {/* Main Content */}
         <main className={classes.content}>
-          <AdminMain content={this.state.maincontent}>
+          <AdminMain 
+              content={this.state.maincontent} 
+              user={this.state.username}
+          >
+          <h4 >{this.state.username}</h4>
             {this.renderMainContent()}
           </AdminMain>
         </main>
@@ -103,35 +124,37 @@ class AdminPage extends Component {
 }
 // test admin user -----------------------
 const adminUser = {
-    userInfo: {
-      userName: "admin"
-    },
-    statistics: {
-      profit: 3000,
-      followers: 246,
-      daysJoined: 8
-    },
-    raffles: {
-      itemName: "Item Title",
-      description: "description goes here",
-      image: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12193133/German-Shepherd-Puppy-Fetch.jpg",
-      raffleTime: "",
-      bidders: 20
-    }
-  };
+  userInfo: {
+    userName: "admin"
+  },
+  statistics: {
+    profit: 3000,
+    followers: 246,
+    daysJoined: 8
+  },
+  raffles: {
+    itemName: "Item Title",
+    description: "description goes here",
+    image:
+      "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12193133/German-Shepherd-Puppy-Fetch.jpg",
+    raffleTime: "",
+    bidders: 20
+  }
+};
 // ---------------------------------------------------------------------
 
 // Components for main content section
 class Dashboard extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       counter: 0,
       profit: 0,
-      followers: 0
-    }
+      followers: 0,
+      username: this.props.username
+    };
   }
-  componentDidMount(){
+  componentDidMount() {
     let profit = adminUser.statistics.profit;
     let followers = adminUser.statistics.followers;
     let image = adminUser.raffles.image;
@@ -142,22 +165,21 @@ class Dashboard extends Component {
       followers: followers,
       itemName: itemName,
       image: image
-    })
+    });
   }
   render() {
-    
     return (
-      <div>
-        <h2>Dashboard</h2>
-        <StatBoxes 
-            counter={this.state.counter} 
-            profit={this.state.profit}
-            followers={this.state.followers}
+      <div {...this.props}>
+        <h2>{this.state.username}</h2>
+        <StatBoxes
+          counter={this.state.counter}
+          profit={this.state.profit}
+          followers={this.state.followers}
         />
-        <CurrentRaffle 
-            image={this.state.image}
-            itemName={this.state.itemName}
-          />
+        <CurrentRaffle
+          image={this.state.image}
+          itemName={this.state.itemName}
+        />
       </div>
     );
   }

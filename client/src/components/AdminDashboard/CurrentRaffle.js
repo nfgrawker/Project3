@@ -32,11 +32,14 @@ function CurrentRaffle(props) {
                 <img className="raffle-img" src={props.image} />
             </Grid>
             
-   
-            <div className="smBox">
+            <Grid item xs={6} >
+
                 <li>{props.itemName}</li>
                 <li>Time remaining</li>
-            </div>
+                <li>Number of Bidders</li>
+            
+            </Grid>
+
           </Paper>
         </Grid>
 
