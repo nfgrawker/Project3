@@ -9,6 +9,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import StatBoxes from "../../AdminDashboard/StatBoxes";
+import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
 
 // sidebar style
@@ -100,8 +101,9 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        from dashboard
+        <h2>Dashboard</h2>
         <StatBoxes />
+        <CurrentRaffle />
       </div>
     );
   }

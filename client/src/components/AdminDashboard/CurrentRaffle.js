@@ -10,39 +10,30 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 2,
-    textAlign: 'center',
     color: theme.palette.text.secondary,
+    height: '300px'
   },
 });
 
-function StatBoxes(props) {
+function CurrentRaffle(props) {
   const { classes } = props;
 
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
 
-        <Grid item xs={12} sm={4}>
+        <Grid item xs={12} sm={8}>
           <Paper className={classes.paper}>
-           <CountUp end={10} />
-            <h4> Something {props.moneyRaised}</h4>
+            <h4>Current Raffle </h4>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <CountUp end={2000} />
-            <h4>Money Raised {props.moneyRaised}</h4>
+          
+            <h4>Money Raised </h4>
             
           </Paper>
         </Grid>
-        <Grid item xs={12} sm={4}>
-          <Paper className={classes.paper}>
-            <CountUp end={100} />
-            <h4>Followers {props.moneyRaised}</h4>
-            
-          </Paper>
-        </Grid>
-
        
       </Grid>
     </div>
@@ -50,4 +41,4 @@ function StatBoxes(props) {
 }
 
 
-export default withStyles(styles)(StatBoxes);
+export default withStyles(styles)(CurrentRaffle);
