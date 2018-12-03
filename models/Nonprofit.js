@@ -4,7 +4,7 @@ const nonprofitSchema = new Schema({
     name: String,
     address: String,
     website: String,
-    contactNumber: Number,
+    contactNumber: String,
     contactName: String,
     description: String,
     imageLink: String,
