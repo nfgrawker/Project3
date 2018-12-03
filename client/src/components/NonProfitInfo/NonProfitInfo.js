@@ -39,15 +39,15 @@ function NonProfitInfo(props) {
           alt="Non-Profit-Image"
           className={classes.media}
           height="140"
-          image="https://topnonprofits.com/wp-content/uploads/2012/01/American-Red-Cross-logo-best-nonprofit-logos-copy.png"
-          title="American Red Cross"
+          image={this.props.image}
+          title={this.props.name}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
-            American Red Cross
+          {this.props.name}
           </Typography>
           <Typography component="p" className={classes.body}>
-          The American Red Cross, also known as The American National Red Cross, is a humanitarian organization that provides emergency assistance, disaster relief, and disaster preparedness education in the United States.
+          {this.props.description}
           </Typography>
         </CardContent>
       </CardActionArea>
