@@ -35,19 +35,18 @@ function NonProfitInfo(props) {
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
-          component="img"
-          alt="Non-Profit-Image"
-          className={classes.media}
-          height="140"
-          image={this.props.image}
-          title={this.props.name}
-        />
+            component="img"
+            alt="Non-Profit-Image"
+            className={classes.media}
+            height="140"
+            image={props.image}
+            title={props.name}/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
-          {this.props.name}
+          {props.name}
           </Typography>
           <Typography component="p" className={classes.body}>
-          {this.props.description}
+          {props.description}
           </Typography>
         </CardContent>
       </CardActionArea>

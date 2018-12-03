@@ -5,8 +5,7 @@ import TextField from "@material-ui/core/TextField";
 
 const styles = theme => ({
   container: {
-    display: "flex",
-    flexWrap: "wrap"
+    display: "contents"
   },
   textField: {
     marginLeft: theme.spacing.unit,
@@ -35,7 +34,7 @@ class OutlinedTextFields extends React.Component {
     const { classes } = this.props;
 
     return (
-        <div>
+        <div  className={classes.container}>
         <TextField
           required
           id="outlined-full-width"
