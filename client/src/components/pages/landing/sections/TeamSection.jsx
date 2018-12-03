@@ -30,7 +30,7 @@ class TeamSection extends React.Component {
     );
     return (
       <div className={classes.section}>
-        <h2 className={classes.title}>Here is our team</h2>
+        <h2 className={classes.title}>Current Raffles</h2>
         <div>
           <GridContainer>
             <GridItem xs={12} sm={12} md={4}>
