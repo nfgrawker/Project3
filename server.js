@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const authRoutes = require("./routes/authRoutes");
 const path = require("path")
-
+const bodyparser = require("body-parser")
 
 app.set('view engine', 'ejs');
 
@@ -22,6 +22,8 @@ app.use(cookieSession({
 // initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 
 // connect to mongodb
