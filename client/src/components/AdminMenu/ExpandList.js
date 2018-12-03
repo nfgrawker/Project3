@@ -27,7 +27,7 @@ const styles = theme => ({
 
 class NestedList extends React.Component {
   state = {
-    open: true,
+    open: false,
   };
 
   handleClick = () => {
@@ -40,13 +40,15 @@ class NestedList extends React.Component {
     return (
       <List >
 
-        <ListItem button onClick={this.handleClick}>
+        <ListItem button onClick={this.handleClick} name="settings"
+            value="settings">
           <ListItemIcon>
             <InboxIcon />
           </ListItemIcon>
           <ListItemText inset primary="Inbox" />
           {this.state.open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
+
         <Collapse in={this.state.open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             <ListItem button className={classes.nested}>

@@ -1,7 +1,7 @@
 module.exports = {
-    Donor: require("./Donor"),
-    Donation: require("./Donation"),
-    nonProfit: require("./nonProfit"),
+    NonProfit: require("./Nonprofit"),
     Raffle: require("./Raffle"),
-    User: require("./User")
+    User: require("./User"),
+    Prize: require("./Prize"),
+    Ticket: require("./Ticket")
   };
