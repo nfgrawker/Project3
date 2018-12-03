@@ -190,8 +190,6 @@ export default class PaymentForm extends Component {
         <br/>
         <br/>
         <br/>
-        <br/>
-        <br/>
         <div id="form-container">
           <div id="sq-walletbox">
             <button
