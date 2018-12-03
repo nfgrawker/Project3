@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./appPay.css"
 import "./appIndex.css"
+import uniqueId from 'react-html-id'
 const styles = {
   name: {
     verticalAlign: "top",
@@ -36,11 +37,12 @@ const styles = {
     this.state = {
       cardBrand: "",
       nonce: undefined,
-      googlePay: false,
-      applePay: false,
-      masterpass: false
+      googlePay: true,
+      applePay: true,
+      masterpass: true
     };
     this.requestCardNonce = this.requestCardNonce.bind(this);
+    uniqueId.enableUniqueIds(this)
   }
 
   requestCardNonce() {
@@ -52,7 +54,7 @@ const styles = {
       applicationId: "sq0idp-rARHLPiahkGtp6mMz2OeCA",
       locationId: "GMT96A77XABR1",
       inputClass: "sq-input",
-      autoBuild: false,
+      autoBuild: true,
       inputStyles: [
         {
           fontSize: "16px",
@@ -187,6 +189,7 @@ const styles = {
   render() {
     return (
       <div className="container">
+      <br/>
         <div id="form-container">
           <div id="sq-walletbox">
             <button
