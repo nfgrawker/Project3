@@ -85,11 +85,11 @@ function NonProfitCard(props) {
                     </Typography>
                   </CardContent>
                   <CardActions>
+                    <Typography>
+                      Description here
+                    </Typography>
                     <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
+                      <a href="/prizes/:id" />Link
                     </Button>
                   </CardActions>
                 </Card>
