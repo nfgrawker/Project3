@@ -11,6 +11,8 @@ import Divider from "@material-ui/core/Divider";
 import StatBoxes from "../../AdminDashboard/StatBoxes";
 import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
+import CountUp from 'react-countup';
+
 
 // sidebar style
 const drawerWidth = 170;
@@ -24,13 +26,14 @@ const styles = theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    top: '64px'
+    top: "64px"
   },
   drawerPaper: {
     width: drawerWidth,
-    top: '64px'
+    top: "64px"
   },
   content: {
+    minHeight: "-webkit-fill-available",
     flexGrow: 1,
     padding: theme.spacing.unit * 3
   },
@@ -98,14 +101,63 @@ class AdminPage extends Component {
     );
   }
 }
+// test admin user -----------------------
+const adminUser = {
+    userInfo: {
+      userName: "admin"
+    },
+    statistics: {
+      profit: 3000,
+      followers: 246,
+      daysJoined: 8
+    },
+    raffles: {
+      itemName: "Item Title",
+      description: "description goes here",
+      image: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12193133/German-Shepherd-Puppy-Fetch.jpg",
+      raffleTime: "",
+      bidders: 20
+    }
+  };
+// ---------------------------------------------------------------------
+
 // Components for main content section
 class Dashboard extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      counter: 0,
+      profit: 0,
+      followers: 0
+    }
+  }
+  componentDidMount(){
+    let profit = adminUser.statistics.profit;
+    let followers = adminUser.statistics.followers;
+    let image = adminUser.raffles.image;
+    let itemName = adminUser.raffles.itemName;
+    this.setState({
+      counter: 200,
+      profit: profit,
+      followers: followers,
+      itemName: itemName,
+      image: image
+    })
+  }
   render() {
+    
     return (
       <div>
         <h2>Dashboard</h2>
-        <StatBoxes />
-        <CurrentRaffle />
+        <StatBoxes 
+            counter={this.state.counter} 
+            profit={this.state.profit}
+            followers={this.state.followers}
+        />
+        <CurrentRaffle 
+            image={this.state.image}
+            itemName={this.state.itemName}
+          />
       </div>
     );
   }

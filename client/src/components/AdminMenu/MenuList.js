@@ -7,14 +7,7 @@ import SendIcon from "@material-ui/icons/Send";
 import NestedList from "./ExpandList";
 
 class MenuList extends Component {
-  state = {
-    open: true,
-  };
-
-  handleClick = () => {
-    this.setState(state => ({ open: !state.open }));
-  };
-  
+ 
   render() {
     return (
       <div>
@@ -55,7 +48,7 @@ class MenuList extends Component {
             Raffles
           </ListItem>
         </List>
-        <NestedList />
+        <NestedList onClick={this.props.showContent}/>
       </div>
     );
   }
