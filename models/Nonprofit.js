@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-
 const nonprofitSchema = new Schema({
     name: String,
     address: String,

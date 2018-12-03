@@ -15,6 +15,12 @@ import ImageAvatars from "./Avatar";
 const drawerWidth = 240;
 
 const styles = theme => ({
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing.unit * 6,
+    top: "auto",
+    bottom: 0
+  },
   root: {
     display: "flex"
   },
@@ -152,6 +158,13 @@ class SideBar extends Component {
           {this.props.children}
           <Divider />
         </Drawer>
+
+        <footer
+          className={classes.footer}
+          style={{
+            backgroundColor: "#212121"
+          }}
+        />
       </div>
     );
   }
