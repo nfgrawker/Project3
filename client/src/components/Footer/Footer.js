@@ -35,6 +35,7 @@ function Album(props) {
             component="p"
           >
             <p> © 2018 Copyright: Wonderfundgroup.com</p>
+            
           </Typography>
         </footer>
         {/* End footer */}
