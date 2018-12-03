@@ -9,9 +9,10 @@ class PrizePage extends Component {
 
 
   componentDidMount() {
-    axios.get('/api/NonProfit/')
+      console.log(this.props.match.params.id)
+    axios.get('/api/NonProfit/'+this.props.match.params.id)
       .then(res => {
-        console.log(res)
+        this.setState({name:res.data.name, image:res.data.image, website: res.data.website, description:res.data.description  })
       })
   }
 
