@@ -9,19 +9,21 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const authRoutes = require("./routes/authRoutes");
 const path = require("path")
-
+const bodyparser = require("body-parser")
 
 app.set('view engine', 'ejs');
 
 // set up session cookies
 app.use(cookieSession({
-    maxAge: 30* 24* 60 * 60 * 1000,
+    maxAge: 1 * 24 * 60 * 60 * 1000,
     keys: [process.env.sessioncookieKey]
 }));
 
 // initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 
 // connect to mongodb
@@ -42,7 +44,7 @@ app.use(express.static("public"));
 app.use('/auth', authRoutes);
 // app.use('/profile', profileRoutes);
 require("./routes/api-routes")(app);
-
+require("./routes/nonprofitRoutes")(app);
 
 // create home route
 // app.get("*", (req, res) => {
