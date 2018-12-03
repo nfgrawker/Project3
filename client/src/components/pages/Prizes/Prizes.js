@@ -12,7 +12,8 @@ class PrizePage extends Component {
       console.log(this.props.match.params.id)
     axios.get('/api/NonProfit/'+this.props.match.params.id)
       .then(res => {
-        this.setState({name:res.data.name, image:res.data.image, website: res.data.website, description:res.data.description  })
+        this.setState({name:res.data.name, image:res.data.imageLink, website: res.data.website, description:res.data.description  })
+          console.log(res.data.image)
       })
   }
 
