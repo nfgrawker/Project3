@@ -5,12 +5,13 @@ import NonProfitInfo from "../../NonProfitInfo";
 import axios from 'axios';
 
 class PrizePage extends Component {
+    state = {image:"https://via.placeholder.com/350x150",name:"none", website:"none", description: "none"};
 
 
   componentDidMount() {
-    axios.get(`/api/NonProfit/:id`)
+    axios.get('/api/NonProfit/')
       .then(res => {
-        this.setState({ image:res.data.imageLink, name:res.data.name, website:res.data.website, description:res.data.description });
+        console.log(res)
       })
   }
 
