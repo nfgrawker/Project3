@@ -24,7 +24,7 @@ import WorkSection from "./sections/WorkSection.jsx";
 
 const dashboardRoutes = [];
 
-class LandingPage extends React.Component {
+class Home extends React.Component {
   render() {
     const { classes, ...rest } = this.props;
     return (
@@ -68,4 +68,4 @@ class LandingPage extends React.Component {
   }
 }
 
-export default withStyles(landingPageStyle)(LandingPage);
+export default withStyles(landingPageStyle)(Home);
