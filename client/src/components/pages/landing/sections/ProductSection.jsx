@@ -3,9 +3,9 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 // @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import Group from "@material-ui/icons/Group";
+import VerifiedUser from "@material-ui/icons/ThumbUpAltTwoTone";
+import attach_money from "@material-ui/icons/AttachMoney";
 // core components
 import GridContainer from "./GridContainer.jsx";
 import GridItem from "./GridItem.jsx";
@@ -38,7 +38,7 @@ class ProductSection extends React.Component {
                 title="Choose your 
                 dream prize"
                 description="Charities and their celebrity partners work with Wonderfund to create once-in-a-lifetime sweepstakes for experiences that you can win. Whether you are into film, music, or sports, there's something for everyone!"
-                icon={Chat}
+                icon={attach_money}
                 iconColor="info"
                 vertical
               />
@@ -56,7 +56,7 @@ class ProductSection extends React.Component {
               <InfoArea
                 title="Earn entries for sharing"
                 description="Help charities spread the word by sharing your unique link and earn extra entries. You can do this via Facebook, Twitter or email and make someone's day!"
-                icon={Fingerprint}
+                icon={Group}
                 iconColor="danger"
                 vertical
               />
