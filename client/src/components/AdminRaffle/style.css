@@ -4,3 +4,6 @@
     top: 62px;
     padding: 10px 40px;
 }
+#outlined-full-width{
+    border-bottom-style: none;
+}

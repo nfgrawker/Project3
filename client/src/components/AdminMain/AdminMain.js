@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import './style.css';
 import Grid from "@material-ui/core/Grid";
-import StatBoxes from '../AdminCharts/StatBoxes';
 
 
 class AdminMain extends Component {
