@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import "./appPay.css"
+import "./appIndex.css"
 const styles = {
   name: {
     verticalAlign: "top",
@@ -29,7 +30,7 @@ const styles = {
   }
 };
 
-export default class PaymentForm extends Component {
+ class PaymentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -186,10 +187,6 @@ export default class PaymentForm extends Component {
   render() {
     return (
       <div className="container">
-      <br/>
-        <br/>
-        <br/>
-        <br/>
         <div id="form-container">
           <div id="sq-walletbox">
             <button
@@ -243,3 +240,4 @@ export default class PaymentForm extends Component {
     );
   }
 }
+export default PaymentForm;
