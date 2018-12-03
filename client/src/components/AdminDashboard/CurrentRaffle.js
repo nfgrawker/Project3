@@ -26,8 +26,10 @@ function CurrentRaffle(props) {
         <Grid item xs={12} sm={8}>
           <Paper className={classes.paper}>
             <h4>Current Raffle </h4>
-            <Grid item xs={12} sm={8}></Grid>
-            <Grid item xs={12} sm={8}></Grid>
+            <Grid item xs={12} sm={6}>
+                <img src={props.image} />
+            </Grid>
+            <Grid item xs={12} sm={6}></Grid>
           </Paper>
         </Grid>
 

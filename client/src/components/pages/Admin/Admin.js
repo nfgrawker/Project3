@@ -114,7 +114,7 @@ const adminUser = {
     raffles: {
       itemName: "my item",
       description: "description goes here",
-      image: "https://via.placeholder.com/150",
+      image: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12193133/German-Shepherd-Puppy-Fetch.jpg",
       raffleLength: "",
       bidders: 20
     }
@@ -133,10 +133,12 @@ class Dashboard extends Component {
   componentDidMount(){
     let profit = adminUser.statistics.profit;
     let followers = adminUser.statistics.followers;
+    let image = adminUser.raffles.image;
     this.setState({
       counter: 200,
       profit: profit,
-      followers: followers
+      followers: followers,
+      image: image
     })
   }
   render() {
@@ -149,7 +151,7 @@ class Dashboard extends Component {
             profit={this.state.profit}
             followers={this.state.followers}
         />
-        <CurrentRaffle />
+        <CurrentRaffle image={this.state.image}/>
       </div>
     );
   }
