@@ -18,15 +18,8 @@ class PrizePage extends Component {
     return (
       <div className="prizes-page">
         <Grid>
-        <NonProfitInfo> 
-          image={this.state.image}
-          name={this.state.name}
-          website:{this.state.website}
-          description:{this.state.description}
-        </NonProfitInfo>
-        
-        <RaffleItems>
-        </RaffleItems>
+        <NonProfitInfo image={this.state.image} name={this.state.name} website={this.state.website} description={this.state.description}/>
+        <RaffleItems />
         </Grid>
       </div>
     );
