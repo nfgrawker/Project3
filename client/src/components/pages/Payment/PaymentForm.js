@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-
+import "./appPay.css"
+import "./appIndex.css"
+import uniqueId from 'react-html-id'
 const styles = {
   name: {
     verticalAlign: "top",
@@ -29,17 +31,18 @@ const styles = {
   }
 };
 
-export default class PaymentForm extends Component {
+ class PaymentForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       cardBrand: "",
       nonce: undefined,
-      googlePay: false,
-      applePay: false,
-      masterpass: false
+      googlePay: true,
+      applePay: true,
+      masterpass: true
     };
     this.requestCardNonce = this.requestCardNonce.bind(this);
+    uniqueId.enableUniqueIds(this)
   }
 
   requestCardNonce() {
@@ -51,7 +54,7 @@ export default class PaymentForm extends Component {
       applicationId: "sq0idp-rARHLPiahkGtp6mMz2OeCA",
       locationId: "GMT96A77XABR1",
       inputClass: "sq-input",
-      autoBuild: false,
+      autoBuild: true,
       inputStyles: [
         {
           fontSize: "16px",
@@ -187,13 +190,6 @@ export default class PaymentForm extends Component {
     return (
       <div className="container">
       <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
         <div id="form-container">
           <div id="sq-walletbox">
             <button
@@ -247,3 +243,4 @@ export default class PaymentForm extends Component {
     );
   }
 }
+export default PaymentForm;
