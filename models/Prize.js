@@ -5,7 +5,7 @@ const prizeSchema = new Schema({
     name: String,
     price: Number,
     quantity: Number,
-    image: string,
+    image: String,
     endTime: Date
 
 });

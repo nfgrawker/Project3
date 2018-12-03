@@ -10,7 +10,8 @@ const style = {
   grid: {
     marginRight: "-15px",
     marginLeft: "-15px",
-    width: "auto"
+    width: "auto",
+    zoom: "75%"
   }
 };
 
