@@ -2,6 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import CountUp from 'react-countup';
 
 const styles = theme => ({
   root: {
@@ -23,17 +24,22 @@ function StatBoxes(props) {
 
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <h4>Current Raffle {props.moneyRaised}</h4>
+           <CountUp end={10} />
+            <h4> Something {props.moneyRaised}</h4>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
+            <CountUp end={2000} />
             <h4>Money Raised {props.moneyRaised}</h4>
+            
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
+            <CountUp end={100} />
             <h4>Followers {props.moneyRaised}</h4>
+            
           </Paper>
         </Grid>
 

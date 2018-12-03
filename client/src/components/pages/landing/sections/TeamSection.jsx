@@ -16,9 +16,9 @@ import CardFooter from "./CardFooter.jsx";
 
 import teamStyle from "./teamStyle.jsx";
 
-import team1 from "./avatar.jpg";
-import team2 from "./christian.jpg";
-import team3 from "./kendall.jpg";
+import team1 from "./superbowl.png";
+import team2 from "./trip.png";
+import team3 from "./tesla.jpg";
 
 class TeamSection extends React.Component {
   render() {
@@ -30,7 +30,7 @@ class TeamSection extends React.Component {
     );
     return (
       <div className={classes.section}>
-        <h2 className={classes.title}>Here is our team</h2>
+        <h2 className={classes.title}>Current Raffles</h2>
         <div>
           <GridContainer>
             <GridItem xs={12} sm={12} md={4}>
@@ -39,16 +39,13 @@ class TeamSection extends React.Component {
                   <img src={team1} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                  Gigi Hadid
+                Super Bowl LIII
                   <br />
-                  <small className={classes.smallTitle}>Model</small>
+                
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                  Win a trip and a pair of tickets to the big game in Atlanta
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
@@ -82,16 +79,12 @@ class TeamSection extends React.Component {
                   <img src={team2} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                  Christian Louboutin
+                Private Calala Island in a beachfront suite
                   <br />
-                  <small className={classes.smallTitle}>Designer</small>
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                  Win a 7-night vacation for two on private Calala Island
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
@@ -118,16 +111,12 @@ class TeamSection extends React.Component {
                   <img src={team3} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                  Kendall Jenner
+                  2018 Tesla S
                   <br />
-                  <small className={classes.smallTitle}>Model</small>
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
-                    You can write here details about one of your team members.
-                    You can give more details about what they do. Feel free to
-                    add some <a href="#pablo">links</a> for people to be able to
-                    follow them outside the site.
+                  Win a Tesla® Model S® P100D
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>

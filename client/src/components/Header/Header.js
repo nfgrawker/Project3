@@ -8,8 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
+import Paper from '@material-ui/core/Paper';
 import { withStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import MailIcon from "@material-ui/icons/Mail";
@@ -17,10 +16,17 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ReactImageFallback from "react-image-fallback";
 import NavLinks from './NavLinks/NavLinks'
+
 import logo from '../../logo.svg'
 require("./Header.css");
 
 const styles = theme => ({
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    
     root: {
         width: "100%"
     },
@@ -37,9 +43,10 @@ const styles = theme => ({
             display: "block"
         }
     },
+    toolbar: theme.mixins.toolbar,
     inputRoot: {
         color: "inherit",
-        width: "100%"
+        width: "100%" 
     },
 
     inputInput: {
@@ -210,6 +217,10 @@ class Header extends React.Component {
         return (
             <div className={classes.root}>
                 {this.renderRedirect()}
+                <Paper>
+  <div className={classes.toolbar} />
+ 
+</Paper>
                 <AppBar position="fixed" style={{
                 backgroundColor: "#212121"
               }}>

@@ -1,10 +1,41 @@
 import React, { Component } from "react";
-import SideBar from "../../AdminSideBar";
 import AdminMain from "../../AdminMain";
 import "./index.css";
 import MenuList from "../../AdminMenu/MenuList";
-import Header from "../../Header";
-import Grid from "@material-ui/core/Grid";
+import { withStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import StatBoxes from "../../AdminDashboard/StatBoxes";
+import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
+import RaffleForm from "../../AdminRaffle/RaffleForm";
+
+// sidebar style
+const drawerWidth = 170;
+const styles = theme => ({
+  root: {
+    display: "flex"
+  },
+  appBar: {
+    zIndex: theme.zIndex.drawer + 1
+  },
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+    top: '64px'
+  },
+  drawerPaper: {
+    width: drawerWidth,
+    top: '64px'
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing.unit * 3
+  },
+  toolbar: theme.mixins.toolbar
+});
 
 class AdminPage extends Component {
   constructor(props) {
@@ -23,47 +54,60 @@ class AdminPage extends Component {
         return <Dashboard />;
       case "settings":
         return <Settings />;
-      case "test":
-        return <Test />;
+      case "raffles":
+        return <Raffles />;
+      default:
+        return <Dashboard />;
     }
   }
   // On sidebar link click... set the maincontent = button name attribute.getAttribute("name")
   showContent = event => {
     const linkName = event.target.getAttribute("value");
+    //const linkName = event.target;
     console.log(linkName);
     this.setState({ linkValue: linkName });
   };
-
   render() {
+    const { classes } = this.props;
     return (
-      <Grid
-        container
-        direction="row"
-        justify="flex-start"
-        alignItems="stretch"
-        className="admin-page"
-      >
-        {/* <MenuList /> */}
-        <Grid item sm={4} className="sidebar">
-          <SideBar>
-            <MenuList showContent={this.showContent} />
-          </SideBar>
-        </Grid>
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBar position="fixed" className={classes.appBar} />
+        <Drawer
+          className={classes.drawer}
+          variant="permanent"
+          classes={{
+            paper: classes.drawerPaper
+          }}
+        >
+          <div className={classes.toolbar} />
+
+          {/* Sidebar Menu List */}
+          <Divider />
+          <MenuList showContent={this.showContent} />
+          <Divider />
+        </Drawer>
+
         {/* Main Content */}
-        <Grid item sm={8} className="main-content">
+        <main className={classes.content}>
           <AdminMain content={this.state.maincontent}>
-            <h3>{this.state.linkValue}</h3>
             {this.renderMainContent()}
           </AdminMain>
-        </Grid>
-      </Grid>
+        </main>
+      </div>
     );
   }
 }
 // Components for main content section
-class Dashboard extends React.Component {
+class Dashboard extends Component {
   render() {
-    return <div>from dashboard</div>;
+    return (
+      <div>
+        <h2>Dashboard</h2>
+        <StatBoxes />
+        <CurrentRaffle />
+      </div>
+    );
   }
 }
 class Settings extends Component {
@@ -71,10 +115,16 @@ class Settings extends Component {
     return <div>from settings</div>;
   }
 }
-class Test extends Component {
+// Raffle Form
+class Raffles extends Component {
   render() {
-    return <div>this is a test</div>;
+    return (
+      <div>
+        <h3>Create New Raffle</h3>
+        <RaffleForm />
+      </div>
+    );
   }
 }
 
-export default AdminPage;
+export default withStyles(styles)(AdminPage);
