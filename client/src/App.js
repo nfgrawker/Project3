@@ -6,7 +6,6 @@ import Profile from './components/pages/Profile.js'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import AdminPage from './components/pages/Admin/Admin';
-import AdminTest from './components/pages/Admin-Test'
 import PrizePage from './components/pages/Prizes/Prizes'
 import RafflePage from './components/pages/Raffle';
 import AppPay from "./components/pages/Payment/AppPay";
