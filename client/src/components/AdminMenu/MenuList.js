@@ -36,14 +36,14 @@ class MenuList extends Component {
 
           <ListItem
             button={true}
-            name="test"
-            value="test"
+            name="raffles"
+            value="raffles"
             onClick={this.props.showContent}
           >
             <ListItemIcon>
               <DraftsIcon />
             </ListItemIcon>
-            Test
+            Raffles
           </ListItem>
         </List>
       </div>
