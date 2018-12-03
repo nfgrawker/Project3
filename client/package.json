@@ -15,6 +15,7 @@
     "npm": "6.4.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
+    "react-countup": "^4.0.0",
     "react-dom": "^16.6.3",
     "react-image-fallback": "8.0.0",
     "react-redux": "5.1.1",
