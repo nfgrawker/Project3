@@ -42,7 +42,7 @@ app.use(express.static("public"));
 app.use('/auth', authRoutes);
 // app.use('/profile', profileRoutes);
 require("./routes/api-routes")(app);
-
+require("./routes/nonprofitRoutes")(app);
 
 // create home route
 app.get("*", (req, res) => {

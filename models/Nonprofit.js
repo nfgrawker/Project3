@@ -8,5 +8,6 @@ const nonprofitSchema = new Schema({
     contactName: String,
     description: String,
     imageLink: String,
+    admins:[{type: Schema.Types.ObjectId, ref: 'User'}]
 });
 mongoose.model('NonProfit', nonprofitSchema);
