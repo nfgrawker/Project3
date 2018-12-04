@@ -16,6 +16,7 @@
     "npm": "6.4.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
+    "react-async-script-loader": "^0.3.0",
     "react-countup": "^4.0.0",
     "react-dom": "^16.6.3",
     "react-html-id": "^0.1.5",
