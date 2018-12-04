@@ -24,11 +24,11 @@ class OutlinedTextFields extends React.Component {
     name: ""
   };
 
-  handleChange = name => event => {
-    this.setState({
-      [name]: event.target.value
-    });
-  };
+  // handleChange = name => event => {
+  //   this.setState({
+  //     [name]: event.target.value
+  //   });
+  // };
 
   render() {
     const { classes } = this.props;
@@ -37,6 +37,8 @@ class OutlinedTextFields extends React.Component {
         <div  className={classes.container}>
         <TextField
           required
+          onChange={this.value}
+          value = {this.value}
           id="outlined-full-width"
           label="Item Name"
           style={{ margin: 8 }}

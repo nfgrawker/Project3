@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
 import "./style.css";
 import Grid from "@material-ui/core/Grid";
 
