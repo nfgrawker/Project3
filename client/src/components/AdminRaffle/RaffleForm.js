@@ -69,6 +69,7 @@ class RaffleForm extends React.Component {
       <Paper>
         {this.loadAllPrizes()}
       </Paper>
+      <hr/>
         <form className={classes.container} noValidate autoComplete="off">
           <div className={classes.buttonDiv}>
             <Button
