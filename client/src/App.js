@@ -10,7 +10,9 @@ import PrizePage from './components/pages/Prizes/Prizes'
 import RafflePage from './components/pages/Raffle';
 import PaypalApp from "./components/pages/Payment/PaypalApp";
 import NonProfitCard from "./components/Cards/NonProfitCard";
-import About from './components/pages/About/About'
+import About from './components/pages/About'
+import Contact from './components/pages/Contact'
+import Help from './components/pages/Help'
 
 
 
@@ -30,6 +32,8 @@ const App = () => {
                 <Route exact path="/prizes/:id" component={PrizePage} />
                 <Route exact path="/raffle/:id" component={RafflePage} />
                 <Route exact path="/Paymentpage" component={PaypalApp} />
+                <Route exact path="/contact" component={Contact} />
+                <Route exact path="/help" component={Help} />
 
             </div>
         </BrowserRouter>
