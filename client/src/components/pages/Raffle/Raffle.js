@@ -75,7 +75,7 @@ render() {
           }}>
             Time Reamining on this raffle:
             <br></br>
-            <Countdown date={`${year}-12-24T00:00:00`}/>
+            <Countdown date={`${year}-12-25T00:00:00`}/>
 
           </Typography>
           <div style={{display:"flex", justifyContent: "center", marginTop: 10}}>
