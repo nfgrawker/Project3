@@ -8,8 +8,8 @@ const userSchema = new Schema({
     firstName: String,
     lastName: String,
     username: String,
+    thumbnail: String,
     email: String,
-    tickets:[{type: Schema.Types.ObjectId, ref: 'Ticket'}]
 
 });
-mongoose.model('User', userSchema);
+mongoose.model('users', userSchema);
