@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import RaffleItems from "../../RaffleItems";
 import Grid from '@material-ui/core/Grid';
 import NonProfitInfo from "../../NonProfitInfo";
+import NonProfitCard from "../../Cards/NonProfitCard"
 import axios from 'axios';
 
 
