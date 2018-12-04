@@ -16,8 +16,8 @@ const styles = {
 
   media: {
     // ⚠️ object-fit is not supported by IE 11.
-    objectFit: 'cover',
-    height: 200,
+    objectFit: 'fill',
+    height: 450,
   },
 
   title: {
@@ -38,7 +38,7 @@ function NonProfitInfo(props) {
             component="img"
             alt="Non-Profit-Image"
             className={classes.media}
-            height="140"
+            height="280"
             image={props.image}
             title={props.name}/>
         <CardContent>
