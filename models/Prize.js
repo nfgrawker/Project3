@@ -6,7 +6,5 @@ const prizeSchema = new Schema({
     price: Number,
     quantity: Number,
     image: String,
-    endTime: Date
-
 });
 mongoose.model('Prize', prizeSchema);
