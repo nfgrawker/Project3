@@ -3,6 +3,7 @@ import axios from "axios";
 import AdminMain from "../../AdminMain";
 import "./index.css";
 import MenuList from "../../AdminMenu/MenuList";
+import ImageAvatars from "../../AdminMenu/Avatar";
 import Hidden from '@material-ui/core/Hidden';
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -116,7 +117,7 @@ class AdminPage extends Component {
         >
           <div className={classes.toolbar} />
           {/* Sidebar Menu List */}
-          <h5>{this.state.username}</h5>
+          <ImageAvatars image={this.state.image}/>
           <Divider />
           <MenuList showContent={this.showContent} />
           <Divider />
@@ -142,7 +143,7 @@ const adminUser = {
   statistics: {
     moneyraised: 3000,
     followers: 246,
-    daysJoined: 8
+    totalraffles: 8
   },
   raffles: {
     itemName: "Item Title",
@@ -162,18 +163,18 @@ class Dashboard extends Component {
     this.state = {
       moneyraised: 0,
       followers: 0,
-      daysJoined: 0,
+      totalraffles: 0,
     };
   }
   componentDidMount() {
     let moneyraised = adminUser.statistics.moneyraised;
     let followers = adminUser.statistics.followers;
-    let daysJoined = adminUser.statistics.daysJoined;
+    let totalraffles = adminUser.statistics.totalraffles;
 
     this.setState({
       moneyraised: moneyraised,
       followers: followers,
-      daysJoined: daysJoined,
+      totalraffles: totalraffles,
 
     });
   }
@@ -181,8 +182,7 @@ class Dashboard extends Component {
     return (
       <div>
         <StatBoxes
-          
-          daysJoined={this.state.daysJoined}
+          totalraffles={this.state.totalraffles}
           moneyraised={this.state.moneyraised}
           followers={this.state.followers}
         />

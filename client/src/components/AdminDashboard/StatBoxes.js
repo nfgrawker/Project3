@@ -28,7 +28,7 @@ const StatBoxes = (props) => {
 
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-           <CountUp end={props.daysJoined} />
+           <CountUp end={props.totalraffles} />
             <div><DoneOutline />  Raffles  </div>
           </Paper>
         </Grid>
