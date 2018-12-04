@@ -9,6 +9,9 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+import Countdown from "../../CountdownTimer"
+import NonProfitCard from "../../Cards/NonProfitCard"
+
 import rafflePageStyle from "./style/raffleStyle";
 
 class Raffle extends Component {
@@ -27,7 +30,7 @@ render() {
         }}>
             <Grid>
               <GridList className={classes.gridList} cols={1}>
-                <GridListTile key={classes.img}style={{
+                <GridListTile key={classes.img} style={{
                   height: "400px",
                   boxShadow: "0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)",
                   padding: "0px 2px 0px 2px"
@@ -69,7 +72,7 @@ render() {
           }}>
             Time Reamining on this raffle:
             <br></br>
-            <span>*Timer goes here*</span>
+            <Countdown></Countdown>
 
           </Typography>
           <div style={{display:"flex", justifyContent: "center", marginTop: 10}}>
