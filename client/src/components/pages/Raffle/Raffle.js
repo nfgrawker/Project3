@@ -19,6 +19,9 @@ class Raffle extends Component {
 render() {
   const { classes, ...rest } = this.props;
 
+  const currentDate = new Date();
+  const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 23) ? currentDate.getFullYear() + 1 : currentDate.getFullYear();
+
   return (
     <div className="raffle-page">
       <div className={classNames(classes.main, classes.mainRaised)}>
@@ -72,7 +75,7 @@ render() {
           }}>
             Time Reamining on this raffle:
             <br></br>
-            <Countdown></Countdown>
+            <Countdown date={`${year}-12-24T00:00:00`}/>
 
           </Typography>
           <div style={{display:"flex", justifyContent: "center", marginTop: 10}}>
