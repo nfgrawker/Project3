@@ -12,6 +12,9 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
+  icons: {
+    fontSize: '35px'
+  },
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: 'center',
@@ -28,22 +31,39 @@ const StatBoxes = (props) => {
 
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-           <CountUp end={props.totalraffles} />
-            <div><DoneOutline />  Raffles  </div>
+          <Grid item xs={6} className="iconBox">
+            <DoneOutline  className={classes.icons} />
+          </Grid>
+          <Grid item xs={6} className="counterText">
+              <CountUp end={props.totalraffles} />
+              Total Raffles
+          </Grid>
+                
           </Paper>
         </Grid>
+       
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
+          <Grid item xs={6} className="iconBox">
+            <MonetizationOn className={classes.icons} />
+          </Grid>
+          <Grid item xs={6} className="counterText">
             <CountUp end={props.moneyraised} />
-            <div><MonetizationOn />  Money Raised </div>
-            
+            In Donations
+          </Grid>
           </Paper>
         </Grid>
+
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <CountUp end={props.followers} />
-            <div><ThumbUp />  Followers </div>
-            
+          <Grid item xs={6} className="iconBox">
+            <ThumbUp className={classes.icons} />
+          </Grid>
+          <Grid item xs={6} className="counterText">
+           <CountUp end={props.followers} />
+             Followers 
+          </Grid>
+           
           </Paper>
         </Grid>
 
