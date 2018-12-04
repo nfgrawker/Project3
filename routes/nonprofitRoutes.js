@@ -42,11 +42,20 @@ module.exports = function(app) {
     app.get("/api/isadmin/:charityid/:userid", function(req, res){
         var isAdmin = false;
 
-        NonProfit.findById(req.params.charityid).populate("User").then(function(err, charity){
-            console.log(charity)
+        NonProfit.findById(req.params.charityid).populate('admins').exec(function (err, nonprofit) {
+            if (err) console.log(err);
+            else{
+                console.log(typeof nonprofit.admins[0].id)
+                console.log(typeof req.params.userid)
+                    if (nonprofit.admins[0].id == req.params.userid){
+                        isAdmin = true
+                    }
+                }
+            res.send(isAdmin).end()
 
         });
-            res.send(isAdmin).end()
-    });
+        });
 
-};
+    };
+
+;
