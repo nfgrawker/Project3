@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
 
 require("./NavLinks.css");
 
@@ -10,7 +9,7 @@ class NavLinks extends Component {
         <ul id="headerList">
           <li id="headerLinks">
             <h6 className="text-uppercase font-weight-bold">
-              <a id="navlink" href="#!">
+              <a id="navlink" href="/about">
                 About us
               </a>
             </h6>

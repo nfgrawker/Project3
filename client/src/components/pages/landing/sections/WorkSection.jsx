@@ -2,14 +2,11 @@ import React from "react";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 
-// @material-ui/icons
-
 // core components
 import GridContainer from "./GridContainer.jsx";
 import GridItem from "./GridItem.jsx";
 import CustomInput from "./CustomInput.jsx";
 import Button from "./Button.jsx";
-
 import workStyle from "./workStyle.jsx";
 
 class WorkSection extends React.Component {

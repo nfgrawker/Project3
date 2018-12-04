@@ -10,7 +10,7 @@ class Links extends Component {
         <ul id="footerList">
           <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a id="footer" href="#!">About us</a>
+              <a id="footer" href="/about">About us</a>
             </h6>
           </li>
 
