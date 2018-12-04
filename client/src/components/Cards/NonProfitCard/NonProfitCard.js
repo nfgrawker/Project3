@@ -76,17 +76,17 @@ function NonProfitCard(props) {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://www.waynecojournalbanner.com/wp-content/uploads/2017/05/American-Red-Cross.jpg"
-                    title="Non Profit Title"
+                    image={props.image}
+                    title={props.name}
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography>
-                    Non Profit Card
+                    {props.name}
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Typography>
-                      Description here
+                      {props.description}
                     </Typography>
                     <Button size="small" color="primary">
                       <a href="/prizes/:id" />Link

@@ -1,1 +1,2 @@
-export {default} from './AppPay';
+export * from './PaypalApp';
+export * from './PaypalButton';
