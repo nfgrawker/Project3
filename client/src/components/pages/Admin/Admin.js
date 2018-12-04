@@ -60,7 +60,6 @@ class AdminPage extends Component {
   componentDidMount() {
     console.log(this.props.match.params.id);
     axios.get("/api/nonprofit/" + this.props.match.params.id).then(res => {
-      console.log(res.data);
       this.setState({
         userinfo: res.data,
         username: res.data.name,
