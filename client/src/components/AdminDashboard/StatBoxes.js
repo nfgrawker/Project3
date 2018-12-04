@@ -15,30 +15,30 @@ const styles = theme => ({
   },
 });
 
-function StatBoxes(props) {
+const StatBoxes = (props) => {
   const { classes } = props;
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} {...props}>
       <Grid container spacing={24}>
 
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-           <CountUp end={10} />
-            <h4> Something {props.moneyRaised}</h4>
+           <CountUp end={props.daysJoined} />
+            <h5> Something </h5>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <CountUp end={2000} />
-            <h4>Money Raised {props.moneyRaised}</h4>
+            <CountUp end={props.moneyraised} />
+            <h5>Money Raised </h5>
             
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <CountUp end={100} />
-            <h4>Followers {props.moneyRaised}</h4>
+            <CountUp end={props.followers} />
+            <h5>Followers </h5>
             
           </Paper>
         </Grid>

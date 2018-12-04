@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import Header from "../Header";
-// import Container from "../Container";
-import Footer from "../Footer/index";
 import ButtonBases from "../ButtonBases";
 import RaffleCard from "../Cards/RaffleCard";
+import CheckoutButton from '../Buttons/CheckoutButton'
 
 
 
@@ -15,6 +13,7 @@ class Profile extends Component {
         <ButtonBases />
         {/* <Container /> */}
         <RaffleCard />
+        <CheckoutButton />
       </div>
     );
   }
