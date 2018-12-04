@@ -3,10 +3,17 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CountUp from 'react-countup';
+import DoneOutline from '@material-ui/icons/DoneOutline';
+import MonetizationOn from '@material-ui/icons/MonetizationOn';
+import ThumbUp from '@material-ui/icons/ThumbUp';
+
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
+  },
+  icons: {
+    fontSize: '35px'
   },
   paper: {
     padding: theme.spacing.unit * 2,
@@ -24,22 +31,39 @@ const StatBoxes = (props) => {
 
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-           <CountUp end={props.counter} />
-            <h5> Something </h5>
+          <Grid item xs={6} className="iconBox">
+            <DoneOutline  className={classes.icons} />
+          </Grid>
+          <Grid item xs={6} className="counterText">
+              <CountUp end={props.totalraffles} />
+              Total Raffles
+          </Grid>
+                
           </Paper>
         </Grid>
+       
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <CountUp end={props.profit} />
-            <h5>Money Raised {props.moneyRaised}</h5>
-            
+          <Grid item xs={6} className="iconBox">
+            <MonetizationOn className={classes.icons} />
+          </Grid>
+          <Grid item xs={6} className="counterText">
+            <CountUp end={props.moneyraised} />
+            In Donations
+          </Grid>
           </Paper>
         </Grid>
+
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <CountUp end={props.followers} />
-            <h5>Followers {props.moneyRaised}</h5>
-            
+          <Grid item xs={6} className="iconBox">
+            <ThumbUp className={classes.icons} />
+          </Grid>
+          <Grid item xs={6} className="counterText">
+           <CountUp end={props.followers} />
+             Followers 
+          </Grid>
+           
           </Paper>
         </Grid>
 

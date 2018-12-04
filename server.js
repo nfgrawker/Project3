@@ -25,6 +25,8 @@ app.use(cookieSession({
     keys: [process.env.sessioncookieKey]
 }));
 
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 // initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -48,6 +50,7 @@ app.use(express.static("public"));
 app.use('/auth', authRoutes);
 // app.use('/profile', profileRoutes);
 require("./routes/api-routes")(app);
+require("./routes/nonprofitRoutes")(app);
 
 
 // create home route

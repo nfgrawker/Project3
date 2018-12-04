@@ -7,12 +7,9 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 
 // core components
-import Header from "./sections/Header.jsx";
-import Footer from "./sections/Footer.jsx";
 import GridContainer from "./sections/GridContainer.jsx";
 import GridItem from "./sections/GridItem.jsx";
 import Button from "./sections/Button.jsx";
-import HeaderLinks from "./sections/HeaderLinks.jsx";
 import Parallax from "./sections/Parallax.jsx";
 
 import landingPageStyle from "./style/landingPage.jsx";
@@ -22,7 +19,6 @@ import ProductSection from "./sections/ProductSection.jsx";
 import TeamSection from "./sections/TeamSection.jsx";
 import WorkSection from "./sections/WorkSection.jsx";
 
-const dashboardRoutes = [];
 
 class Home extends React.Component {
   render() {
@@ -49,7 +45,7 @@ class Home extends React.Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i className="fas fa-play" />Watch video
+                  <i className="fas fa-play-circle" />Watch video
                 </Button>
               </GridItem>
             </GridContainer>
@@ -62,7 +58,6 @@ class Home extends React.Component {
             <WorkSection />
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
