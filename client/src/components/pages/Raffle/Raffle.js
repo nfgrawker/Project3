@@ -75,8 +75,9 @@ render() {
           }}>
             Time Reamining on this raffle:
             <br></br>
-            <Countdown date={`${year}-12-25T00:00:00`}/>
-
+            <div style={{marginTop: 12}}>
+              <Countdown date={`${year}-12-25T00:00:00`} />
+            </div> 
           </Typography>
           <div style={{display:"flex", justifyContent: "center", marginTop: 10}}>
             <Button variant="contained" color="primary" className={classes.margin} style={{
