@@ -34,7 +34,7 @@ class PrizePage extends Component {
 
         <RaffleItems prizes={this.state.prizes} />
 
-        <NonProfitCard image={this.state.image} name={this.state.name} website={this.state.website} description={this.state.description}/>
+        {/* <NonProfitCard image={this.state.image} name={this.state.name} website={this.state.website} description={this.state.description}/> */}
         </Grid>
       </div>
     );
