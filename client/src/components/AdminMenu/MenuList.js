@@ -4,7 +4,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import SendIcon from "@material-ui/icons/Send";
-import NestedList from "./ExpandList";
 
 class MenuList extends Component {
  
@@ -48,7 +47,7 @@ class MenuList extends Component {
             Raffles
           </ListItem>
         </List>
-        <NestedList onClick={this.props.showContent}/>
+    
       </div>
     );
   }

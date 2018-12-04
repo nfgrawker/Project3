@@ -3,6 +3,7 @@ import axios from "axios";
 import AdminMain from "../../AdminMain";
 import "./index.css";
 import MenuList from "../../AdminMenu/MenuList";
+import Hidden from '@material-ui/core/Hidden';
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
@@ -12,6 +13,7 @@ import StatBoxes from "../../AdminDashboard/StatBoxes";
 import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
 import CountUp from "react-countup";
+
 
 // sidebar style
 const drawerWidth = 170;
@@ -102,6 +104,7 @@ class AdminPage extends Component {
     }
     return (
       <div className={classes.root}>
+       <Hidden xsDown>
         <CssBaseline />
         <AppBar position="fixed" className={classes.appBar} />
         <Drawer
@@ -118,6 +121,9 @@ class AdminPage extends Component {
           <MenuList showContent={this.showContent} />
           <Divider />
         </Drawer>
+        </Hidden>
+
+ 
 
         {/* Main Content */}
         <main className={classes.content}>

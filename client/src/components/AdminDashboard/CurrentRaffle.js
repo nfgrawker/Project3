@@ -12,7 +12,8 @@ const styles = theme => ({
   paper: {
     padding: theme.spacing.unit * 2,
     color: theme.palette.text.secondary,
-    height: "300px"
+    height: "300px",
+    minHeight: "fit-content"
   }
 });
 
@@ -22,7 +23,7 @@ const CurrentRaffle = props => {
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
-      
+
         {/* current rafflecard */}
         <Grid item xs={12} sm={8}>
           <Paper className={classes.paper}>

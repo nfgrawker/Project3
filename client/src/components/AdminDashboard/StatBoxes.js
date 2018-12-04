@@ -3,6 +3,10 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import CountUp from 'react-countup';
+import DoneOutline from '@material-ui/icons/DoneOutline';
+import MonetizationOn from '@material-ui/icons/MonetizationOn';
+import ThumbUp from '@material-ui/icons/ThumbUp';
+
 
 const styles = theme => ({
   root: {
@@ -25,20 +29,20 @@ const StatBoxes = (props) => {
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
            <CountUp end={props.daysJoined} />
-            <h5> Something </h5>
+            <div><DoneOutline />  Raffles  </div>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
             <CountUp end={props.moneyraised} />
-            <h5>Money Raised </h5>
+            <div><MonetizationOn />  Money Raised </div>
             
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
             <CountUp end={props.followers} />
-            <h5>Followers </h5>
+            <div><ThumbUp />  Followers </div>
             
           </Paper>
         </Grid>
