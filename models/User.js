@@ -9,7 +9,6 @@ const userSchema = new Schema({
     lastName: String,
     username: String,
     email: String,
-    tickets:[{type: Schema.Types.ObjectId, ref: 'Ticket'}]
 
 });
 mongoose.model('User', userSchema);

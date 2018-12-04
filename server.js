@@ -3,32 +3,22 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const mongoose = require('mongoose');
 require('dotenv').config();
-require('./models/User');
-require("./models/Nonprofit");
-require('./models/Prize');
-require('./config/passport-setup');
+require('./models/User')
+require('./config/passport-setup')
 const PORT = process.env.PORT || 3001;
 const app = express();
 const authRoutes = require("./routes/authRoutes");
 const path = require("path")
-const paypal = require('paypal-rest-sdk');
-
-
-
-
-const bodyParser = require("body-parser");
 
 
 app.set('view engine', 'ejs');
 
 // set up session cookies
 app.use(cookieSession({
-    maxAge: 1 * 24* 60 * 60 * 1000,
+    maxAge: 30* 24* 60 * 60 * 1000,
     keys: [process.env.sessioncookieKey]
 }));
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json())
 // initialize passport
 app.use(passport.initialize());
 app.use(passport.session());
@@ -52,8 +42,6 @@ app.use(express.static("public"));
 app.use('/auth', authRoutes);
 // app.use('/profile', profileRoutes);
 require("./routes/api-routes")(app);
-require("./routes/nonprofitRoutes")(app);
-require("./routes/prizeRoutes")(app);
 
 
 // create home route

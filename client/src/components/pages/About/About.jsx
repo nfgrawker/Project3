@@ -1,15 +1,15 @@
 import React from "react";
-import Button from "../landing/sections/Button.jsx";
+import Button from "../landing/sections/Button/Button.jsx";
 
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 
 // core components
-import GridContainer from "../landing/sections/GridContainer";
-import GridItem from "../landing/sections/GridItem.jsx";
+import GridContainer from "../landing/sections/Grid/GridContainer";
+import GridItem from "../landing/sections/Grid/GridItem.jsx";
 
 
-import productStyle from "../landing/sections/productStyle.jsx";
+import productStyle from "../landing/sections/Product/productStyle.jsx";
 
 
 
