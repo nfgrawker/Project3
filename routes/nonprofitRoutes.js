@@ -4,6 +4,13 @@ const NonProfit = mongoose.model("NonProfit");
 
 module.exports = function(app) {
     // Load index page
+    app.get("/api/nonprofit/all/get", function (req,res) {
+        NonProfit.find({},function(err, nonprofit){
+            if (err) console.log(err);
+            res.send(nonprofit).end()
+        })
+    });
+
     app.get("/api/nonprofit/:id", function (req, res) {
 
         NonProfit.findById(req.params.id, function (err, result) {
@@ -22,6 +29,24 @@ module.exports = function(app) {
             }
         });
         res.end()
+    });
+    app.post("/api/addadmin", function(req,res){
+
+        NonProfit.findById(req.body.id,function (err, charity){
+            if(err) console.log(err);
+            charity.admins.push(req.body.user);
+            charity.save();
+            res.send("Completed!").end()
+        })
+    })
+    app.get("/api/isadmin/:charityid/:userid", function(req, res){
+        var isAdmin = false;
+
+        NonProfit.findById(req.params.charityid).populate("User").then(function(err, charity){
+            console.log(charity)
+
+        });
+            res.send(isAdmin).end()
     });
 
 };
