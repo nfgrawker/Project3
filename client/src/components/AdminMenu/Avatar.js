@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import AccountCircle from "@material-ui/icons/AccountCircle";
 import Grid from '@material-ui/core/Grid';
 
 const styles = {
@@ -11,19 +10,19 @@ const styles = {
   },
   bigAvatar: {
     margin: 10,
-    width: 60,
-    height: 60,
+    width: 100,
+    height: 100,
   },
 };
 
-function ImageAvatars(props) {
+const ImageAvatars = props => {
   const { classes } = props;
   return (
     <Grid container justify="center" alignItems="center">
-      <Avatar alt={props.userName} src={props.userImage} className={classes.bigAvatar} />
-      <h5 name={props.userName}>{props.userName}</h5>
+      <Avatar alt="Remy Sharp" src={props.image || 'https://via.placeholder.com/80'} className={classes.bigAvatar} />
     </Grid>
   );
 }
+
 
 export default withStyles(styles)(ImageAvatars);
