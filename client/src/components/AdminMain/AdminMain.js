@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 class AdminMain extends Component {
   render() {
     return (
-      <div >
+      <div>
        {this.props.children}
       </div>         
 

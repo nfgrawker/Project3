@@ -7,7 +7,6 @@ import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import StatBoxes from "../../AdminDashboard/StatBoxes";
 import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
@@ -53,13 +52,15 @@ class AdminPage extends Component {
     };
     this.showContent = this.showContent.bind(this);
   }
+
+  //get nonprofit info when component loads
   componentDidMount() {
     console.log(this.props.match.params.id);
-    axios.get("/api/NonProfit/" + this.props.match.params.id).then(res => {
-      console.log("hello");
+    axios.get("/api/nonprofit/" + this.props.match.params.id).then(res => {
+      console.log(res.data);
       this.setState({
         username: res.data.name,
-        image: res.data.image,
+        image: res.data.imageLink,
         website: res.data.website,
         description: res.data.description
       });
@@ -68,27 +69,37 @@ class AdminPage extends Component {
 
   // switch case to set main content
   renderMainContent() {
+    const userInfo = {
+      user: this.state.username,
+      website: this.state.website,
+      image: this.state.image,
+      description: this.state.description
+    }
     switch (this.state.linkValue) {
       case "dashboard":
-        return <Dashboard />;
+        return <Dashboard {...userInfo}/>;
       case "settings":
         return <Settings />;
       case "raffles":
         return <Raffles />;
       default:
-        return <Dashboard />;
+        return <Dashboard {...userInfo}/>;
     }
   }
-  // On sidebar link click... set the maincontent = button name attribute.getAttribute("name")
+  // On sidebar link click... set the maincontent = button name 
   showContent = event => {
     const linkName = event.target.getAttribute("value");
-    //const linkName = event.target;
     console.log(linkName);
     this.setState({ linkValue: linkName });
   };
   render() {
     const { classes } = this.props;
-
+    const userInfo = {
+      user: this.state.username,
+      website: this.state.website,
+      image: this.state.image,
+      description: this.state.description
+    }
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -101,8 +112,8 @@ class AdminPage extends Component {
           }}
         >
           <div className={classes.toolbar} />
-
           {/* Sidebar Menu List */}
+          <h5>{this.state.username}</h5>
           <Divider />
           <MenuList showContent={this.showContent} />
           <Divider />
@@ -110,12 +121,10 @@ class AdminPage extends Component {
 
         {/* Main Content */}
         <main className={classes.content}>
-          <AdminMain 
-              content={this.state.maincontent} 
-              user={this.state.username}
-          >
-          <h4 >{this.state.username}</h4>
-            {this.renderMainContent()}
+        <h4 >{this.state.username} | {this.state.website}</h4>
+          <AdminMain {...userInfo}  >
+          
+            {this.renderMainContent(this.props)}
           </AdminMain>
         </main>
       </div>
@@ -124,11 +133,8 @@ class AdminPage extends Component {
 }
 // test admin user -----------------------
 const adminUser = {
-  userInfo: {
-    userName: "admin"
-  },
   statistics: {
-    profit: 3000,
+    moneyraised: 3000,
     followers: 246,
     daysJoined: 8
   },
@@ -148,36 +154,36 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: 0,
-      profit: 0,
+      moneyraised: 0,
       followers: 0,
-      username: this.props.username
+      daysJoined: 0,
     };
   }
   componentDidMount() {
-    let profit = adminUser.statistics.profit;
+    let moneyraised = adminUser.statistics.moneyraised;
     let followers = adminUser.statistics.followers;
-    let image = adminUser.raffles.image;
-    let itemName = adminUser.raffles.itemName;
+    let daysJoined = adminUser.statistics.daysJoined;
+
     this.setState({
-      counter: 200,
-      profit: profit,
+      moneyraised: moneyraised,
       followers: followers,
-      itemName: itemName,
-      image: image
+      daysJoined: daysJoined,
+
     });
   }
   render() {
     return (
-      <div {...this.props}>
-        <h2>{this.state.username}</h2>
+      <div>
         <StatBoxes
-          counter={this.state.counter}
-          profit={this.state.profit}
+          
+          daysJoined={this.state.daysJoined}
+          moneyraised={this.state.moneyraised}
           followers={this.state.followers}
         />
         <CurrentRaffle
-          image={this.state.image}
+          user={this.props.user}
+          about={this.props.description}
+          image={this.props.image}
           itemName={this.state.itemName}
         />
       </div>

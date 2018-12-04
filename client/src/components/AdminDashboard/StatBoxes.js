@@ -24,21 +24,21 @@ const StatBoxes = (props) => {
 
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-           <CountUp end={props.counter} />
+           <CountUp end={props.daysJoined} />
             <h5> Something </h5>
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <CountUp end={props.profit} />
-            <h5>Money Raised {props.moneyRaised}</h5>
+            <CountUp end={props.moneyraised} />
+            <h5>Money Raised </h5>
             
           </Paper>
         </Grid>
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
             <CountUp end={props.followers} />
-            <h5>Followers {props.moneyRaised}</h5>
+            <h5>Followers </h5>
             
           </Paper>
         </Grid>
