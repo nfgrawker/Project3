@@ -4,7 +4,7 @@ import AdminMain from "../../AdminMain";
 import "./index.css";
 import MenuList from "../../AdminMenu/MenuList";
 import ImageAvatars from "../../AdminMenu/Avatar";
-import Hidden from '@material-ui/core/Hidden';
+import Hidden from "@material-ui/core/Hidden";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
@@ -14,7 +14,6 @@ import StatBoxes from "../../AdminDashboard/StatBoxes";
 import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
 import CountUp from "react-countup";
-
 
 // sidebar style
 const drawerWidth = 170;
@@ -48,6 +47,7 @@ class AdminPage extends Component {
     this.state = {
       maincontent: "Main Content",
       linkValue: "",
+      userinfo: [],
       username: "",
       image: "",
       website: "",
@@ -56,12 +56,13 @@ class AdminPage extends Component {
     this.showContent = this.showContent.bind(this);
   }
 
-  //get nonprofit info when component loads
+  //get nonprofit info when admin page loads
   componentDidMount() {
     console.log(this.props.match.params.id);
     axios.get("/api/nonprofit/" + this.props.match.params.id).then(res => {
       console.log(res.data);
       this.setState({
+        userinfo: res.data,
         username: res.data.name,
         image: res.data.imageLink,
         website: res.data.website,
@@ -69,27 +70,33 @@ class AdminPage extends Component {
       });
     });
   }
+  // saveUserInfo() {
+  //   const info = this.state.userinfo.map((user, index) => (
+  //     <div user={user.name} />
+  //   ));
+  // }
 
   // switch case to set main content
   renderMainContent() {
+    console.log(this.state.userinfo);
     const userInfo = {
       user: this.state.username,
       website: this.state.website,
       image: this.state.image,
       description: this.state.description
-    }
+    };
     switch (this.state.linkValue) {
       case "dashboard":
-        return <Dashboard {...userInfo}/>;
+        return <Dashboard {...userInfo} />;
       case "settings":
-        return <Settings />;
+        return <Settings {...userInfo} />;
       case "raffles":
         return <Raffles />;
       default:
-        return <Dashboard {...userInfo}/>;
+        return <Dashboard {...userInfo} />;
     }
   }
-  // On sidebar link click... set the maincontent = button name 
+  // On sidebar link click... set the maincontent = button name
   showContent = event => {
     const linkName = event.target.getAttribute("value");
     console.log(linkName);
@@ -102,35 +109,34 @@ class AdminPage extends Component {
       website: this.state.website,
       image: this.state.image,
       description: this.state.description
-    }
+    };
     return (
       <div className={classes.root}>
-       <Hidden xsDown>
-        <CssBaseline />
-        <AppBar position="fixed" className={classes.appBar} />
-        <Drawer
-          className={classes.drawer}
-          variant="permanent"
-          classes={{
-            paper: classes.drawerPaper
-          }}
-        >
-          <div className={classes.toolbar} />
-          {/* Sidebar Menu List */}
-          <ImageAvatars image={this.state.image}/>
-          <Divider />
-          <MenuList showContent={this.showContent} />
-          <Divider />
-        </Drawer>
+        <Hidden xsDown>
+          <CssBaseline />
+          <AppBar position="fixed" className={classes.appBar} />
+          <Drawer
+            className={classes.drawer}
+            variant="permanent"
+            classes={{
+              paper: classes.drawerPaper
+            }}
+          >
+            <div className={classes.toolbar} />
+            {/* Sidebar Menu List */}
+            <ImageAvatars image={this.state.image} />
+            <Divider />
+            <MenuList showContent={this.showContent} />
+            <Divider />
+          </Drawer>
         </Hidden>
-
- 
 
         {/* Main Content */}
         <main className={classes.content}>
-        <h4 >{this.state.username} | {this.state.website}</h4>
-          <AdminMain {...userInfo}  >
-          
+          <h4>
+            {this.state.username} | {this.state.website}
+          </h4>
+          <AdminMain {...userInfo}>
             {this.renderMainContent(this.props)}
           </AdminMain>
         </main>
@@ -163,7 +169,7 @@ class Dashboard extends Component {
     this.state = {
       moneyraised: 0,
       followers: 0,
-      totalraffles: 0,
+      totalraffles: 0
     };
   }
   componentDidMount() {
@@ -174,8 +180,7 @@ class Dashboard extends Component {
     this.setState({
       moneyraised: moneyraised,
       followers: followers,
-      totalraffles: totalraffles,
-
+      totalraffles: totalraffles
     });
   }
   render() {
@@ -196,11 +201,14 @@ class Dashboard extends Component {
     );
   }
 }
-class Settings extends Component {
-  render() {
-    return <div>from settings</div>;
-  }
-}
+const Settings = props => {
+  return (
+    <div>
+      from settings
+      {props.userinfo}
+    </div>
+  );
+};
 // Raffle Form
 class Raffles extends Component {
   render() {

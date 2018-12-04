@@ -18,29 +18,57 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing.unit,
-  },
-  input: {
-    display: 'none',
   }
 });
 
 class RaffleForm extends React.Component {
-  state = {
-    name: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '', 
+      itemname:'', 
+      description:''
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
 
-  handleChange = name => event => {
+  handleChange(event) {
+    //const { name, value } = event.target;
+    console.log(event.target.value);
     this.setState({
-      [name]: event.target.value,
+      value: event.target
     });
-  };
+  }
 
   render() {
     const { classes } = this.props;
 
     return (
       <form className={classes.container} noValidate autoComplete="off">
-        <TextInput />
+        
+        <input
+          itemname ={this.state.value}
+          onChange={this.handleChange}
+          id="outlined-full-width"
+          label="Item Name"
+          style={{ margin: 8 }}
+          placeholder = "Item Name"
+          className={classes.textField}
+          margin="normal"
+          variant="outlined"
+        />
+        <input
+          description ={this.state.value}
+          onChange={this.handleChange}
+          id="outlined-full-width"
+          label="Item Description"
+          style={{ margin: 8 }}
+          placeholder = "Item Description"
+          className={classes.textField}
+          margin="normal"
+          variant="outlined"
+        />
+      
         <div className={classes.buttonDiv}>
         <Button variant="outlined" className={classes.button}>
             Submit
