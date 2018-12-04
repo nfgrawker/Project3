@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import DraftsIcon from "@material-ui/icons/Drafts";
 import SendIcon from "@material-ui/icons/Send";
+import Settings from "@material-ui/icons/Settings";
 
+const styles = {
+  submenu:{
+    paddingLeft: '40px'
+  }
+}
 class MenuList extends Component {
- 
   render() {
     return (
       <div>
@@ -30,12 +36,12 @@ class MenuList extends Component {
             onClick={this.props.showContent}
           >
             <ListItemIcon value="settings">
-              <SendIcon value="settings" />
+              <Settings value="settings" />
             </ListItemIcon>
             Settings
           </ListItem>
 
-          <ListItem
+          <ListItem divider
             button={true}
             name="raffles"
             value="raffles"
@@ -46,8 +52,24 @@ class MenuList extends Component {
             </ListItemIcon>
             Raffles
           </ListItem>
+
+          <ListItem 
+            button={true}
+            name="raffles"
+            value="raffles"
+            onClick={this.props.showContent}
+          >
+            <div {...this.props} style={styles.submenu}>+ View </div>
+          </ListItem>
+          <ListItem 
+            button={true}
+            name="raffles"
+            value="raffles"
+            onClick={this.props.showContent}
+          >
+            <div {...this.props} style={styles.submenu}>+ Create </div>
+          </ListItem>
         </List>
-    
       </div>
     );
   }
