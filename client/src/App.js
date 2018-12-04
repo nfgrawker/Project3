@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 import AdminPage from './components/pages/Admin/Admin';
 import PrizePage from './components/pages/Prizes/Prizes'
 import RafflePage from './components/pages/Raffle';
-import AppPay from "./components/pages/Payment/AppPay";
+import PaypalApp from "./components/pages/Payment/PaypalApp";
 import NonProfitCard from "./components/Cards/NonProfitCard";
 import About from './components/pages/About/About'
 
@@ -29,7 +29,7 @@ const App = () => {
                 <Route exact path="/admin/:id"  component={AdminPage} />
                 <Route exact path="/prizes/:id" component={PrizePage} />
                 <Route exact path="/raffle/:id" component={RafflePage} />
-                <Route exact path="/Paymentpage" component={AppPay} />
+                <Route exact path="/Paymentpage" component={PaypalApp} />
 
             </div>
         </BrowserRouter>
