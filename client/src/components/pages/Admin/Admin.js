@@ -60,6 +60,7 @@ class AdminPage extends Component {
   componentDidMount() {
     console.log(this.props.match.params.id);
     axios.get("/api/nonprofit/" + this.props.match.params.id).then(res => {
+      console.log(res.data);
       this.setState({
         userinfo: res.data,
         username: res.data.name,
@@ -77,7 +78,6 @@ class AdminPage extends Component {
 
   // switch case to set main content
   renderMainContent() {
-    console.log(this.state.userinfo);
     const userInfo = {
       user: this.state.username,
       website: this.state.website,
@@ -91,6 +91,8 @@ class AdminPage extends Component {
         return <Settings {...userInfo} />;
       case "raffles":
         return <Raffles />;
+      case "view":
+        return <ViewRaffles />;
       default:
         return <Dashboard {...userInfo} />;
     }
@@ -215,6 +217,17 @@ class Raffles extends Component {
       <div>
         <h3>Create New Raffle</h3>
         <RaffleForm />
+      </div>
+    );
+  }
+}
+// View Raffles
+class ViewRaffles extends Component {
+  render() {
+    return (
+      <div>
+        <h3>View Raffle</h3>
+        <ViewRaffles />
       </div>
     );
   }
