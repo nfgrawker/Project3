@@ -4,7 +4,7 @@ import "./style.css";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import DatePicker from "./DatePicker";
+import SelectDate from "./DatePicker";
 
 const styles = theme => ({
   container: {
@@ -33,8 +33,8 @@ class RaffleForm extends Component {
       name: "",
       key: "",
       checkeditem: "",
-      starttime: "",
-      endtime: ""
+      startTime: "",
+      endTime: ""
     };
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -51,19 +51,26 @@ class RaffleForm extends Component {
     event.preventDefault();
     const btnKey = event.target.value;
     console.log(btnKey);
-    this.setState({ checkeditem: this.state._id });
+    this.setState({ checkeditem: btnKey });
   }
 
   handleDatePick(event) {
-    console.log(event.target);
-    
+    this.setState({ startTime: this.state.event.target.value });
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
-    console.log(this.state.checkeditem);
-    this.setState({});
+    let newRaffle = {
+      prize: this.state.checkeditem,
+      startTime: this.state.startTime,
+      endTime: this.state.endTime
+    }
+    console.log(newRaffle)
+    // axios.post("/api/create/raffle", newRaffle)
+    //   .then(this.loadAllPrizes())
+    //   .catch(err => console.log(err));
   }
+ 
   loadAllPrizes() {
     if (this.state.prizes.length) {
       const prizes = this.state.prizes;
@@ -85,19 +92,19 @@ class RaffleForm extends Component {
 
   render() {
     const { classes } = this.props;
-
     return (
       <div >
         <Paper>
          <form  noValidate autoComplete="off"> 
           <h5>Choose a prize:</h5>
           {this.loadAllPrizes()}
+
           <div className="dateDiv">
             <h5>Pick a start time:</h5>
-            <DatePicker />
+            <SelectDate starttime={this.state.startTime} onchange={this.handleDatePick}/>
 
             <h5>Pick an end time:</h5>
-            <DatePicker />
+            <SelectDate />
           </div>
 
           
