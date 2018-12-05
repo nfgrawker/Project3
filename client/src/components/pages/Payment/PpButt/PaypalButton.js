@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import scriptLoader from 'react-async-script-loader';
 
 class PaypalButton extends React.Component {
-  
   constructor(props) {
     super(props);
 
@@ -23,6 +22,7 @@ class PaypalButton extends React.Component {
       if (isScriptLoaded && isScriptLoadSucceed) {
         this.setState({ showButton: true });
       }
+      
     
   }
 
