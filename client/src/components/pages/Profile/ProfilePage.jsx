@@ -38,6 +38,13 @@ class ProfilePage extends React.Component {
   };
   componentDidMount() {
     this.getUser();
+
+
+    axios.get('/api/raffle/all/get')
+    .then(res => {
+      this.setState({raffle:res.data})
+      console.log(res.data)
+    }) 
   }
 
   renderImage = () => {
@@ -92,8 +99,7 @@ class ProfilePage extends React.Component {
               </GridContainer>
               <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={6}>
-              <RaffleCard />
-              <RaffleCard />
+              <RaffleCard raffle={this.state.raffle}/>
               </GridItem>
               </GridContainer>
 
