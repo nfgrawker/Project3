@@ -37,15 +37,10 @@ module.exports = function(app) {
         res.end();
     });
     app.get("/api/winner/get", function(req, res){
-<<<<<<< HEAD
-        Raffle.find({}, function(err, raffles) {
-
-=======
         var now = moment();
         Raffle.find({endTime: { $gt:now, $lt:now.add(7,"days") }},function(err, raffles){
             console.log(raffles)
             res.end()
->>>>>>> 600dd95542c2619a781156ec05fc01c7bed9e7b2
         })
     })
 };
