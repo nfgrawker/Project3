@@ -11,9 +11,10 @@ import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
 import StatBoxes from "../../AdminDashboard/StatBoxes";
+import UserSetting from "../../AdminSettings/AdminSettings";
 import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
-import CountUp from "react-countup";
+import RaffleTable from "../../AdminRaffle/RaffleTable";
 
 // sidebar style
 const drawerWidth = 170;
@@ -71,20 +72,11 @@ class AdminPage extends Component {
       });
     });
   }
-  // saveUserInfo() {
-  //   const info = this.state.userinfo.map((user, index) => (
-  //     <div user={user.name} />
-  //   ));
-  // }
 
   // switch case to set main content
   renderMainContent() {
     const userInfo = {
-      user: this.state.username,
-      website: this.state.website,
-      image: this.state.image,
-      description: this.state.description,
-      followers: this.state.followers
+      userinfo: this.state.userinfo
     };
     switch (this.state.linkValue) {
       case "dashboard":
@@ -94,7 +86,7 @@ class AdminPage extends Component {
       case "raffles":
         return <Raffles />;
       case "view":
-        return <ViewRaffles {...userInfo}/>;
+        return <AllRaffles  />;
       default:
         return <Dashboard {...userInfo} />;
     }
@@ -107,12 +99,6 @@ class AdminPage extends Component {
   };
   render() {
     const { classes } = this.props;
-    const userInfo = {
-      user: this.state.username,
-      website: this.state.website,
-      image: this.state.image,
-      description: this.state.description
-    };
     return (
       <div className={classes.root}>
         <Hidden xsDown>
@@ -136,10 +122,8 @@ class AdminPage extends Component {
 
         {/* Main Content */}
         <main className={classes.content}>
-          <h4>
-            {this.state.username} | {this.state.website}
-          </h4>
-          <AdminMain {...userInfo}>
+          <h4>Welcome Back {this.state.username}</h4>
+          <AdminMain {...this.props}>
             {this.renderMainContent(this.props)}
           </AdminMain>
         </main>
@@ -147,23 +131,6 @@ class AdminPage extends Component {
     );
   }
 }
-// test admin user -----------------------
-const adminUser = {
-  statistics: {
-    moneyraised: 3000,
-    followers: 246,
-    totalraffles: 8
-  },
-  raffles: {
-    itemName: "Item Title",
-    description: "description goes here",
-    image:
-      "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/12193133/German-Shepherd-Puppy-Fetch.jpg",
-    raffleTime: "",
-    bidders: 20
-  }
-};
-// ---------------------------------------------------------------------
 
 // Components for main content section
 class Dashboard extends Component {
@@ -176,60 +143,64 @@ class Dashboard extends Component {
     };
   }
   componentDidMount() {
-    let moneyraised = adminUser.statistics.moneyraised;
-    let followers = adminUser.statistics.followers;
-    let totalraffles = adminUser.statistics.totalraffles;
-
+    let followers = this.props.userinfo.followers;
     this.setState({
-      moneyraised: moneyraised,
-      followers: followers,
-      totalraffles: totalraffles
+      moneyraised: 3000,
+      totalraffles: 8
     });
   }
   render() {
     return (
-      <div>
+      <div className="dashboard">
         <StatBoxes
+          {...this.props}
           totalraffles={this.state.totalraffles}
           moneyraised={this.state.moneyraised}
-          followers={this.state.followers}
+          followers={this.props.userinfo.followers}
         />
         <CurrentRaffle
-          user={this.props.user}
-          about={this.props.description}
-          image={this.props.image}
-          itemName={this.state.itemName}
+          user={this.props.userinfo.name}
+          about={this.props.userinfo.description}
+          image={this.props.userinfo.imageLink}
+          followers={this.props.userinfo.followers}
         />
       </div>
     );
   }
 }
-const Settings = props => {
-  return (
-    <div>
-      from settings
-      {props.userinfo}
-    </div>
-  );
-};
+
+class Settings extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userinfo: this.props.userinfo
+    };
+  }
+  render() {
+    return <div> 
+      <UserSetting {...this.props}/>
+      </div>
+  }
+}
+
 // Raffle Form
 class Raffles extends Component {
   render() {
     return (
       <div>
-        <h3>Create New Raffle</h3>
+       
         <RaffleForm />
       </div>
     );
   }
 }
 // View Raffles
-class ViewRaffles extends Component {
+class AllRaffles extends Component {
   render() {
     return (
       <div>
         <h3>View Raffle</h3>
-        <ViewRaffles />
+        <RaffleTable />
       </div>
     );
   }
