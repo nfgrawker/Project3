@@ -12,6 +12,7 @@ class PrizePage extends Component {
 
   componentDidMount() {
       console.log(this.props.match.params.id)
+
     axios.get('/api/NonProfit/'+this.props.match.params.id)
       .then(res => {
         this.setState({name:res.data.name, image:res.data.imageLink, website: res.data.website, description:res.data.description  })
@@ -23,6 +24,12 @@ class PrizePage extends Component {
         this.setState({prizes:res.data })
         console.log(res.data)
       })  
+
+    axios.get('/api/nonprofit/all/get')
+    .then(res => {
+      this.setState({nonprofit:res.data })
+      console.log(res.data)
+    })  
   }
 
   render() {
@@ -34,7 +41,8 @@ class PrizePage extends Component {
 
         <RaffleItems prizes={this.state.prizes} />
 
-        {/* <NonProfitCard image={this.state.image} name={this.state.name} website={this.state.website} description={this.state.description}/> */}
+        <NonProfitCard nonprofit={this.state.nonprofit} />
+        
         </Grid>
       </div>
     );
