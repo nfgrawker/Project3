@@ -4,8 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import NonProfitInfo from "../../NonProfitInfo";
 import NonProfitCard from "../../Cards/NonProfitCard"
 import axios from 'axios';
-//import NonProfitCard from "../../Cards/NonProfitCard/NonProfitCard";
-
 
 
 class PrizePage extends Component {

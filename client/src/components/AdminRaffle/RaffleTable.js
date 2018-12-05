@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Paper from "@material-ui/core/Paper";
-import Checkboxes from './Checkbox';
 
 class RaffleTable extends Component {
   constructor(props) {
@@ -30,7 +29,6 @@ class RaffleTable extends Component {
 
           <tbody>
             <tr>
-              <td><Checkboxes onChange={this.handleChange}/></td>
               <td>Eclair</td>
               <td>$0.87</td>
             </tr>
