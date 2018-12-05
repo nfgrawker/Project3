@@ -18,7 +18,8 @@ module.exports = function(app) {
         })
     });
     app.get("/api/raffle/all/get", function(req,res){
-       Raffle.find({}, function(err, raffles){
+       Raffle.find({}).populate('prize')
+       .exec(function(err, raffles){
             res.send(raffles).end()
        })
     });
