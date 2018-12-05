@@ -15,32 +15,32 @@ class Links extends Component {
 
           <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a id="footer" href="#!">Products</a>
+              <a id="footer" href="nonprofits">Non Profits</a>
             </h6>
           </li>
 
           <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a id="footer" href="#!">Awards</a>
+              <a id="footer" href="/raffle">Raffles</a>
             </h6>
           </li>
 
           <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a id="footer" href="#!">Help</a>
+              <a id="footer" href="/help">Help</a>
             </h6>
           </li>
 
           <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a id="footer" href="#!">Contact</a>
+              <a id="footer" href="/contact">Contact</a>
             </h6>
           </li>
         </ul>
         <br />
         <ul id="footerList" className="list-unstyled list-inline text-center">
           <li id='footerLinks' className="list-inline-item">
-            <a
+            <a href="https://www.facebook.com"
               className="btn-floating btn-fb mx-1"
               style={{
                 backgroundColor: "#3b5998"
@@ -52,7 +52,7 @@ class Links extends Component {
             </a>
           </li>
           <li id='footerLinks' className="list-inline-item">
-            <a
+            <a href="https://www.twitter.com"
               className="btn-floating btn-tw mx-1"
               style={{
                 backgroundColor: "#00aced"
@@ -62,7 +62,7 @@ class Links extends Component {
             </a>
           </li>
           <li id='footerLinks' className="list-inline-item">
-            <a
+            <a href="https://plus.google.com/discover"
               className="btn-floating btn-gplus mx-1"
               style={{
                 backgroundColor: "#dd4b39"
@@ -72,7 +72,7 @@ class Links extends Component {
             </a>
           </li>
           <li id='footerLinks' className="list-inline-item">
-            <a
+            <a href="https://www.linkedin.com"
               className="btn-floating btn-li mx-1"
               style={{
                 backgroundColor: "#007bb6"

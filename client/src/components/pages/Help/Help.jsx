@@ -18,7 +18,7 @@ class ProductSection extends React.Component {
         <GridContainer justify="center">
           <GridItem xs={12} sm={12} md={8}>
             <h2 className={classes.title}>Entering a Prize Draw</h2>
-            <h4 className={classes.description}>
+            <h4 className={classes.title}>
               Why do you need to register?
             </h4>
             <h5 className={classes.description}>
