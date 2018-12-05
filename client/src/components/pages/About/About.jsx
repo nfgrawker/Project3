@@ -52,7 +52,7 @@ class ProductSection extends React.Component {
             For more information, influencer and charity inquiries, and press
               inquiries...
             </h5>
-            <Button color="primary">Send Message</Button>
+            <Button color="primary"><a href='/contact'><p>Send Message</p></a></Button>
           </GridItem>
         </GridContainer>
       </div>
