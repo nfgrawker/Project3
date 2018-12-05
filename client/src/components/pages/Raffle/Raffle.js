@@ -21,7 +21,8 @@ class Raffle extends Component {
 
 state = {
   isActive: true,
-  endDate: "none",
+  endTime: "none",
+  prizeDescription: "none",
   prizeImage: "none",
   prizeName: "none",
   nonProfitName: "none",
@@ -35,8 +36,12 @@ componentDidMount() {
 axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
     console.log(res)
+      
+      let endTime = res.data.endTime.slice(0, 19);
+      console.log(endTime)
       this.setState({
-        endDate: res.data.endDate, 
+        endTime: endTime,
+        prizeDescription: res.data.prize.description,
         prizeImage:res.data.prize.image,
         prizeName:res.data.prize.name,
         nonProfitName:res.data.nonProfit.name,
@@ -52,7 +57,7 @@ render() {
 
   let activeSwitch;
   if (this.state.isActive) {
-    activeSwitch = <ActiveRaffle endDate={this.state.endDate}/>
+    activeSwitch = <ActiveRaffle endTime={this.state.endTime}/>
   } else {
     activeSwitch = <InactiveRaffle />
   }
@@ -71,6 +76,8 @@ render() {
               <GridList className={classes.gridList} cols={1}>
                 <GridListTile key={classes.img} style={{
                   height: "400px",
+                  width: "100%",
+                  objectFit: "contain",
                   boxShadow: "0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)",
                   padding: "0px 2px 0px 2px"
                 }}>
@@ -93,11 +100,11 @@ render() {
             }}>
               {this.state.prizeName}
             </Typography>
-            <Typography component="p"style={{
+            <Typography variant="h5" component="h5"style={{
               padding: "5px 5px 5px 5px",
               textAlign: "center"
             }}>
-              Import prize description here.
+              {this.state.prizeDescription}
             </Typography>
         </Paper>
         

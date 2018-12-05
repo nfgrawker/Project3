@@ -12,7 +12,7 @@ import rafflePageStyle from "../style/raffleStyle";
 class InactiveRaffle extends Component {
 
   state = {
-    winner: "1234567890"  
+    winner: "none"  
   }
 
 render() {
@@ -30,7 +30,7 @@ render() {
         This raffle has concluded
         <br />
         <div style={{marginTop: 12}}>
-          The winning ticket number was:
+          The winning ticket number is:
           <br />
           <b>{this.state.winner}</b>
         </div> 
