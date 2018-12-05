@@ -61,7 +61,6 @@ class AdminPage extends Component {
   componentDidMount() {
     console.log(this.props.match.params.id);
     axios.get("/api/nonprofit/" + this.props.match.params.id).then(res => {
-      console.log(res);
       this.setState({
         userinfo: res.data,
         username: res.data.name,
@@ -95,7 +94,7 @@ class AdminPage extends Component {
       case "raffles":
         return <Raffles />;
       case "view":
-        return <ViewRaffles />;
+        return <ViewRaffles {...userInfo}/>;
       default:
         return <Dashboard {...userInfo} />;
     }
