@@ -10,7 +10,7 @@ module.exports = function(app) {
         .exec(function (err, result) {
             if (err) console.log(err)
             else{
-                console.log(typeof result.nonProfit[0])
+                console.log(typeof result.nonProfit[0]);
                 console.log(typeof result.prize[0])
 
                 }
@@ -38,8 +38,9 @@ module.exports = function(app) {
     });
     app.get("/api/winner/get", function(req, res){
         var now = moment();
-        Raffle.find({endTime: { $gt:now, $lt:now.add(7,"days") }},function(err, raffles){
-            console.log(raffles)
+        var then = moment(now).add(10,"minutes");
+        Raffle.find({endTime: { $gt:now, $lt:then }},function(err, raffles){
+            console.log(raffles);
             res.end()
         })
     })
