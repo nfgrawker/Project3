@@ -5,14 +5,15 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 require('./models/User');
 require('./models/User');
-require("./models/Nonprofit");
+require('./models/Nonprofit');
 require('./models/Prize');
 require('./config/passport-setup');
+require('./models/Raffle');
 const PORT = process.env.PORT || 3001;
 const app = express();
-const authRoutes = require("./routes/authRoutes");
-const path = require("path");
-const bodyParser = require("body-parser");
+const authRoutes = require('./routes/authRoutes');
+const path = require('path');
+const bodyParser = require('body-parser');
 
 
 app.set('view engine', 'ejs');
@@ -50,6 +51,7 @@ app.use('/auth', authRoutes);
 require("./routes/api-routes")(app);
 require("./routes/nonprofitRoutes")(app);
 require("./routes/prizeRoutes")(app);
+require("./routes/raffleRoutes")(app);
 
 
 // create home route
