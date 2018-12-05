@@ -41,6 +41,7 @@ class PaypalApp extends React.Component {
           onCancel={onCancel}
         />
       </div>
+      
     );
   }
 }
