@@ -20,7 +20,13 @@ import axios from 'axios';
 class Raffle extends Component {
 
 state = {
-  isActive: true, prizeImage: "none", prizeName: "none", nonProfitName: "none", nonProfitImage: "none", nonProfitDescription: "none"
+  isActive: true,
+  endDate: "none",
+  prizeImage: "none",
+  prizeName: "none",
+  nonProfitName: "none",
+  nonProfitImage: "none",
+  nonProfitDescription: "none"
 };
 
 componentDidMount() {
@@ -29,7 +35,14 @@ componentDidMount() {
 axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
     console.log(res)
-this.setState({prizeImage:res.data.prize.image, prizeName:res.data.prize.name, nonProfitName:res.data.nonProfit.name, nonProfitImage:res.data.nonProfit.imageLink, nonProfitDescription: res.data.nonProfit.description})
+      this.setState({
+        endDate: res.data.endDate, 
+        prizeImage:res.data.prize.image,
+        prizeName:res.data.prize.name,
+        nonProfitName:res.data.nonProfit.name,
+        nonProfitImage:res.data.nonProfit.imageLink,
+        nonProfitDescription: res.data.nonProfit.description
+      })
   })
 }
 
@@ -39,7 +52,7 @@ render() {
 
   let activeSwitch;
   if (this.state.isActive) {
-    activeSwitch = <ActiveRaffle />
+    activeSwitch = <ActiveRaffle endDate={this.state.endDate}/>
   } else {
     activeSwitch = <InactiveRaffle />
   }
