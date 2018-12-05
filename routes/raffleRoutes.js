@@ -1,11 +1,11 @@
 const path = require("path");
 const mongoose = require('mongoose');
 const Raffle = mongoose.model("Raffle");
-
 const moment = require("moment")
 module.exports = function(app) {
     // Load index page
     app.get("/api/raffle/:id", function (req, res) {
+
         Raffle.findById(req.params.id).populate('nonProfit').populate('prize')
         .exec(function (err, result) {
             if (err) console.log(err)
@@ -19,7 +19,7 @@ module.exports = function(app) {
     });
     app.get("/api/raffle/all/get", function(req,res){
        Raffle.find({}, function(err, raffles){
-
+            res.send(raffles).end()
        })
     });
 
@@ -36,7 +36,11 @@ module.exports = function(app) {
         });
         res.end();
     });
-    app.get("/api/winner/get"{
-        Raffle.find({})
+    app.get("/api/winner/get", function(req, res){
+        var now = moment();
+        Raffle.find({endTime: { $gt:now, $lt:now.add(7,"days") }},function(err, raffles){
+            console.log(raffles)
+            res.end()
+        })
     })
 };

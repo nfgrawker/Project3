@@ -45,8 +45,8 @@ module.exports = function(app) {
         NonProfit.findById(req.params.charityid).populate('admins').exec(function (err, nonprofit) {
             if (err) console.log(err);
             else{
-                console.log(typeof nonprofit.admins[0].id)
-                console.log(typeof req.params.userid)
+                console.log(typeof nonprofit.admins[0].id);
+                console.log(typeof req.params.userid);
                     if (nonprofit.admins[0].id == req.params.userid){
                         isAdmin = true
                     }
