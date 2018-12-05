@@ -1,12 +1,19 @@
 const path = require("path");
 const mongoose = require('mongoose');
-const Raffle = mongoose.model("Prize");
+const Raffle = mongoose.model("Raffle");
 
 module.exports = function(app) {
     // Load index page
     app.get("/api/raffle/:id", function (req, res) {
-        Raffle.findById(id, function (err, result) {
-            console.log(result)
+        Raffle.findById(req.params.id).populate('nonProfit').populate('prize')
+        .exec(function (err, result) {
+            if (err) console.log(err)
+            else{
+                console.log(typeof result.nonProfit[0])
+                console.log(typeof result.prize[0])
+
+                }
+            res.send(result).end()
         })
     });
 

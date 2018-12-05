@@ -7,6 +7,7 @@ require('./models/User');
 require('./models/User');
 require("./models/Nonprofit");
 require('./models/Prize');
+require('./models/Raffle');
 require('./config/passport-setup');
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -50,6 +51,7 @@ app.use('/auth', authRoutes);
 require("./routes/api-routes")(app);
 require("./routes/nonprofitRoutes")(app);
 require("./routes/prizeRoutes")(app);
+require("./routes/raffleRoutes")(app);
 
 
 // create home route
