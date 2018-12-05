@@ -26,7 +26,7 @@ const CurrentRaffle = props => {
     <div className={classes.root}>
       <Grid container spacing={24}>
         {/* current rafflecard */}
-        <Grid className={classes.paper} item xs={12} sm={8}>
+        <Grid item className={classes.paper}  xs={12} sm={8}>
           <Chart />
         </Grid>
 
@@ -35,9 +35,6 @@ const CurrentRaffle = props => {
           <Paper className={classes.paper}>
             <h4>Current Raffle </h4>
             <img className="raffle-img" src={props.image} />
-            <li>followers: {props.followers}</li>
-            <li>Time remaining</li>
-            <li>Number of Bidders</li>
           </Paper>
         </Grid>
       </Grid>

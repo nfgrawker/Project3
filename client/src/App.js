@@ -12,10 +12,14 @@ import NonProfitCard from "./components/Cards/NonProfitCard";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import Help from "./components/pages/Help";
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from 'material-ui-pickers';
+ 
 
 const App = () => {
   return (
-    <div>
+    <div> 
+      <MuiPickersUtilsProvider utils={MomentUtils}>
       <BrowserRouter>
         <div>
           <Header />
@@ -33,6 +37,7 @@ const App = () => {
         </div>
       </BrowserRouter>
       <Footer />
+      </MuiPickersUtilsProvider>
     </div>
   );
 };
