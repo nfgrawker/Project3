@@ -7,20 +7,30 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
-import Countdown from "../../CountdownTimer"
 import NonProfitCard from "../../Cards/NonProfitCard"
 
 import rafflePageStyle from "./style/raffleStyle";
 
+import ActiveRaffle from "./ActiveRaffle";
+import InactiveRaffle from "./InactiveRaffle";
+
 class Raffle extends Component {
+
+state = {
+  isActive: true,
+};
 
 render() {
   const { classes, ...rest } = this.props;
 
-  const currentDate = new Date();
-  const year = (currentDate.getMonth() === 11 && currentDate.getDate() > 23) ? currentDate.getFullYear() + 1 : currentDate.getFullYear();
+
+  let activeSwitch;
+  if (this.state.isActive) {
+    activeSwitch = <ActiveRaffle />
+  } else {
+    activeSwitch = <InactiveRaffle />
+  }
 
   return (
     <div className="raffle-page">
@@ -65,31 +75,7 @@ render() {
             </Typography>
         </Paper>
         
-        <Paper className={classes.root} elevation={1} style={{
-          marginTop: 12,
-          boxShadow: "0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)"
-        }}>
-          <Typography variant="h2" component="h2" style={{
-            padding: "5px 5px 5px 5px",
-            textAlign: "center"
-          }}>
-            Time Reamining on this raffle:
-            <br></br>
-            <div style={{marginTop: 12}}>
-              <Countdown date={`${year}-12-25T00:00:00`} />
-            </div> 
-          </Typography>
-          <div style={{display:"flex", justifyContent: "center", marginTop: 10}}>
-            <Button variant="contained" color="primary" className={classes.margin} style={{
-              height: 80,
-              width: 400,
-              fontSize: 20,
-              marginBottom: 10
-            }}>
-            Buy Tickets for this Raffle
-            </Button>
-          </div>
-        </Paper>
+        {activeSwitch}
 
         <Paper className={classes.root} elevation={1} style={{
           marginTop: 12,
