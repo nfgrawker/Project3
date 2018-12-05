@@ -8,6 +8,7 @@ require('./models/Payment')
 require('./models/User');
 require('./models/Nonprofit');
 require('./models/Prize');
+require('./models/Raffle');
 require('./config/passport-setup');
 require('./models/Raffle');
 const PORT = process.env.PORT || 3001;
@@ -54,6 +55,7 @@ require("./routes/nonprofitRoutes")(app);
 require("./routes/prizeRoutes")(app);
 require("./routes/raffleRoutes")(app);
 require("./routes/paypal-routes")(app);
+
 
 
 // create home route

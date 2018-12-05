@@ -15,11 +15,23 @@ import rafflePageStyle from "./style/raffleStyle";
 import ActiveRaffle from "./ActiveRaffle";
 import InactiveRaffle from "./InactiveRaffle";
 
+import axios from 'axios';
+
 class Raffle extends Component {
 
 state = {
-  isActive: true,
+  isActive: true, prizeImage: "none", prizeName: "none", nonProfitName: "none", nonProfitImage: "none", nonProfitDescription: "none"
 };
+
+componentDidMount() {
+  console.log(this.props.match.params.id)
+
+axios.get('/api/raffle/'+this.props.match.params.id)
+  .then(res => {
+    console.log(res)
+this.setState({prizeImage:res.data.prize.image, prizeName:res.data.prize.name, nonProfitName:res.data.nonProfit.name, nonProfitImage:res.data.nonProfit.imageLink, nonProfitDescription: res.data.nonProfit.description})
+  })
+}
 
 render() {
   const { classes, ...rest } = this.props;
@@ -31,6 +43,7 @@ render() {
   } else {
     activeSwitch = <InactiveRaffle />
   }
+
 
   return (
     <div className="raffle-page">
@@ -52,8 +65,8 @@ render() {
                     className="prizeImage"
                     component="img"
                     alt="Prize Image"
-                    src="https://cdn8.bigcommerce.com/s-4erg8hlk42/images/stencil/1280x1280/products/51500/52423/Winfield-Vik__04752.1521656868.jpg?c=2"
-                    title="Vikings Helmet"
+                    src={this.state.prizeImage}
+                    title={this.state.prizeName}
                     style={{
                       boxShadow: "0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)",
                     }}
@@ -65,7 +78,7 @@ render() {
               padding: "5px 5px 5px 5px",
               textAlign: "center"
             }}>
-              Prize name header
+              {this.state.prizeName}
             </Typography>
             <Typography component="p"style={{
               padding: "5px 5px 5px 5px",
