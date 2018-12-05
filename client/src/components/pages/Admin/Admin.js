@@ -151,7 +151,7 @@ class Dashboard extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="dashboard">
         <StatBoxes
           {...this.props}
           totalraffles={this.state.totalraffles}

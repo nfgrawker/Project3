@@ -1,10 +1,10 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import axios from "axios";
-import './style.css';
+import "./style.css";
 import { withStyles } from "@material-ui/core/styles";
-import Paper from '@material-ui/core/Paper';
+import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import DateAndTimePickers from './DatePicker';
+import DateAndTimePickers from "./DatePicker";
 
 const styles = theme => ({
   container: {
@@ -20,9 +20,9 @@ const styles = theme => ({
   },
   paper: {
     padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
+    textAlign: "center",
+    color: theme.palette.text.secondary
+  }
 });
 
 class RaffleForm extends Component {
@@ -32,7 +32,7 @@ class RaffleForm extends Component {
       prizes: [],
       name: "",
       key: "",
-      checkeditem: "",
+      checkeditem: ""
     };
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -49,7 +49,7 @@ class RaffleForm extends Component {
     event.preventDefault();
     const btnKey = event.target.value;
     console.log(btnKey);
-    this.setState({checkeditem: this.state._id});
+    this.setState({ checkeditem: this.state._id });
   }
   handleFormSubmit(event) {
     event.preventDefault();
@@ -60,10 +60,15 @@ class RaffleForm extends Component {
     if (this.state.prizes.length) {
       const prizes = this.state.prizes;
       const listItems = prizes.map(prize => (
-        <Button id="listButton" key={prize._id} value={prize._id} onClick={this.handleOnClick} >
-          <img className="buttonImg" src={prize.image} />
-          <div className="buttonDiv"> {prize.name} </div>
-          <div className="buttonDiv"> {prize.quantity} </div>
+        <Button
+          id="listButton"
+          key={prize._id}
+          value={prize._id}
+          onClick={this.handleOnClick}
+        >
+          <img className="buttonImg thumbnail" src={prize.image} />
+          <div className="buttonDiv"> Item: {prize.name} </div>
+          <div className="buttonDiv"> Quantity: {prize.quantity} </div>
         </Button>
       ));
       return <div className="container">{listItems}</div>;
@@ -72,28 +77,31 @@ class RaffleForm extends Component {
 
   render() {
     const { classes } = this.props;
-   
+
     return (
       <div>
-      <Paper>
-      <h4>Create New Raffle</h4>
-        {this.loadAllPrizes()}
-        <hr/>
-        <br/>
-        <DateAndTimePickers />
-      
-      
-        <form className={classes.container} noValidate autoComplete="off">
-          <div className={classes.buttonDiv}>
-            <Button
-              onClick={this.handleFormSubmit}
-              variant="outlined"
-              className={classes.button}
-            >
-              Submit
-            </Button>
-          </div>
-        </form>
+        <Paper>
+          <h5>Choose a prize:</h5>
+          {this.loadAllPrizes()}
+          <div className="dateDiv">
+          <h5>Pick a start time:</h5>
+          <DateAndTimePickers />
+
+          <h5>Pick an end time:</h5>
+          <DateAndTimePickers />
+        </div>
+
+          <form className={classes.container} noValidate autoComplete="off">
+            <div className={classes.buttonDiv}>
+              <Button
+                onClick={this.handleFormSubmit}
+                variant="outlined"
+                className={classes.button}
+              >
+                Submit
+              </Button>
+            </div>
+          </form>
         </Paper>
       </div>
     );
