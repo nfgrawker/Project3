@@ -1,38 +1,31 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import React, { PureComponent } from 'react';
+import DateFnsUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from 'material-ui-pickers';
+import { TimePicker } from 'material-ui-pickers';
+import { DatePicker } from 'material-ui-pickers';
+import { DateTimePicker } from 'material-ui-pickers';
 
-const styles = theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap',
-  },
-  textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 250,
-  },
-});
+export default class SelectDate extends PureComponent {
+  state = {
+    selectedDate: new Date()
+  };
 
-function DateAndTimePickers(props) {
-  const { classes } = props;
+  handleDateChange = date => {
+    this.setState({ selectedDate: date });
+  };
 
-  return (
-    <form className={classes.container} noValidate>
-      <TextField
-        id="datetime-local"
-        label="Next appointment"
-        type="datetime-local"
-        defaultValue="2017-05-24T10:30"
-        className={classes.textField}
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-    </form>
-  );
+  render() {
+    const { selectedDate } = this.state;
+
+    return (
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <div className="pickers">
+          <DateTimePicker
+            value={selectedDate}
+            onChange={this.handleDateChange}
+          />
+        </div>
+      </MuiPickersUtilsProvider>
+    );
+  }
 }
-
-
-
-export default withStyles(styles)(DateAndTimePickers);
