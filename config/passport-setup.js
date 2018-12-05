@@ -33,11 +33,13 @@ passport.use(
           // already have this user
           done(null, currentUser);
         } else {
+
+          const ImgUrl = profile._json.image.url.replace("?sz=50", "")
           // if not, create user in our db
           new User({
               googleId: profile.id,
               username: profile.displayName,
-              thumbnail: profile._json.image.url,
+              thumbnail: ImgUrl,
               firstName: profile.name.givenName,
               lastName: profile.name.familyName,
               email: profile.emails[0].value,

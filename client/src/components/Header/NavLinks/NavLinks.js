@@ -17,7 +17,7 @@ class NavLinks extends Component {
 
           <li id="headerLinks">
             <h6 className="text-uppercase font-weight-bold">
-              <a id="navlink" href="/raffle">
+              <a id="navlink" href="/raffle/:id">
                 Raffles
               </a>
             </h6>

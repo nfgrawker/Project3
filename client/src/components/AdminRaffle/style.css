@@ -1,0 +1,22 @@
+.buttonDiv {
+    font-size: 15px;
+
+}
+.buttonImg {
+    width: 100px;
+    position: initial;
+    margin: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 2px;
+}
+#listButton {
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid #aaa;
+    width: 200px;
+    height: 200px;
+}
+.dateDiv {
+    display: flex;
+}

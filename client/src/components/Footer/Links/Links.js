@@ -21,7 +21,7 @@ class Links extends Component {
 
           <li id='footerLinks'>
             <h6 className="text-uppercase font-weight-bold">
-              <a id="footer" href="/raffle">Raffles</a>
+              <a id="footer" href="/raffle/:id">Raffles</a>
             </h6>
           </li>
 

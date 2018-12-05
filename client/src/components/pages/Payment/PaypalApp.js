@@ -14,10 +14,10 @@ const ENV = process.env.NODE_ENV === 'sandbox'
 class PaypalApp extends React.Component {
   render() {
     const onSuccess = (payment) => {
-      axios.post('http://localhost:3001/paymentpage', {
+      axios.post('/api/paymentpage', {
         paymentID: payment.paymentID,
         payerID: payment.payerID
-      })
+      });
       
       console.log('Successful payment!', payment);}
     
