@@ -20,7 +20,14 @@ import axios from 'axios';
 class Raffle extends Component {
 
 state = {
-  isActive: true, prizeImage: "none", prizeName: "none", nonProfitName: "none", nonProfitImage: "none", nonProfitDescription: "none"
+  isActive: true,
+  endTime: "none",
+  prizeDescription: "none",
+  prizeImage: "none",
+  prizeName: "none",
+  nonProfitName: "none",
+  nonProfitImage: "none",
+  nonProfitDescription: "none"
 };
 
 componentDidMount() {
@@ -29,7 +36,18 @@ componentDidMount() {
 axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
     console.log(res)
-this.setState({prizeImage:res.data.prize.image, prizeName:res.data.prize.name, nonProfitName:res.data.nonProfit.name, nonProfitImage:res.data.nonProfit.imageLink, nonProfitDescription: res.data.nonProfit.description})
+      
+      let endTime = res.data.endTime.slice(0, 19);
+      console.log(endTime)
+      this.setState({
+        endTime: endTime,
+        prizeDescription: res.data.prize.description,
+        prizeImage:res.data.prize.image,
+        prizeName:res.data.prize.name,
+        nonProfitName:res.data.nonProfit.name,
+        nonProfitImage:res.data.nonProfit.imageLink,
+        nonProfitDescription: res.data.nonProfit.description
+      })
   })
 }
 
@@ -39,7 +57,7 @@ render() {
 
   let activeSwitch;
   if (this.state.isActive) {
-    activeSwitch = <ActiveRaffle />
+    activeSwitch = <ActiveRaffle endTime={this.state.endTime}/>
   } else {
     activeSwitch = <InactiveRaffle />
   }
@@ -58,6 +76,8 @@ render() {
               <GridList className={classes.gridList} cols={1}>
                 <GridListTile key={classes.img} style={{
                   height: "400px",
+                  width: "100%",
+                  objectFit: "contain",
                   boxShadow: "0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12)",
                   padding: "0px 2px 0px 2px"
                 }}>
@@ -80,11 +100,11 @@ render() {
             }}>
               {this.state.prizeName}
             </Typography>
-            <Typography component="p"style={{
+            <Typography variant="h5" component="h5"style={{
               padding: "5px 5px 5px 5px",
               textAlign: "center"
             }}>
-              Import prize description here.
+              {this.state.prizeDescription}
             </Typography>
         </Paper>
         
