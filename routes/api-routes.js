@@ -5,6 +5,7 @@ const path = require("path");
 module.exports = function(app) {
 
     app.get('/api/currentuser', (req, res) => {
+        console.log(req.user)
         res.send(req.user);
 
 
