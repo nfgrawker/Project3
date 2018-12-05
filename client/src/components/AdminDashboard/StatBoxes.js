@@ -41,7 +41,7 @@ const StatBoxes = props => {
 
         <Grid item xs={12} sm={4}>
           <Paper className={classes.paper}>
-            <Grid item xs={6} className="iconBox">
+            <Grid item xs={6} className="iconBox ">
               <MonetizationOn className={classes.icons} />
             </Grid>
             <Grid item xs={6} className="counterText">

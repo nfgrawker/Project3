@@ -1,13 +1,17 @@
 .raffle-img {
-    width: 200px;
+    width: 250px;
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
 }
+
 .iconBox {
-    display: block;
-    float: left;
+    display: inline-block;
 }
 .counterText {
-    display: grid;
+    display: inline-table;
+}
+.counterText span {
+    display: block;
+    font-size: 40px;
 }

@@ -14,7 +14,7 @@ import StatBoxes from "../../AdminDashboard/StatBoxes";
 import UserSetting from "../../AdminSettings/AdminSettings";
 import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
-import CountUp from "react-countup";
+import RaffleTable from "../../AdminRaffle/RaffleTable";
 
 // sidebar style
 const drawerWidth = 170;
@@ -72,20 +72,6 @@ class AdminPage extends Component {
       });
     });
   }
-  // // Save Userinfo
-  // saveUserInfo() {
-  //   if (this.state.userinfo.length) {
-  //     const userinfo = this.state.userinfo;
-  //     console.log(userinfo);
-  //     const userData = userinfo.map(user => (
-  //       <ul key={user._id}>
-  //         <li> {user.name} </li>
-  //         <li> {user.dateJoined} </li>
-  //       </ul>
-  //     ));
-  //     return <div>{userData}</div>;
-  //   }
-  // }
 
   // switch case to set main content
   renderMainContent() {
@@ -100,7 +86,7 @@ class AdminPage extends Component {
       case "raffles":
         return <Raffles />;
       case "view":
-        return <AllRaffles {...userInfo} />;
+        return <AllRaffles  />;
       default:
         return <Dashboard {...userInfo} />;
     }
@@ -202,7 +188,7 @@ class Raffles extends Component {
   render() {
     return (
       <div>
-        <h3>Create New Raffle</h3>
+       
         <RaffleForm />
       </div>
     );
@@ -214,6 +200,7 @@ class AllRaffles extends Component {
     return (
       <div>
         <h3>View Raffle</h3>
+        <RaffleTable />
       </div>
     );
   }
