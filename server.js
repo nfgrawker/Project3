@@ -4,13 +4,13 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 require('dotenv').config();
 require('./models/User');
-require('./models/Payment')
+require('./models/Payment');
 require('./models/User');
 require('./models/Nonprofit');
 require('./models/Prize');
 require('./models/Raffle');
 require('./config/passport-setup');
-require('./models/Raffle');
+require('./models/Ticket');
 const PORT = process.env.PORT || 3001;
 const app = express();
 const authRoutes = require('./routes/authRoutes');
@@ -55,7 +55,7 @@ require("./routes/nonprofitRoutes")(app);
 require("./routes/prizeRoutes")(app);
 require("./routes/raffleRoutes")(app);
 require("./routes/paypal-routes")(app);
-
+require("./routes/ticketsRoutes")(app);
 
 
 // create home route
