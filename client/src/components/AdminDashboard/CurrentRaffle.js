@@ -35,6 +35,7 @@ const CurrentRaffle = props => {
 
             <Grid item xs={6}>
               <li>{props.itemName}</li>
+              <li>followers: {props.followers}</li>
               <li>Time remaining</li>
               <li>Number of Bidders</li>
             </Grid>

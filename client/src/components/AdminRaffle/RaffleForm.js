@@ -52,10 +52,10 @@ class RaffleForm extends React.Component {
     if (this.state.prizes.length) {
       const prizes = this.state.prizes;
       const listItems = prizes.map(prize => (
-        <Button>
+        <Button key={prize._id}>
           <img src={prize.image} />
-          <div key={prize._id}> {prize.name} </div>
-          <div key={prize._id}> {prize.quantity} </div>
+          <div> {prize.name} </div>
+          <div> {prize.quantity} </div>
         </Button>
       ));
       return <div>{listItems}</div>;
@@ -68,6 +68,8 @@ class RaffleForm extends React.Component {
       <div>
       <Paper>
         {this.loadAllPrizes()}
+        <h5>Start Time</h5>
+        <h5>End Time</h5>
       </Paper>
       <hr/>
         <form className={classes.container} noValidate autoComplete="off">

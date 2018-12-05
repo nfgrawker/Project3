@@ -55,8 +55,8 @@ class MenuList extends Component {
 
           <ListItem 
             button={true}
-            name="raffles"
-            value="raffles"
+            name="view"
+            value="view"
             onClick={this.props.showContent}
             style={styles.submenu}
           >
