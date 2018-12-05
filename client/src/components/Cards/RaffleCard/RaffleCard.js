@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Button from '@material-ui/core/Button';
@@ -22,52 +22,70 @@ const styles = {
   },
 };
 
+
+function shutter(i, els) {
+  const wrapIndex = i => i % els.length
+   return  [els[wrapIndex(i)], els[wrapIndex(i + 1)], els[wrapIndex(i +2)], els[wrapIndex(i +3)], els[wrapIndex(i+4)], els[wrapIndex(i+5)] ]
+      }
+
 const cards = [1, 2, 3];
 
-function RaffleCardAlbum(props) {
-  const { classes } = props;
+class RaffleCard extends Component {
+  state = {index:0}
+
+  render(){
 
   return (
+    
     <React.Fragment>
       <CssBaseline />
-      <div className={classNames(classes.layout, classes.cardGrid)}>
+      <div className="layout cardGrid">
       <main>
-          <Grid container spacing={40}>
-            {cards.map(card => (
-              <Grid item key={card} sm={6} md={4} lg={3}>
-                <Card className={classes.card}>
-                  <CardActionArea>
-                    <CardMedia
-                      className={classes.media}
-                      image="http://images.pitchero.com/ui/1781722/image_5bc8413691589.png"
-                      title="Contemplative Reptile"
-                    />
-                    <CardContent>
-                      <Typography gutterBottom variant="h5" component="h2">
-                        Raffle Name
-                      </Typography>
-                      <Typography component="p">
-                        This is the summary of a demo raffle. It contains lots of valuable information about the prize that you could win.
-                      </Typography>
-                    </CardContent>
-                  </CardActionArea>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      Learn more about this raffle
-                    </Button>
-                  </CardActions>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-      </main>
-      </div>
-    </React.Fragment>
-  );
+
+            {this.props.raffle ? shutter(this.state.index, this.props.raffle).map((raffle) => 
+
+
+<div className="layout cardGrid">
+    
+    <Grid container spacing={40} container justify="center" alignItems="center">
+     
+        <Grid sm={6} md={4} lg={3}>
+          <Card className="card">
+            <CardMedia
+              component="img"
+              className="media"
+              image={raffle.prize.image}
+
+            />
+            <CardContent className="cardContent">
+              <Typography>
+              {raffle.prize.name}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Typography>
+               {raffle.prize.description}
+              </Typography>
+              <Button size="small" color="primary">
+                <a href="../raffles/:id" />Link
+              </Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      
+    </Grid>
+  </div>):null}
+</main>
+</div>
+</React.Fragment>
+);
+}
 }
 
-RaffleCardAlbum.propTypes = {
+
+
+RaffleCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(RaffleCardAlbum);
+export default RaffleCard;

@@ -4,7 +4,7 @@ import "./style.css";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import DateAndTimePickers from "./DatePicker";
+import DatePicker from "./DatePicker";
 
 const styles = theme => ({
   container: {
@@ -32,7 +32,9 @@ class RaffleForm extends Component {
       prizes: [],
       name: "",
       key: "",
-      checkeditem: ""
+      checkeditem: "",
+      starttime: "",
+      endtime: ""
     };
     this.handleOnClick = this.handleOnClick.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -51,6 +53,12 @@ class RaffleForm extends Component {
     console.log(btnKey);
     this.setState({ checkeditem: this.state._id });
   }
+
+  handleDatePick(event) {
+    console.log(event.target);
+    
+  }
+
   handleFormSubmit(event) {
     event.preventDefault();
     console.log(this.state.checkeditem);
@@ -79,19 +87,20 @@ class RaffleForm extends Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div >
         <Paper>
+         <form  noValidate autoComplete="off"> 
           <h5>Choose a prize:</h5>
           {this.loadAllPrizes()}
           <div className="dateDiv">
-          <h5>Pick a start time:</h5>
-          <DateAndTimePickers />
+            <h5>Pick a start time:</h5>
+            <DatePicker />
 
-          <h5>Pick an end time:</h5>
-          <DateAndTimePickers />
-        </div>
+            <h5>Pick an end time:</h5>
+            <DatePicker />
+          </div>
 
-          <form className={classes.container} noValidate autoComplete="off">
+          
             <div className={classes.buttonDiv}>
               <Button
                 onClick={this.handleFormSubmit}
