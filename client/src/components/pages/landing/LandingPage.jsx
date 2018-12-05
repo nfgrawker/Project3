@@ -57,7 +57,7 @@ class Home extends React.Component {
         </div>
         <ParallaxTwo
           filter
-          image={require("../../assets/winningtix.gif")}
+          image={require("../../assets/winningticket.gif")}
           alt-text="non profit photo"
         >
           <div className={classes.container}>
