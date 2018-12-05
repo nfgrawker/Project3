@@ -4,6 +4,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 require('dotenv').config();
 require('./models/User');
+require('./models/Payment')
 require('./models/User');
 require("./models/Nonprofit");
 require('./models/Prize');
@@ -50,6 +51,7 @@ app.use('/auth', authRoutes);
 require("./routes/api-routes")(app);
 require("./routes/nonprofitRoutes")(app);
 require("./routes/prizeRoutes")(app);
+require("./routes/paypal-routes")(app);
 
 
 // create home route
