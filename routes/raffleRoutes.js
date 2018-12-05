@@ -28,7 +28,9 @@ module.exports = function(app) {
         });
         res.end();
     });
-    app.get("/api/winner/get"{
-        Raffle.find({})
+    app.get("/api/winner/get", function(req, res){
+        Raffle.find({}, function(err, raffles) {
+
+        })
     })
 };
