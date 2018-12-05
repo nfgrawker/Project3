@@ -6,7 +6,8 @@ const raffleSchema = new Schema({
     nonProfit: {type: Schema.Types.ObjectId, ref: 'NonProfit'},
     tickets: [{type: Schema.Types.ObjectId, ref: 'Ticket'}],
     startTime: Date,
-    endTime: Date
+    endTime: Date,
+    winner:{type:Schema.Types.ObjectId, ref:"User", default:null}
 
 });
 mongoose.model('Raffle', raffleSchema);
