@@ -11,6 +11,7 @@ import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Divider from "@material-ui/core/Divider";
 import StatBoxes from "../../AdminDashboard/StatBoxes";
+import UserSetting from "../../AdminSettings/AdminSettings";
 import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
 import CountUp from "react-countup";
@@ -71,25 +72,25 @@ class AdminPage extends Component {
       });
     });
   }
-  // Save Userinfo
-  saveUserInfo() {
-    if (this.state.userinfo.length) {
-      const userinfo = this.state.userinfo;
-      console.log(userinfo);
-      const userData = userinfo.map(user => (
-        <ul key={user._id}>
-          <li > {user.name} </li>
-          <li > {user.dateJoined} </li>
-        </ul>
-      ));
-      return <div>{userData}</div>;
-    }
-  }
+  // // Save Userinfo
+  // saveUserInfo() {
+  //   if (this.state.userinfo.length) {
+  //     const userinfo = this.state.userinfo;
+  //     console.log(userinfo);
+  //     const userData = userinfo.map(user => (
+  //       <ul key={user._id}>
+  //         <li> {user.name} </li>
+  //         <li> {user.dateJoined} </li>
+  //       </ul>
+  //     ));
+  //     return <div>{userData}</div>;
+  //   }
+  // }
 
   // switch case to set main content
   renderMainContent() {
     const userInfo = {
-      userinfo: this.state.userinfo,
+      userinfo: this.state.userinfo
     };
     switch (this.state.linkValue) {
       case "dashboard":
@@ -112,14 +113,6 @@ class AdminPage extends Component {
   };
   render() {
     const { classes } = this.props;
-    // const userInfo = {
-    //   user: this.state.username,
-    //   website: this.state.website,
-    //   image: this.state.image,
-    //   description: this.state.description
-    // };
-    this.saveUserInfo();
-
     return (
       <div className={classes.root}>
         <Hidden xsDown>
@@ -167,13 +160,14 @@ class Dashboard extends Component {
     let followers = this.props.userinfo.followers;
     this.setState({
       moneyraised: 3000,
-      totalraffles: 8,
+      totalraffles: 8
     });
   }
   render() {
     return (
       <div>
-        <StatBoxes {...this.props}
+        <StatBoxes
+          {...this.props}
           totalraffles={this.state.totalraffles}
           moneyraised={this.state.moneyraised}
           followers={this.props.userinfo.followers}
@@ -189,14 +183,20 @@ class Dashboard extends Component {
   }
 }
 
-const Settings = props => {
-  return (
-    <div>
-      from settings
-      
-    </div>
-  );
-};
+class Settings extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userinfo: this.props.userinfo
+    };
+  }
+  render() {
+    return <div> 
+      <UserSetting {...this.props}/>
+      </div>
+  }
+}
+
 // Raffle Form
 class Raffles extends Component {
   render() {
@@ -214,7 +214,6 @@ class AllRaffles extends Component {
     return (
       <div>
         <h3>View Raffle</h3>
-   
       </div>
     );
   }
