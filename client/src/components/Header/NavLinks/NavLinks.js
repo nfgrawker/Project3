@@ -17,23 +17,23 @@ class NavLinks extends Component {
 
           <li id="headerLinks">
             <h6 className="text-uppercase font-weight-bold">
-              <a id="navlink" href="#!">
-                Products
+              <a id="navlink" href="/raffle">
+                Raffles
               </a>
             </h6>
           </li>
 
           <li id="headerLinks">
             <h6 className="text-uppercase font-weight-bold">
-              <a id="navlink" href="#!">
-                Awards
+              <a id="navlink" href="nonprofit">
+                Non Profits
               </a>
             </h6>
           </li>
 
           <li id="headerLinks">
             <h6 className="text-uppercase font-weight-bold">
-              <a id="navlink" href="#!">
+              <a id="navlink" href="/help">
                 Help
               </a>
             </h6>
@@ -41,7 +41,7 @@ class NavLinks extends Component {
 
           <li id="headerLinks">
             <h6 className="text-uppercase font-weight-bold">
-              <a id="navlink" href="#!">
+              <a id="navlink" href="/contact">
                 Contact
               </a>
             </h6>

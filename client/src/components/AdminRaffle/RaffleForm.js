@@ -1,10 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
-import classNames from "classnames";
+import axios from "axios";
 import { withStyles } from "@material-ui/core/styles";
-import MenuItem from "@material-ui/core/MenuItem";
-import TextField from "./TextInput";
-import TextInput from "./TextInput";
+import Paper from '@material-ui/core/Paper';
 import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
@@ -18,27 +15,32 @@ const styles = theme => ({
   },
   button: {
     margin: theme.spacing.unit
-  }
+  },
+  paper: {
+    padding: theme.spacing.unit * 2,
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
 });
 
 class RaffleForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      raffles: [],
+      prizes: [],
       name: "",
-      title: "",
-      imagelink: "",
+      id: "",
+      item: "",
       description: ""
     };
-    this.handleChange = this.handleChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
-
-  handleChange(event) {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
+  componentDidMount() {
+    axios.get("/api/prize/all/get").then(res => {
+      console.log(res.data);
+      this.setState({
+        prizes: res.data
+      });
     });
   }
   handleFormSubmit(event) {
@@ -46,53 +48,40 @@ class RaffleForm extends React.Component {
     console.log(this.state.title, this.state.description, this.state.imagelink);
     this.setState({});
   }
+  loadAllPrizes() {
+    if (this.state.prizes.length) {
+      const prizes = this.state.prizes;
+      const listItems = prizes.map(prize => (
+        <Button>
+          <img src={prize.image} />
+          <div key={prize._id}> {prize.name} </div>
+          <div key={prize._id}> {prize.quantity} </div>
+        </Button>
+      ));
+      return <div>{listItems}</div>;
+    }
+  }
 
   render() {
     const { classes } = this.props;
-
     return (
-      <form className={classes.container} noValidate autoComplete="off">
-        <input
-          value={this.state.value}
-          name="title"
-          onChange={this.handleChange}
-          id="outlined-full-width"
-          label="Item Name"
-          style={{ margin: 8 }}
-          placeholder="Item Name"
-          className={classes.textField}
-        />
-        <input
-          value={this.state.value}
-          name="imagelink"
-          onChange={this.handleChange}
-          id="outlined-full-width"
-          label="Item Description"
-          style={{ margin: 8 }}
-          placeholder="Image Link"
-          className={classes.textField}
-        />
-        <input
-          value={this.state.value}
-          name="description"
-          onChange={this.handleChange}
-          id="outlined-full-width"
-          label="Item Description"
-          style={{ margin: 8 }}
-          placeholder="Item Description"
-          className={classes.textField}
-        />
-
-        <div className={classes.buttonDiv}>
-          <Button
-            onClick={this.handleFormSubmit}
-            variant="outlined"
-            className={classes.button}
-          >
-            Submit
-          </Button>
-        </div>
-      </form>
+      <div>
+      <Paper>
+        {this.loadAllPrizes()}
+      </Paper>
+      <hr/>
+        <form className={classes.container} noValidate autoComplete="off">
+          <div className={classes.buttonDiv}>
+            <Button
+              onClick={this.handleFormSubmit}
+              variant="outlined"
+              className={classes.button}
+            >
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

@@ -81,7 +81,7 @@ class Header extends React.Component {
       color: "white"
     };
   }
-
+  profile;
   state = {
     auth: null,
     anchorEl: null,
@@ -168,10 +168,20 @@ class Header extends React.Component {
         open={isMenuOpen}
         onClose={this.handleMenuClose}
       >
-        <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
         <MenuItem onClick={this.handleMenuClose}>
-          <a href="http://localhost:3000/api/logout">Logout</a>
+          <a href="/profile">
+            <p id="dropdown">Profile</p>
+          </a>
+        </MenuItem>
+        <MenuItem onClick={this.handleMenuClose}>
+          <a href="/admin/id">
+            <p id="dropdown">My Account</p>
+          </a>
+        </MenuItem>
+        <MenuItem onClick={this.handleMenuClose}>
+          <a href="http://localhost:3000/api/logout">
+            <p id="dropdown">Logout</p>
+          </a>
         </MenuItem>
       </Menu>
     );
@@ -213,7 +223,6 @@ class Header extends React.Component {
               className="rounded"
             />
           </IconButton>
-          <p>Profile</p>
         </MenuItem>
       </Menu>
     );
@@ -250,16 +259,6 @@ class Header extends React.Component {
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <NavLinks id="headerList" />
-              <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
-              <IconButton color="inherit">
-                <Badge badgeContent={17} color="secondary">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
 
               <IconButton
                 aria-owns={isMenuOpen ? "material-appbar" : undefined}
