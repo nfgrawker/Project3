@@ -30,7 +30,7 @@ render() {
         Time Reamining on this raffle:
         <br></br>
         <div style={{marginTop: 12}}>
-          <Countdown date={this.state.date} />
+          <Countdown date={this.props.endTime} />
         </div> 
       </Typography>
 
