@@ -6,12 +6,14 @@ module.exports = function(app) {
     // Load index page
     app.get("/api/raffle/:id", function (req, res) {
 
-        Raffle.findById(req.params.id).populate('nonProfit').populate('prize')
+        Raffle.findById(req.params.id).populate('nonProfit').populate('prize').populate({path:'winner',
+            populate: {
+            path: 'user'
+                }})
         .exec(function (err, result) {
             if (err) console.log(err)
             else{
-                console.log(typeof result.nonProfit[0]);
-                console.log(typeof result.prize[0])
+                console.log(result)
 
                 }
             res.send(result).end()
@@ -40,7 +42,7 @@ module.exports = function(app) {
     });
     app.get("/api/winner/get", function(req, res){
         var now = moment();
-        var then = moment(now).add(10,"minutes");
+        var then = moment(now).add(10,"days");
         Raffle.find({endTime: { $gt:now, $lt:then }},function(err, raffles){
             for (let i in raffles){
                 if(raffles[i].winner == null){
