@@ -14,6 +14,8 @@ import { withStyles } from '@material-ui/core/styles';
 import PaypalButton from './PpButt/PaypalButton';
 import axios from 'axios';
 
+
+
 const CLIENT = {
   sandbox: 'AVadhup9z-8Iltl3F8WEvOYLMLiJwH44BPbVGO8ldyyS8II6tx7WiIjplNQ-7rEttjlIpYUa9zwJW42J',
   production: 'xxxXXX',
@@ -26,7 +28,7 @@ const ENV = process.env.NODE_ENV === 'sandbox'
 const styles = theme => ({
   '@global': {
     body: {
-      backgroundColor: theme.palette.common.white,
+      backgroundColor: theme.palette.common.black,
     },
   },
   layout: {

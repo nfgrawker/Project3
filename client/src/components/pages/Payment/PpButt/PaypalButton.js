@@ -51,8 +51,8 @@ class PaypalButton extends React.Component {
 
   render() {
     const style = {
-      layout: 'horizontal', // horizontal | vertical
-      size: 'responsive', // medium | large | responsive
+      layout: 'vertical', // horizontal | vertical
+      size: 'large', // medium | large | responsive
       shape: 'pill', // pill | rect
       color: 'black' // gold | blue | silver | white | black
       };
