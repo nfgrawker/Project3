@@ -49,6 +49,7 @@ class AdminPage extends Component {
       maincontent: "Main Content",
       linkValue: "",
       userinfo: [],
+      userid: "",
       username: "",
       image: "",
       website: "",
@@ -64,6 +65,7 @@ class AdminPage extends Component {
     axios.get("/api/nonprofit/" + this.props.match.params.id).then(res => {
       this.setState({
         userinfo: res.data,
+        userid: res.data._id,
         username: res.data.name,
         image: res.data.imageLink,
         website: res.data.website,
@@ -78,13 +80,15 @@ class AdminPage extends Component {
     const userInfo = {
       userinfo: this.state.userinfo
     };
+    const userId = {userid: this.state.userid};
+
     switch (this.state.linkValue) {
       case "dashboard":
         return <Dashboard {...userInfo} />;
       case "settings":
         return <Settings {...userInfo} />;
       case "raffles":
-        return <Raffles />;
+        return <Raffles {...userId}/>;
       case "view":
         return <AllRaffles  />;
       default:
@@ -188,7 +192,7 @@ class Raffles extends Component {
   render() {
     return (
       <div>
-        <RaffleForm />
+        <RaffleForm {...this.props}/>
       </div>
     );
   }
