@@ -4,7 +4,7 @@ import "./style.css";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import CountUp from "react-countup";
-import Chart from "../pages/Profile/sections/Chart";
+import Chart from "./Chart";
 
 const styles = theme => ({
   root: {
