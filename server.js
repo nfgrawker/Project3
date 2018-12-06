@@ -19,7 +19,6 @@ const bodyParser = require('body-parser');
 const axios= require('axios');
 
 
-app.set('view engine', 'ejs');
 
 // set up session cookies
 app.use(cookieSession({
@@ -58,13 +57,13 @@ require("./routes/raffleRoutes")(app);
 require("./routes/paypal-routes")(app);
 require("./routes/ticketsRoutes")(app);
 
-
-// setInterval(()=>axios.get("/api/winner/get",function(err, result){
-//     if (err) console.log(err)
-//     else{
-//         console.log("winner has run!")
-//     }
-// }),1000*60*5 );
+const HOST = process.env.WEB_HOST || "http://localhost:"+PORT ;
+setInterval(()=>axios.get(HOST+"/api/winner/get",function(err, result){
+    if (err) console.log(err)
+    else{
+        console.log("winner has run!")
+    }
+}),1000*60*5 );
 
 // create home route
 app.get("*", (req, res) => {
@@ -72,4 +71,4 @@ app.get("*", (req, res) => {
 });
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
-});
+}); 
