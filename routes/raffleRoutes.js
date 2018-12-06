@@ -48,8 +48,10 @@ module.exports = function(app) {
                     randomNumber = Math.floor((Math.random()*number))
                     raffles[i].winner = raffles[i].tickets[randomNumber]
                     raffles[i].save()
+                    console.log(raffles[i].winner)
                 }
             };
+            console.log("Winners has Run!")
             res.end()
         })
     })

@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import classNames from "classnames";
 import withStyles from "@material-ui/core/styles/withStyles";
-
 import Grid from '@material-ui/core/Grid';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-
+import moment from 'moment';
 import NonProfitInfo from "../../NonProfitInfo"
 
 import rafflePageStyle from "./style/raffleStyle";
@@ -37,7 +36,7 @@ axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
     console.log(res)
       
-      let endTime = res.data.endTime.slice(0, 19);
+      let endTime = moment(res.data.endTime)
       this.setState({
         endTime: endTime,
         prizeDescription: res.data.prize.description,

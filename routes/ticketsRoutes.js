@@ -21,7 +21,7 @@ module.exports = function(app) {
                         doc.tickets.push(docs[i].id)
 
                     }
-                    doc.save()
+                    doc.save();
                     console.log("Tickets Saved")
                 });
         }
