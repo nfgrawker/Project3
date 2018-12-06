@@ -88,7 +88,7 @@ const tiers = [
   const { classes } = props;
 
     const onSuccess = (payment) => {
-      var objectToPass = {raffle:req.match.params.id, amount:payment.amount,}
+      var objectToPass = {raffle:props.match.params.id, amount:payment.amount,}
       axios.post('/api/paymentpage', {
         paymentID: payment.paymentID,
         payerID: payment.payerID
@@ -111,7 +111,7 @@ const tiers = [
 
         <div className={classes.heroContent}>
           <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          How many raflle tickets do you want?
+          How many raffle tickets do you want?
           </Typography>
 
         </div>
