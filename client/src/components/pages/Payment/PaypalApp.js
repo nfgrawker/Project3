@@ -24,7 +24,7 @@ class PaypalApp extends React.Component {
 
     const onError = (error) => console.log('Erroneous payment OR failed to load script!', error);
 
-    const onCancel = (data) => console.log('Cancelled payment!', data)
+    const onCancel = (data) => console.log('Cancelled payment!', data);
     let currency = 'USD'; 
     let total = 546;
 

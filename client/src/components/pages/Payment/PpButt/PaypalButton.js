@@ -96,6 +96,7 @@ class PaypalButton extends React.Component {
           payment.paymentID = data.paymentID;
           payment.paymentToken = data.paymentToken;
           payment.returnUrl = data.returnUrl;
+          payment.amount = this.props.total;
           this.props.onSuccess(payment);
 
       });
