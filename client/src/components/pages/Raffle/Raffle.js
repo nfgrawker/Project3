@@ -8,7 +8,7 @@ import GridListTile from '@material-ui/core/GridListTile';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
-import NonProfitCard from "../../Cards/NonProfitCard"
+import NonProfitInfo from "../../NonProfitInfo"
 
 import rafflePageStyle from "./style/raffleStyle";
 
@@ -38,7 +38,6 @@ axios.get('/api/raffle/'+this.props.match.params.id)
     console.log(res)
       
       let endTime = res.data.endTime.slice(0, 19);
-      console.log(endTime)
       this.setState({
         endTime: endTime,
         prizeDescription: res.data.prize.description,
@@ -120,7 +119,11 @@ render() {
           }}>
             The proceeds from this raffle will go to:
             <br></br>
-            *Non-profit card here*
+            <NonProfitInfo 
+              name={this.state.nonProfitName}
+              image={this.state.nonProfitImage}
+              description={this.state.nonProfitDescription}
+            />
           </Typography>
         </Paper>
         </div>
