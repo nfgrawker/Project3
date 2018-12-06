@@ -14,7 +14,7 @@ import rafflePageStyle from "./style/raffleStyle";
 
 import ActiveRaffle from "./ActiveRaffle";
 import InactiveRaffle from "./InactiveRaffle";
-
+import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 class Raffle extends Component {
@@ -31,22 +31,22 @@ state = {
 };
 
 componentDidMount() {
-  console.log(this.props.match.params.id)
+  console.log(this.props.match.params.id);
 
 axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
     console.log(res)
       
-      // let endTime = res.data.endTime.slice(0, 19);
-      // this.setState({
-      //   endTime: endTime,
-      //   prizeDescription: res.data.prize.description,
-      //   prizeImage:res.data.prize.image,
-      //   prizeName:res.data.prize.name,
-      //   nonProfitName:res.data.nonProfit.name,
-      //   nonProfitImage:res.data.nonProfit.imageLink,
-      //   nonProfitDescription: res.data.nonProfit.description
-      // })
+      let endTime = res.data.endTime.slice(0, 19);
+      this.setState({
+        endTime: endTime,
+        prizeDescription: res.data.prize.description,
+        prizeImage:res.data.prize.image,
+        prizeName:res.data.prize.name,
+        nonProfitName:res.data.nonProfit.name,
+        nonProfitImage:res.data.nonProfit.imageLink,
+        nonProfitDescription: res.data.nonProfit.description
+      })
   })
 }
 
@@ -56,7 +56,7 @@ render() {
 
   let activeSwitch;
   if (this.state.isActive) {
-    activeSwitch = <ActiveRaffle endTime={this.state.endTime}/>
+    activeSwitch = <ActiveRaffle endTime={this.state.endTime} id={this.props.match.params.id}/>
   } else {
     activeSwitch = <InactiveRaffle />
   }

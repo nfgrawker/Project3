@@ -4,7 +4,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-
+import { Link } from 'react-router-dom'
 import Countdown from "../../../CountdownTimer/"
 
 import rafflePageStyle from "../style/raffleStyle";
@@ -13,7 +13,7 @@ class ActiveRaffle extends Component {
 
   state = {
     date: "2019-01-01 00:00:00"
-  }
+  };
 
 render() {
   const { classes, ...rest } = this.props;
@@ -35,14 +35,16 @@ render() {
       </Typography>
 
       <div style={{display:"flex", justifyContent: "center", marginTop: 10}}>
-        <Button variant="contained" color="primary" className={classes.margin} style={{
-          height: 80,
-          width: 400,
-          fontSize: 20,
-          marginBottom: 10
-        }}>
-        <a href='/api/paypal/:id'>Buy Tickets for this Raffle</a>
-        </Button>
+        <Link  to={`/paypal/${this.props.id}`}>
+            <Button variant="contained" color="primary" className={classes.margin} style={{
+            height: 80,
+            width: 400,
+            fontSize: 20,
+            marginBottom: 10
+            }}>
+            Buy Tickets for this Raffle
+          </Button>
+        </Link>
       </div>
     </Paper>
   );
