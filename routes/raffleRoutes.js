@@ -27,8 +27,8 @@ module.exports = function(app) {
     app.post("/api/create/raffle", function (req, res) {
         Raffle.create({ prize: req.body.prize,
             nonProfit: req.body.nonProfit,
-            startTime: req.body.start,
-            endTime: req.body.end
+            startTime: req.body.startTime,
+            endTime: req.body.endTime
         }, function (err, result) {
             if (err) console.log(err);  
             else{
