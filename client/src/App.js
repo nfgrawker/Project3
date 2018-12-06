@@ -10,6 +10,7 @@ import RafflePage from "./components/pages/Raffle";
 import Raffles from "./components/pages/Raffles";
 import Paypal from "./components/pages/Payment/Paypal";
 import NonProfits from "./components/pages/NonProfits";
+import NonProfitCard from "./components/Cards/NonProfitCard";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
 import Help from "./components/pages/Help";
@@ -30,6 +31,7 @@ const App = () => {
           {/* <Route exact path="/checkout" component={Checkout} /> */}
           <Route exact path="/admin/:id" component={AdminPage} />
           <Route exact path="/nonprofits" component={NonProfits} />
+          <Route exact path="/nonprofitcard" component={NonProfitCard} />
           <Route exact path="/prizes/:id" component={PrizePage} />
           <Route exact path="/raffles" component={Raffles} />
           <Route exact path="/raffle/:id" component={RafflePage} />
