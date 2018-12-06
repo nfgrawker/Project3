@@ -40,7 +40,7 @@ axios.get('/api/raffle/'+this.props.match.params.id)
       let endTime = moment(res.data.endTime)
       this.setState({
         endTime: endTime,
-        winner: res.data.winner,
+        winner: res.data.winner.user.username,
         prizeDescription: res.data.prize.description,
         prizeImage:res.data.prize.image,
         prizeName:res.data.prize.name,
@@ -56,7 +56,7 @@ render() {
 
 
   let activeSwitch;
-  if (this.state.isActive === ) {
+  if (this.state.winner === null) {
     activeSwitch = <ActiveRaffle endTime={this.state.endTime} id={this.props.match.params.id}/>
   } else {
     activeSwitch = <InactiveRaffle winner={this.state.winner}/>
