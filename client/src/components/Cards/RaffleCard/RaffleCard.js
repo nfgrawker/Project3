@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom'
 
 
 function shutter(i, els) {
+  if (els.length === 0) return els
   const wrapIndex = i => i % els.length;
   return [
     els[wrapIndex(i)],
@@ -45,6 +46,7 @@ class RaffleCard extends Component {
       <CssBaseline />
       <div className="layout cardGrid">
       <main>
+
 
             {this.props.raffle ? shutter(this.state.index, this.props.raffle).map((raffle) =>
 <div className="layout cardGrid">
