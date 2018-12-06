@@ -23,6 +23,7 @@ function shutter(i, els) {
     els[wrapIndex(i + 5)]
   ];
 }
+
 var styles = {
   margin: "20px",
   width: "300px",
