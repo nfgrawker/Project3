@@ -15,7 +15,6 @@ import { Link } from 'react-router-dom'
 
 
 function shutter(i, els) {
-
   if (els.length === 0) return els
   const wrapIndex = i => i % els.length;
   return [
