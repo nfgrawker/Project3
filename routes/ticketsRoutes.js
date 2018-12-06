@@ -16,10 +16,7 @@ module.exports = function(app) {
             else{
                 Raffle.findById(req.body.raffle, function (err, doc) {
                     for (i in docs) {
-
-
                         doc.tickets.push(docs[i].id)
-
                     }
                     doc.save();
                     console.log("Tickets Saved")

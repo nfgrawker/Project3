@@ -34,7 +34,7 @@ componentDidMount() {
 
 axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
-    console.log(res)
+    console.log(res);
       
       let endTime = moment(res.data.endTime)
       this.setState({
@@ -44,7 +44,7 @@ axios.get('/api/raffle/'+this.props.match.params.id)
         prizeName:res.data.prize.name,
         nonProfitName:res.data.nonProfit.name,
         nonProfitImage:res.data.nonProfit.imageLink,
-        nonProfitDescription: res.data.nonProfit.description
+        nonProfitDescription: res.data.nonProfit.description,
       })
   })
 }
