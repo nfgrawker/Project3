@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import Paper from "@material-ui/core/Paper";
 import "./style.css";
 import Input from "@material-ui/core/Input";
@@ -35,27 +36,26 @@ class UserSetting extends Component {
       description: update.description
     };
     console.log(updatedInfo);
-    // if (updatedInfo) {
-    //   axios
-    //     .put("/api/nonprofit/" + this.props.match.params.id, updatedInfo)
-    //     .catch(err => console.log(err));
-    // } else {
-    //   alert("this is wrong");
-    // }
+    if (updatedInfo) {
+      axios
+        .put("/api/update/nonprofit/" + this.props.userinfo._id, updatedInfo)
+        .catch(err => console.log(err));
+    } else {
+      alert("this is wrong");
+    }
   }
 
   render() {
-    console.log(this.props.userinfo);
     const user = this.props.userinfo;
 
     return (
       <div>
-        <Paper className="genBox" elevation={1}>
-          <div className="input-container">
-
-          {/* NonProfit Name */}
-            <div item className="input-field inline">
-              <i className="material-icons prefix">mode_edit</i>
+        <Paper className="genBox" >
+          <div className="row container">
+            {/* NonProfit Name */}
+            <h5>NonProfit</h5>
+            <div className="col s12 m6 input-field ">
+              <i className="material-icons prefix">keyboard_arrow_right</i>
               <input
                 placeholder={user.name}
                 id="user_name"
@@ -64,10 +64,9 @@ class UserSetting extends Component {
                 onChange={this.handleChange("name")}
               />
             </div>
-
-             {/* Website */}
-             <div className="input-field inline">
-              <i className="material-icons prefix">mode_edit</i>
+            {/* Website */}
+            <div className="col s12 m6 input-field ">
+              <i className="material-icons prefix">desktop_mac</i>
               <input
                 placeholder={user.website}
                 label="website"
@@ -76,12 +75,13 @@ class UserSetting extends Component {
                 onChange={this.handleChange("website")}
               />
             </div>
-           
           </div>
 
-              <div id="formContact" className="input-container">
-           {/* Contact Name */}
-           <div item className="input-field inline">
+
+          <div className="row container">
+            <h5>Contact Info:</h5>
+            {/* Contact Name */}
+            <div item className="col s12 m6 input-field">
               <i className="material-icons prefix">account_circle</i>
               <input
                 placeholder={user.contactName}
@@ -92,9 +92,9 @@ class UserSetting extends Component {
                 onChange={this.handleChange("contactName")}
               />
             </div>
+
             {/* Contact Number */}
-          <div className="input-container">
-            <div className="input-field">
+            <div className="col s12 m6 input-field">
               <i className="material-icons prefix">local_phone</i>
               <input
                 placeholder={user.contactNumber}
@@ -104,10 +104,8 @@ class UserSetting extends Component {
                 onChange={this.handleChange("contactNumber")}
               />
             </div>
-            </div>
-
-            {/* Address */}
-            <div className="input-field">
+             {/* Address */}
+            <div className="col s12 input-field">
               <i className="material-icons prefix">location_on</i>
               <input
                 placeholder={user.address}
@@ -117,9 +115,12 @@ class UserSetting extends Component {
                 onChange={this.handleChange("address")}
               />
             </div>
-           
+          </div>
+
+          <div id="formContact" className="row container">
+          <h5>Image and Description:</h5>
             {/* Image Link */}
-            <div className="input-field">
+            <div className="col s12 input-field">
               <i className="material-icons prefix">image</i>
               <input
                 placeholder={user.imageLink}
@@ -130,7 +131,7 @@ class UserSetting extends Component {
               />
             </div>
             {/* Description */}
-            <div className="input-field">
+            <div className="col s12 input-field">
               <i className="material-icons prefix">mode_edit</i>
               <input
                 placeholder={user.description}
@@ -141,7 +142,6 @@ class UserSetting extends Component {
                 onChange={this.handleChange("description")}
               />
             </div>
-            
           </div>
 
           {/* Submit Button */}
