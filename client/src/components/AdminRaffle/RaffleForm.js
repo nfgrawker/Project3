@@ -31,7 +31,6 @@ class RaffleForm extends PureComponent {
     super(props);
     this.state = {
       prizes: [],
-      nonProfit: "",
       checkeditem: "",
       selectedDate: new Date("2018-01-01T00:00:00.000Z"),
       startTime: new Date(),
@@ -47,22 +46,23 @@ class RaffleForm extends PureComponent {
         prizes: res.data
       });
     });
+    this.loadAllPrizes();
   }
 
   //handle start date
   handleStartDateChange = date => {
-    const kDate = moment(date).format("MM-DD-YYYY HH:mm:ss");
-    console.log(kDate);
+    // const kDate = moment(date).format("MM-DD-YYYY HH:mm:ss");
+    //console.log(kDate);
     this.setState({
-      selectedDate: date,
-      startTime: kDate
+      // selectedDate: date,
+      startTime: date
     });
   };
   //handle end date
   handleEndDateChange = date => {
-    const kDate = moment(date).format("MM-DD-YYYY HH:mm:ss");
+    // const iDate = moment(date).format("MM-DD-YYYY HH:mm:ss");
     this.setState({
-      endTime: kDate
+      endTime: date
     });
   };
 
@@ -77,10 +77,13 @@ class RaffleForm extends PureComponent {
   // handle raffle submit
   handleFormSubmit(event) {
     event.preventDefault();
+    const kDate = moment(this.state.startTime).format("MM-DD-YYYY HH:mm:ss");
+    const iDate = moment(this.state.endTime).format("MM-DD-YYYY HH:mm:ss");
     let newRaffle = {
+      nonProfit: this.props.userid,
       prize: this.state.checkeditem,
-      startTime: this.state.startTime,
-      endTime: this.state.endTime
+      startTime: kDate,
+      endTime: iDate
     };
     console.log(newRaffle);
     if (this.state.checkeditem && this.state.startTime && this.state.endTime) {
@@ -92,7 +95,7 @@ class RaffleForm extends PureComponent {
       alert("this is wrong");
     }
   }
-  
+
   // load prizes
   loadAllPrizes() {
     if (this.state.prizes.length) {
@@ -114,7 +117,7 @@ class RaffleForm extends PureComponent {
   }
 
   render() {
-    const { selectedDate } = this.state;
+    //const { selectedDate } = this.state;
     const { classes } = this.props;
     return (
       <div>
@@ -130,7 +133,7 @@ class RaffleForm extends PureComponent {
                   <DateTimePicker
                     name="startTime"
                     time={this.state.startTime}
-                    value={selectedDate}
+                    value={this.state.startTime}
                     disablePast
                     onChange={this.handleStartDateChange}
                     label="Start Time"
@@ -145,7 +148,7 @@ class RaffleForm extends PureComponent {
                   <DateTimePicker
                     name="endTime"
                     time={this.state.endTime}
-                    value={selectedDate}
+                    value={this.state.endTime}
                     disablePast
                     onChange={this.handleEndDateChange}
                     label="End Time"
