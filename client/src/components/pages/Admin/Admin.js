@@ -188,7 +188,6 @@ class Raffles extends Component {
   render() {
     return (
       <div>
-       
         <RaffleForm />
       </div>
     );
