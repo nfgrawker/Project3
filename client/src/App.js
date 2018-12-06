@@ -35,7 +35,7 @@ const App = () => {
           <Route exact path="/prizes/:id" component={PrizePage} />
           <Route exact path="/raffles" component={Raffles} />
           <Route exact path="/raffle/:id" component={RafflePage} />
-          <Route exact path="/paypal:id" component={Paypal} />
+          <Route exact path="/paypal/:id" component={Paypal} />
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/help" component={Help} />
         </div>
