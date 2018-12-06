@@ -8,7 +8,7 @@ const cardStyle = {
     display: "inline-block !important",
     background: "red",
     width: "200px",
-    ["@media (max-width:959px)"]: {
+    ["@media (max-width:960px)"]: {
       width: "80%"
     },
     boxShadow:

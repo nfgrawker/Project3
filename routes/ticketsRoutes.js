@@ -8,7 +8,7 @@ module.exports = function(app) {
     app.post("/api/posttickets",function(req,res){
         var documentArray = [];
         var ticketsArray = [];
-        for(i=0;i<req.body.amount;i++){
+        for(i=0;i<(req.body.amount * 10);i++){
             documentArray.push({raffle:req.body.raffle, user:req.user.id})
         }
         Ticket.insertMany(documentArray, function(err,docs){
@@ -21,7 +21,8 @@ module.exports = function(app) {
                         doc.tickets.push(docs[i].id)
 
                     }
-                    doc.save()
+                    doc.save();
+                    console.log("Tickets Saved")
                 });
         }
     });

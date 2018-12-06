@@ -44,9 +44,14 @@ module.exports = function(app) {
         Raffle.find({endTime: { $gt:now, $lt:then }},function(err, raffles){
             for (let i in raffles){
                 if(raffles[i].winner == null){
-
+                    var number = raffles[i].tickets.length
+                    randomNumber = Math.floor((Math.random()*number))
+                    raffles[i].winner = raffles[i].tickets[randomNumber]
+                    raffles[i].save()
+                    console.log(raffles[i].winner)
                 }
             };
+            console.log("Winners has Run!")
             res.end()
         })
     })
