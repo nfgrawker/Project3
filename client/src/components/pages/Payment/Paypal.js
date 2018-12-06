@@ -93,8 +93,11 @@ const tiers = [
         paymentID: payment.paymentID,
         payerID: payment.payerID
       });
-      axios.post("/api/posttickets")
-      console.log('Successful payment!', payment);}
+      axios.post("/api/posttickets", objectToPass).then((response)=>{
+
+      });
+      console.log('Successful payment!', payment);
+    };
 
 
     const onError = (error) => console.log('Erroneous payment OR failed to load script!', error);

@@ -11,6 +11,8 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom'
+
 
 const styles = {
   card: {
@@ -34,7 +36,6 @@ class RaffleCard extends Component {
   state = {index:0}
 
   render(){
-
   return (
     
     <React.Fragment>
@@ -42,11 +43,9 @@ class RaffleCard extends Component {
       <div className="layout cardGrid">
       <main>
 
-            {this.props.raffle ? shutter(this.state.index, this.props.raffle).map((raffle) => 
-
-
+            {this.props.raffle ? shutter(this.state.index, this.props.raffle).map((raffle) =>
 <div className="layout cardGrid">
-    
+
     <Grid container spacing={40} container justify="center" alignItems="center">
      
         <Grid sm={6} md={4} lg={3}>
@@ -66,9 +65,11 @@ class RaffleCard extends Component {
               <Typography>
                {raffle.prize.description}
               </Typography>
-              <Button size="small" color="primary">
-                <a href="../raffles/:id" />Link
-              </Button>
+                <Link to={`/raffle/${raffle._id}`}>
+                    <Button  size="small" color="primary">
+                        Links
+                    </Button>
+                </Link>
             </CardActions>
           </Card>
         </Grid>
