@@ -25,7 +25,7 @@ class UserSetting extends Component {
     event.preventDefault();
     let update = this.state;
     let updatedInfo = {
-      _id: this.props.userid,
+      _id: this.props.userinfo._id,
       name: update.name,
       address: update.address,
       contactName: update.contactName,
@@ -38,7 +38,6 @@ class UserSetting extends Component {
     // if (updatedInfo) {
     //   axios
     //     .put("/api/nonprofit/" + this.props.match.params.id, updatedInfo)
-    //     .then(this.loadAllPrizes())
     //     .catch(err => console.log(err));
     // } else {
     //   alert("this is wrong");
@@ -46,68 +45,104 @@ class UserSetting extends Component {
   }
 
   render() {
-    console.log(this.props._id);
+    console.log(this.props.userinfo);
     const user = this.props.userinfo;
 
     return (
       <div>
         <Paper className="genBox" elevation={1}>
-          <Grid item className="input-field" xs={6}>
-            <input
-              placeholder={user.name}
-              id="user_name"
-              type="text"
-              className="validate"
-              onChange={this.handleChange("name")}
-            />
-            <input
-              placeholder={user.contactName}
-              label="contact Name"
-              type="text"
-              className="validate"
-              onChange={this.handleChange("contactName")}
-            />
-          </Grid>
-          <Grid item className="input-field" xs={6}>
-            <input
-              placeholder={user.contactNumber}
-              label="contact Number"
-              type="text"
-              className="validate"
-              onChange={this.handleChange("contactNumber")}
-            />
-            <input
-              placeholder={user.website}
-              label="website"
-              type="text"
-              className="validate"
-              onChange={this.handleChange("website")}
-            />
-          </Grid>
-          <Grid item className="input-field" xs={12}>
-            <input
-              placeholder={user.imageLink}
-              label="image link"
-              type="text"
-              className="validate"
-              onChange={this.handleChange("imageLink")}
-            />
+          <div className="input-container">
 
-            <input
-              placeholder={user.description}
-              label="description"
-              type="text"
-              className="materialize-textarea"
-              onChange={this.handleChange("description")}
-            />
-            <input
-              placeholder={user.description}
-              label="address"
-              type="text"
-              className="materialize-textarea"
-              onChange={this.handleChange("address")}
-            />
-          </Grid>
+          {/* NonProfit Name */}
+            <div item className="input-field inline">
+              <i className="material-icons prefix">mode_edit</i>
+              <input
+                placeholder={user.name}
+                id="user_name"
+                type="text"
+                className="validate"
+                onChange={this.handleChange("name")}
+              />
+            </div>
+
+             {/* Website */}
+             <div className="input-field inline">
+              <i className="material-icons prefix">mode_edit</i>
+              <input
+                placeholder={user.website}
+                label="website"
+                type="text"
+                className="validate"
+                onChange={this.handleChange("website")}
+              />
+            </div>
+           
+          </div>
+
+              <div id="formContact" className="input-container">
+           {/* Contact Name */}
+           <div item className="input-field inline">
+              <i className="material-icons prefix">account_circle</i>
+              <input
+                placeholder={user.contactName}
+                id="contact_name"
+                label="contact Name"
+                type="text"
+                className="validate"
+                onChange={this.handleChange("contactName")}
+              />
+            </div>
+            {/* Contact Number */}
+          <div className="input-container">
+            <div className="input-field">
+              <i className="material-icons prefix">local_phone</i>
+              <input
+                placeholder={user.contactNumber}
+                label="contact Number"
+                type="tel"
+                className="validate"
+                onChange={this.handleChange("contactNumber")}
+              />
+            </div>
+            </div>
+
+            {/* Address */}
+            <div className="input-field">
+              <i className="material-icons prefix">location_on</i>
+              <input
+                placeholder={user.address}
+                label="address"
+                type="text"
+                className="materialize-textarea"
+                onChange={this.handleChange("address")}
+              />
+            </div>
+           
+            {/* Image Link */}
+            <div className="input-field">
+              <i className="material-icons prefix">image</i>
+              <input
+                placeholder={user.imageLink}
+                label="image link"
+                type="text"
+                className="validate"
+                onChange={this.handleChange("imageLink")}
+              />
+            </div>
+            {/* Description */}
+            <div className="input-field">
+              <i className="material-icons prefix">mode_edit</i>
+              <input
+                placeholder={user.description}
+                label="description"
+                type="text"
+                rows="5"
+                className="materialize-textarea"
+                onChange={this.handleChange("description")}
+              />
+            </div>
+            
+          </div>
 
           {/* Submit Button */}
           <div>

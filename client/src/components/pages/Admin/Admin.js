@@ -54,7 +54,8 @@ class AdminPage extends Component {
       image: "",
       website: "",
       description: "",
-      followers: 0
+      followers: 0,
+      raffleTime: ""
     };
     this.showContent = this.showContent.bind(this);
   }
@@ -73,14 +74,25 @@ class AdminPage extends Component {
         followers: res.data.followers
       });
     });
+    axios.get("/api/raffle/all/get").then(res => {
+      console.log(res.data);
+      for (let i = 0; i < res.data.length; i++) {
+        if (res.data[i].nonProfit === this.state.userid) {
+          console.log(res.data[i].endTime);
+          let raffleTime = res.data[i].endTime.slice(0, 19);
+          this.setState({ raffleTime: raffleTime });
+        }
+      }
+    });
   }
 
   // switch case to set main content
   renderMainContent() {
     const userInfo = {
-      userinfo: this.state.userinfo
+      userinfo: this.state.userinfo,
+      raffleTime: this.state.raffleTime
     };
-    const userId = {userid: this.state.userid};
+    const userId = { userid: this.state.userid };
 
     switch (this.state.linkValue) {
       case "dashboard":
@@ -88,9 +100,9 @@ class AdminPage extends Component {
       case "settings":
         return <Settings {...userInfo} />;
       case "raffles":
-        return <Raffles {...userId}/>;
+        return <Raffles {...userId} />;
       case "view":
-        return <AllRaffles  />;
+        return <AllRaffles />;
       default:
         return <Dashboard {...userInfo} />;
     }
@@ -163,6 +175,7 @@ class Dashboard extends Component {
           followers={this.props.userinfo.followers}
         />
         <CurrentRaffle
+          raffleTime={this.props.raffleTime}
           user={this.props.userinfo.name}
           about={this.props.userinfo.description}
           image={this.props.userinfo.imageLink}
@@ -181,9 +194,11 @@ class Settings extends Component {
     };
   }
   render() {
-    return <div> 
-      <UserSetting {...this.props}/>
+    return (
+      <div>
+        <UserSetting {...this.props} />
       </div>
+    );
   }
 }
 
@@ -192,7 +207,7 @@ class Raffles extends Component {
   render() {
     return (
       <div>
-        <RaffleForm {...this.props}/>
+        <RaffleForm {...this.props} />
       </div>
     );
   }
