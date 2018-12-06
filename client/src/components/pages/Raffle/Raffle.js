@@ -21,6 +21,7 @@ class Raffle extends Component {
 
 state = {
   isActive: true,
+  winner: null,
   endTime: "none",
   prizeDescription: "none",
   prizeImage: "none",
@@ -40,6 +41,7 @@ axios.get('/api/raffle/'+this.props.match.params.id)
       let endTime = res.data.endTime.slice(0, 19);
       this.setState({
         endTime: endTime,
+        winner: res.data.winner,
         prizeDescription: res.data.prize.description,
         prizeImage:res.data.prize.image,
         prizeName:res.data.prize.name,
@@ -55,10 +57,10 @@ render() {
 
 
   let activeSwitch;
-  if (this.state.isActive) {
+  if (this.state.isActive === ) {
     activeSwitch = <ActiveRaffle endTime={this.state.endTime} id={this.props.match.params.id}/>
   } else {
-    activeSwitch = <InactiveRaffle />
+    activeSwitch = <InactiveRaffle winner={this.state.winner}/>
   }
 
 
