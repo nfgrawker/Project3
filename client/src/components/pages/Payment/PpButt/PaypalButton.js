@@ -18,12 +18,12 @@ class PaypalButton extends React.Component {
         isScriptLoaded,
         isScriptLoadSucceed
       } = this.props;
-  
+
       if (isScriptLoaded && isScriptLoadSucceed) {
         this.setState({ showButton: true });
       }
-      
-    
+
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -31,12 +31,12 @@ class PaypalButton extends React.Component {
         isScriptLoaded,
         isScriptLoadSucceed,
       } = nextProps;
-  
+
       const isLoadedButWasntLoadedBefore =
         !this.state.showButton &&
         !this.props.isScriptLoaded &&
         isScriptLoaded;
-  
+
       if (isLoadedButWasntLoadedBefore) {
         if (isScriptLoadSucceed) {
           this.setState({ showButton: true });
@@ -83,6 +83,7 @@ class PaypalButton extends React.Component {
           paymentID: data.paymentID,
           paymentToken: data.paymentToken,
           returnUrl: data.returnUrl,
+          amount:this.props.total
         };
 
         onSuccess(payment);
@@ -103,5 +104,4 @@ class PaypalButton extends React.Component {
     );
   }
 }
-export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton); 
-
+export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
