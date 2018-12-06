@@ -15,15 +15,17 @@ import { Link } from 'react-router-dom'
 
 
 function shutter(i, els) {
-    const wrapIndex = i => i % els.length;
-    return [
-        els[wrapIndex(i)],
-        els[wrapIndex(i + 1)],
-        els[wrapIndex(i + 2)],
-        els[wrapIndex(i + 3)],
-        els[wrapIndex(i + 4)],
-        els[wrapIndex(i + 5)]
-    ];
+
+  if (els.length === 0) return els
+  const wrapIndex = i => i % els.length;
+  return [
+    els[wrapIndex(i)],
+    els[wrapIndex(i + 1)],
+    els[wrapIndex(i + 2)],
+    els[wrapIndex(i + 3)],
+    els[wrapIndex(i + 4)],
+    els[wrapIndex(i + 5)]
+  ];
 }
 var styles = {
     margin: "20px",
@@ -36,7 +38,6 @@ const cards = [1, 2, 3];
 
 class RaffleCard extends Component {
     state = { index: 0 };
-
     render() {
         return (
             <React.Fragment>
