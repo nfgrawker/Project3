@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
@@ -11,6 +12,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
+import { Link } from 'react-router-dom'
+
 
 function shutter(i, els) {
   if (els.length === 0) return els
@@ -34,40 +37,55 @@ var styles = {
 const cards = [1, 2, 3];
 
 class RaffleCard extends Component {
-  state = { index: 0 };
+  state = {index:0}
 
-  render() {
-    console.log(this.props)
-    return (
-      <React.Fragment>
-        <CssBaseline />
+  render(){
+  return (
+    
+    <React.Fragment>
+      <CssBaseline />
+      <div className="layout cardGrid">
+      <main>
 
-        <main>
-          {this.props.raffle
-            ? shutter(this.state.index, this.props.raffle).map(raffle => (
-                <Card className="card" style={styles}>
-                  <CardMedia
-                    component="img"
-                    className="media"
-                    image={raffle.prize.image}
-                  />
-                  <CardContent className="cardContent">
-                    <Typography>{raffle.prize.name}</Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Typography>{raffle.prize.description}</Typography>
-                    <Button size="small" color="primary">
-                      <a href="../raffles/:id" />
-                      Link
+
+            {this.props.raffle ? shutter(this.state.index, this.props.raffle).map((raffle) =>
+<div className="layout cardGrid">
+
+    <Grid container spacing={40} container justify="center" alignItems="center">
+     
+        <Grid sm={6} md={4} lg={3}>
+          <Card className="card">
+            <CardMedia
+              component="img"
+              className="media"
+              image={raffle.prize.image}
+
+            />
+            <CardContent className="cardContent">
+              <Typography>
+              {raffle.prize.name}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Typography>
+               {raffle.prize.description}
+              </Typography>
+                <Link to={`/raffle/${raffle._id}`}>
+                    <Button  size="small" color="primary">
+                        Links
                     </Button>
-                  </CardActions>
-                </Card>
-              ))
-            : null}
-        </main>
-      </React.Fragment>
-    );
-  }
+                </Link>
+            </CardActions>
+          </Card>
+        </Grid>
+      
+    </Grid>
+  </div>):null}
+</main>
+</div>
+</React.Fragment>
+);
+
 }
 
 RaffleCard.propTypes = {
