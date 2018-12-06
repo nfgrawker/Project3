@@ -16,6 +16,7 @@ const app = express();
 const authRoutes = require('./routes/authRoutes');
 const path = require('path');
 const bodyParser = require('body-parser');
+const axios= require('axios');
 
 
 app.set('view engine', 'ejs');
@@ -57,6 +58,13 @@ require("./routes/raffleRoutes")(app);
 require("./routes/paypal-routes")(app);
 require("./routes/ticketsRoutes")(app);
 
+
+// setInterval(()=>axios.get("/api/winner/get",function(err, result){
+//     if (err) console.log(err)
+//     else{
+//         console.log("winner has run!")
+//     }
+// }),1000*60*5 );
 
 // create home route
 app.get("*", (req, res) => {
