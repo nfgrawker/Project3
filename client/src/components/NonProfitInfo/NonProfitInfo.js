@@ -8,6 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom'
 
 const styles = {
   card: {
@@ -33,6 +34,7 @@ function NonProfitInfo(props) {
   const { classes } = props;
   return (
     <Card className={classes.card}>
+      <a href={props.website} target="_blank">
       <CardActionArea>
         <CardMedia
             component="img"
@@ -50,6 +52,7 @@ function NonProfitInfo(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
+      </a>
     </Card>
   );
 }
