@@ -88,7 +88,7 @@ class ProfilePage extends React.Component {
 
                     <div className={classes.name}>{this.renderName()}</div>
                   </div>
-                  <ButtonBases />
+                  
                 </GridItem>
                 
               </GridContainer>
@@ -99,7 +99,6 @@ class ProfilePage extends React.Component {
               </GridContainer>
               <GridContainer justify="center">
               <GridItem xs={12} sm={12} md={6}>
-              <RaffleCard raffle={this.state.raffle}/>
               </GridItem>
               </GridContainer>
 
