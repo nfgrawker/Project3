@@ -50,16 +50,6 @@ class Home extends React.Component {
                   difference, and have fun doing it.
                 </h4>
                 <br />
-                <Button
-                  color="danger"
-                  size="lg"
-                  href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="fas fa-play-circle" />
-                  Watch video
-                </Button>
               </GridItem>
             </GridContainer>
           </div>
