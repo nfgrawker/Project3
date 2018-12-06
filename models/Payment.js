@@ -5,5 +5,4 @@ const paymentSchema = new Schema({
     paymentID: String,
     user:{type: Schema.Types.ObjectId, ref: "User"}
 })
-
 mongoose.model('Payment', paymentSchema);
