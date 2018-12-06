@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
+import { Link } from 'react-router-dom'
 
 function shutter(i, els) {
   if (els.length === 0) return els
@@ -23,10 +24,12 @@ function shutter(i, els) {
     els[wrapIndex(i + 5)]
   ];
 }
+
 var styles = {
   margin: "20px",
   width: "300px",
   height: "450px",
+  overflow: "auto",
   display: "inline-block"
 };
 
@@ -54,10 +57,11 @@ class NonProfitCard extends Component {
                   </CardContent>
                   <CardActions>
                     <Typography>{nonprofit.description}</Typography>
-                    <Button size="small" color="primary">
-                      <a href="../nonprofits/:id" />
-                      Link
-                    </Button>
+                    <Link to={`/prizes/${nonprofit._id}`}>
+                      <Button size="small" color="primary">
+                        Link
+                      </Button>
+                    </Link>
                   </CardActions>
                 </Card>
               ))
@@ -67,5 +71,5 @@ class NonProfitCard extends Component {
     );
   }
 }
-
+//test
 export default NonProfitCard;

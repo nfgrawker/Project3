@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-require("./Links.css");
+import "./Links.css";
 
 class Links extends Component {
   render() {
@@ -38,8 +38,8 @@ class Links extends Component {
           </li>
         </ul>
         <br />
-        <ul id="footerList" className="list-unstyled list-inline text-center">
-          <li id='footerLinks' className="list-inline-item">
+        <ul id="footerSocial" className="list-unstyled list-inline text-center">
+          <li id='footerSocial' className="list-inline-item">
             <a href="https://www.facebook.com"
               className="btn-floating btn-fb mx-1"
               style={{
@@ -51,7 +51,7 @@ class Links extends Component {
 
             </a>
           </li>
-          <li id='footerLinks' className="list-inline-item">
+          <li id='footerSocial' className="list-inline-item">
             <a href="https://www.twitter.com"
               className="btn-floating btn-tw mx-1"
               style={{
@@ -61,7 +61,7 @@ class Links extends Component {
               <i className="fa fa-twitter"> </i>
             </a>
           </li>
-          <li id='footerLinks' className="list-inline-item">
+          <li id='footerSocial' className="list-inline-item">
             <a href="https://plus.google.com/discover"
               className="btn-floating btn-gplus mx-1"
               style={{
@@ -71,7 +71,7 @@ class Links extends Component {
               <i className="fa fa-google-plus"> </i>
             </a>
           </li>
-          <li id='footerLinks' className="list-inline-item">
+          <li id='footerSocial' className="list-inline-item">
             <a href="https://www.linkedin.com"
               className="btn-floating btn-li mx-1"
               style={{
