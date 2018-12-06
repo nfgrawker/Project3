@@ -4,7 +4,10 @@
     border-radius: 4px;
     padding: 5px;
 }
-
+.dashGrid {
+    zoom: auto;
+    margin:auto;
+}
 .iconBox {
     display: inline-block;
 }
