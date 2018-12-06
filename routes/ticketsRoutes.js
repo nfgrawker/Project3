@@ -6,16 +6,15 @@ const moment = require("moment")
 module.exports = function(app) {
     // Load index page
     app.post("/api/posttickets",function(req,res){
-        var document = {raffle:req.body.raffle, user:req.body.user};
         var documentArray = [];
         var ticketsArray = [];
-        for(i=0;i<req.body.amount;i++){
+        for(i=0;i<(req.body.amount * 10);i++){
             documentArray.push({raffle:req.body.raffle, user:req.user.id})
         }
         Ticket.insertMany(documentArray, function(err,docs){
             if (err) console.log(docs);
             else{
-                let currentRaffle = Raffle.findById(req.body.raffle, function (err, doc) {
+                Raffle.findById(req.body.raffle, function (err, doc) {
                     for (i in docs) {
 
 
@@ -23,6 +22,7 @@ module.exports = function(app) {
 
                     }
                     doc.save()
+                    console.log("Tickets Saved")
                 });
         }
     });

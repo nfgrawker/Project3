@@ -12,52 +12,56 @@ import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 
 function shutter(i, els) {
+  if (els.length === 0) return els
   const wrapIndex = i => i % els.length;
-  return [els[wrapIndex(i)], els[wrapIndex(i + 1)], els[wrapIndex(i + 2)]];
+  return [
+    els[wrapIndex(i)],
+    els[wrapIndex(i + 1)],
+    els[wrapIndex(i + 2)],
+    els[wrapIndex(i + 3)],
+    els[wrapIndex(i + 4)],
+    els[wrapIndex(i + 5)]
+  ];
 }
 
+var styles = {
+  margin: "20px",
+  width: "300px",
+  height: "450px",
+  display: "inline-block"
+};
+
+const cards = [1, 2, 3];
 
 class NonProfitCard extends Component {
   state = { index: 0 };
+
   render() {
     return (
       <React.Fragment>
         <CssBaseline />
+
         <main>
           {this.props.nonprofit
-            ? shutter(this.state.index, this.props.nonprofit).map(
-                ({ imageLink, name, description }) => (
-                  <div className="layout cardGrid">
-                    <Grid
-                      container
-                      spacing={40}
-                      container
-                      justify="center"
-                      alignItems="center"
-                    >
-                      <Grid sm={6} md={4} lg={3}>
-                        <Card className="card">
-                          <CardMedia
-                            component="img"
-                            className="media"
-                            image={imageLink}
-                          />
-                          <CardContent className="cardContent">
-                            <Typography>{name}</Typography>
-                          </CardContent>
-                          <CardActions>
-                            <Typography>{description}</Typography>
-                            <Button size="small" color="primary">
-                              <a href="/prizes/:id" />
-                              Link
-                            </Button>
-                          </CardActions>
-                        </Card>
-                      </Grid>
-                    </Grid>
-                  </div>
-                )
-              )
+            ? shutter(this.state.index, this.props.nonprofit).map(nonprofit => (
+                <Card className="card" style={styles}>
+                  <CardMedia
+                    component="img"
+                    className="media"
+                    image={nonprofit.imageLink}
+                  />
+                  <CardContent className="cardContent">
+                    <Typography>{nonprofit.name}</Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Typography>{nonprofit.description}</Typography>
+                    <Button size="small" color="primary">
+                      <a href="../nonprofits/:id" />
+                      Link
+                    </Button>
+                  </CardActions>
+                </Card>
+              ))
             : null}
         </main>
       </React.Fragment>

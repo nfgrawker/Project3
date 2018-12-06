@@ -21,6 +21,7 @@ module.exports = function(app) {
        Raffle.find({}).populate('prize')
        .exec(function(err, raffles){
             res.send(raffles).end()
+           console.log(raffles)
        })
     });
 
@@ -41,7 +42,14 @@ module.exports = function(app) {
         var now = moment();
         var then = moment(now).add(10,"minutes");
         Raffle.find({endTime: { $gt:now, $lt:then }},function(err, raffles){
-            console.log(raffles);
+            for (let i in raffles){
+                if(raffles[i].winner == null){
+                    var number = raffles[i].tickets.length
+                    randomNumber = Math.floor((Math.random()*number))
+                    raffles[i].winner = raffles[i].tickets[randomNumber]
+                    raffles[i].save()
+                }
+            };
             res.end()
         })
     })

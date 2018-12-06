@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import PaypalButton from './PpButt/PaypalButton';
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
 
 
 
@@ -95,13 +96,17 @@ const tiers = [
         paymentID: payment.paymentID,
         payerID: payment.payerID
       });
-      axios.post("/api/posttickets")
-      console.log('Successful payment!', payment);}
+      axios.post("/api/posttickets", objectToPass).then((response)=>{
+
+      });
+      console.log('Successful payment!', payment);
+      return <Redirect to={`/raffle/${props.match.params.id}`}/>
+    };
 
 
     const onError = (error) => console.log('Erroneous payment OR failed to load script!', error);
 
-    const onCancel = (data) => console.log('Cancelled payment!', data)
+    const onCancel = (data) => console.log('Cancelled payment!', data);
     let currency = 'USD';
 
 
