@@ -17,7 +17,7 @@ class NavLinks extends Component {
 
           <li id="headerLinks">
             <h6 className="text-uppercase font-weight-bold">
-              <a id="navlink" href="/raffle/:id">
+              <a id="navlink" href="/raffles">
                 Raffles
               </a>
             </h6>
@@ -25,7 +25,7 @@ class NavLinks extends Component {
 
           <li id="headerLinks">
             <h6 className="text-uppercase font-weight-bold">
-              <a id="navlink" href="nonprofit">
+              <a id="navlink" href="/nonprofits">
                 Non Profits
               </a>
             </h6>

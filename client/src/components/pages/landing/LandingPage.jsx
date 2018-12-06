@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
@@ -17,8 +18,21 @@ import landingPageStyle from "./style/landingPage.jsx";
 import ProductSection from "./sections/Product/ProductSection.jsx";
 import RaffleSection from "./sections/Raffles/RaffleSection.jsx";
 import ContactSection from "./sections/Contact/ContactSection.jsx";
+import RaffleCard from "../../Cards/RaffleCard";
 
 class Home extends React.Component {
+  state= {
+    raffle: []
+  }
+
+  componentDidMount() {
+
+    axios.get("/api/raffle/all/get").then(res => {
+      this.setState({ raffle: res.data });
+      console.log(this.state.raffle);
+    });
+  }
+
   render() {
     const { classes } = this.props;
     return (
@@ -68,9 +82,9 @@ class Home extends React.Component {
         </ParallaxTwo>
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
-            <RaffleSection />
+          <RaffleCard raffle={this.state.raffle}/>
             <hr />
-            <ContactSection />
+            <ContactSection /> 
           </div>
         </div>
       </div>
