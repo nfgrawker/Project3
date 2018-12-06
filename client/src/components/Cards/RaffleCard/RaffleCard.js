@@ -13,6 +13,7 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 
 function shutter(i, els) {
+  if (els.length === 0) return els
   const wrapIndex = i => i % els.length;
   return [
     els[wrapIndex(i)],
@@ -36,6 +37,7 @@ class RaffleCard extends Component {
   state = { index: 0 };
 
   render() {
+    console.log(this.props)
     return (
       <React.Fragment>
         <CssBaseline />
