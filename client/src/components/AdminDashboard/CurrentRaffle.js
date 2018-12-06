@@ -39,10 +39,12 @@ const CurrentRaffle = props => {
         </Grid>
       </Grid>
       <Grid container spacing={24}>
-        <Paper className={classes.paper}>
+      <Grid className="dashGrid" item xs={12} >
+         <Paper className={classes.paper}>
           <h5>About</h5> <hr />
           <span>{props.about}</span>
         </Paper>
+        </Grid>
       </Grid>
     </div>
   );
