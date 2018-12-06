@@ -37,16 +37,16 @@ axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
     console.log(res)
       
-      let endTime = res.data.endTime.slice(0, 19);
-      this.setState({
-        endTime: endTime,
-        prizeDescription: res.data.prize.description,
-        prizeImage:res.data.prize.image,
-        prizeName:res.data.prize.name,
-        nonProfitName:res.data.nonProfit.name,
-        nonProfitImage:res.data.nonProfit.imageLink,
-        nonProfitDescription: res.data.nonProfit.description
-      })
+      // let endTime = res.data.endTime.slice(0, 19);
+      // this.setState({
+      //   endTime: endTime,
+      //   prizeDescription: res.data.prize.description,
+      //   prizeImage:res.data.prize.image,
+      //   prizeName:res.data.prize.name,
+      //   nonProfitName:res.data.nonProfit.name,
+      //   nonProfitImage:res.data.nonProfit.imageLink,
+      //   nonProfitDescription: res.data.nonProfit.description
+      // })
   })
 }
 

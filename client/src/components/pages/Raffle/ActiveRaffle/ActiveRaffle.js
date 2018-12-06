@@ -41,7 +41,7 @@ render() {
           fontSize: 20,
           marginBottom: 10
         }}>
-        Buy Tickets for this Raffle
+        <a href='/api/paypal/:id'>Buy Tickets for this Raffle</a>
         </Button>
       </div>
     </Paper>
