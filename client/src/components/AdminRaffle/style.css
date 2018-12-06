@@ -1,3 +1,10 @@
+.prizesContainer {
+    margin: 0 auto;
+    padding: 20px 30px;
+    align-items: center;
+    justify-content: center;
+
+}
 .buttonDiv {
     font-size: 15px;
 

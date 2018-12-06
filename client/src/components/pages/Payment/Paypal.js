@@ -88,35 +88,36 @@ const tiers = [
 
 
   const { classes } = props;
-  
+
     const onSuccess = (payment) => {
-      axios.post('http://localhost:3001/paymentpage', {
+      var objectToPass = {raffle:props.match.params.id, amount:payment.amount,}
+      axios.post('/api/paymentpage', {
         paymentID: payment.paymentID,
         payerID: payment.payerID
-      })
-      
+      });
+      axios.post("/api/posttickets")
       console.log('Successful payment!', payment);}
-    
+
 
     const onError = (error) => console.log('Erroneous payment OR failed to load script!', error);
 
     const onCancel = (data) => console.log('Cancelled payment!', data)
-    let currency = 'USD'; 
-    
+    let currency = 'USD';
+
 
   return (
     <React.Fragment>
       <CssBaseline />
-     
+
       <main className={classes.layout}>
-       
+
         <div className={classes.heroContent}>
           <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          How many raflle tickets do you want?
+          How many raffle tickets do you want?
           </Typography>
-          
+
         </div>
-       
+
         <Grid container spacing={40} alignItems="flex-end">
           {tiers.map(tier => (
             // Enterprise card is full width at sm breakpoint
@@ -136,7 +137,7 @@ const tiers = [
                       ${tier.price}
                     </Typography>
                   </div>
-                  
+
                 </CardContent>
                 <CardActions className={classes.cardActions}>
                 <PaypalButton
@@ -153,10 +154,10 @@ const tiers = [
               </Card>
             </Grid>
           ))}
-          
+
         </Grid>
       </main>
-      
+
     </React.Fragment>
   );
 }

@@ -23,12 +23,12 @@ class PaypalButton extends React.Component {
         isScriptLoaded,
         isScriptLoadSucceed
       } = this.props;
-  
+
       if (isScriptLoaded && isScriptLoadSucceed) {
         this.setState({ showButton: true });
       }
-      
-    
+
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -36,12 +36,12 @@ class PaypalButton extends React.Component {
         isScriptLoaded,
         isScriptLoadSucceed,
       } = nextProps;
-  
+
       const isLoadedButWasntLoadedBefore =
         !this.state.showButton &&
         !this.props.isScriptLoaded &&
         isScriptLoaded;
-  
+
       if (isLoadedButWasntLoadedBefore) {
         if (isScriptLoadSucceed) {
           this.setState({ showButton: true });
@@ -88,6 +88,7 @@ class PaypalButton extends React.Component {
     const onAuthorize = (data, actions) =>
     actions.payment.execute()
       .then(() => {
+<<<<<<< HEAD
         const payment = Object.assign({}, this.props.payment); 
           payment.paid = true;
           payment.cancelled =false;
@@ -96,6 +97,19 @@ class PaypalButton extends React.Component {
           payment.paymentToken = data.paymentToken;
           payment.returnUrl = data.returnUrl;
           this.props.onSuccess(payment);
+=======
+        const payment = {
+          paid: true,
+          cancelled: false,
+          payerID: data.payerID,
+          paymentID: data.paymentID,
+          paymentToken: data.paymentToken,
+          returnUrl: data.returnUrl,
+          amount:this.props.total
+        };
+
+        onSuccess(payment);
+>>>>>>> c8e717e84ab630d40b7c0b3436e005368c40f638
       });
       let ppbtn = '';
     if (this.state.showButton) {
@@ -112,6 +126,7 @@ class PaypalButton extends React.Component {
     return <div>{ppbtn}</div>;
   }
 }
+<<<<<<< HEAD
 PaypalButton.propTypes = {
   currency: PropTypes.string.isRequired,
   total: PropTypes.number.isRequired,
@@ -134,3 +149,6 @@ PaypalButton.defaultProps = {
 export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
 
 
+=======
+export default scriptLoader('https://www.paypalobjects.com/api/checkout.js')(PaypalButton);
+>>>>>>> c8e717e84ab630d40b7c0b3436e005368c40f638
