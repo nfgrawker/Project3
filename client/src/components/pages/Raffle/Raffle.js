@@ -27,7 +27,8 @@ state = {
   prizeName: "none",
   nonProfitName: "none",
   nonProfitImage: "none",
-  nonProfitDescription: "none"
+  nonProfitDescription: "none",
+  currentTime: moment()
 };
 
 componentDidMount() {
@@ -35,18 +36,21 @@ componentDidMount() {
 
 axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
-    console.log(res);
+    console.log(res)
       
-      let endTime = moment(res.data.endTime)
+    if (res.data.winner.user.username) {
+      this.setState({
+        winner: res.data.winner.user.username,
+      })}
+    let endTime = moment(res.data.endTime)
       this.setState({
         endTime: endTime,
-        winner: res.data.winner.user.username,
         prizeDescription: res.data.prize.description,
         prizeImage:res.data.prize.image,
         prizeName:res.data.prize.name,
         nonProfitName:res.data.nonProfit.name,
         nonProfitImage:res.data.nonProfit.imageLink,
-        nonProfitDescription: res.data.nonProfit.description,
+        nonProfitDescription: res.data.nonProfit.description
       })
   })
 }
@@ -54,12 +58,15 @@ axios.get('/api/raffle/'+this.props.match.params.id)
 render() {
   const { classes, ...rest } = this.props;
 
-
   let activeSwitch;
-  if (this.state.winner === null) {
-    activeSwitch = <ActiveRaffle endTime={this.state.endTime} id={this.props.match.params.id}/>
-  } else {
+  if (this.state.currentTime >= this.state.endTime && this.state.winner === null) {
+    activeSwitch = <InactiveRaffle winner={"Picking Winner Soon"}/>
+  } 
+  else if (this.state.currentTime >= this.state.endTime) {
     activeSwitch = <InactiveRaffle winner={this.state.winner}/>
+  }
+  else {
+    activeSwitch = <ActiveRaffle endTime={this.state.endTime} id={this.props.match.params.id}/>
   }
 
 

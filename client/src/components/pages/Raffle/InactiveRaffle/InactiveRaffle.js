@@ -32,7 +32,7 @@ render() {
         <div style={{marginTop: 12}}>
           The raffle winner is:
           <br />
-          <b>{this.state.winner}</b>
+          <b>{this.props.winner}</b>
         </div> 
       </Typography>
     </Paper>
