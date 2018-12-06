@@ -47,6 +47,7 @@ class RaffleForm extends PureComponent {
         prizes: res.data
       });
     });
+    this.loadAllPrizes();
   }
 
   //handle start date
@@ -83,16 +84,16 @@ class RaffleForm extends PureComponent {
       endTime: this.state.endTime
     };
     console.log(newRaffle);
-    if (this.state.checkeditem && this.state.startTime && this.state.endTime) {
-      axios
-        .post("/api/create/raffle", newRaffle)
-        .then(this.loadAllPrizes())
-        .catch(err => console.log(err));
-    } else {
-      alert("this is wrong");
-    }
+    // if (this.state.checkeditem && this.state.startTime && this.state.endTime) {
+    //   axios
+    //     .post("/api/create/raffle", newRaffle)
+    //     .then(this.loadAllPrizes())
+    //     .catch(err => console.log(err));
+    // } else {
+    //   alert("this is wrong");
+    // }
   }
-  
+
   // load prizes
   loadAllPrizes() {
     if (this.state.prizes.length) {
