@@ -15,7 +15,7 @@ function shutter(i, els) {
   const wrapIndex = i => i % els.length;
   return [els[wrapIndex(i)], els[wrapIndex(i + 1)], els[wrapIndex(i + 2)]];
 }
-//tree
+
 
 class NonProfitCard extends Component {
   state = { index: 0 };
