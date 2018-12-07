@@ -33,11 +33,11 @@ const styles = theme => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    top: "64px"
+    top: "80px"
   },
   drawerPaper: {
     width: drawerWidth,
-    top: "64px"
+    top: "80px"
   },
   content: {
     minHeight: "-webkit-fill-available",
