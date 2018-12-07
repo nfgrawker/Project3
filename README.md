@@ -18,6 +18,6 @@ Make sure to use the 'Login' option in the upper-right to sign in with a Google 
 
 (Note: the payment system is setup with PayPal Sandbox, so no actual payment information is processed and it's advised that you use dummy payment data when "buying" tickets).
 
-### Wonderfund is built using MongoDB, Express, React, and Node.js. Other technologies used include Moment.js, Google OAuth, PayPal Sandbox, and Material UI.
+### Wonderfund is built using MongoDB, Express, React, and Node.js. Other technologies used include Moment.js, Mongoose, Google OAuth, PayPal Sandbox, and Material UI.
 
 ###### *Disclaimer*: this is a student project and is not in any way affiliated with any of the non-profit organziations listed on the website. Likewise, none of the raffles on the website are real, and no money or prizes are exchanging hands.
