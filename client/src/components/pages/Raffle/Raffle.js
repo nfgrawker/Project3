@@ -38,7 +38,7 @@ axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
     console.log(res)
       
-    if (typeof res.data.winner.user.username !== null) {
+    if (res.data.winner.user.username) {
       this.setState({
         winner: res.data.winner.user.username,
       })}
