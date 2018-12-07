@@ -37,8 +37,8 @@ componentDidMount() {
 axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
     console.log(res)
-      
-    if (res.data.winner.user.username) {
+
+    if (typeof res.data.winner == undefined) {
       this.setState({
         winner: res.data.winner.user.username,
       })}
