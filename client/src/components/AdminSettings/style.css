@@ -7,3 +7,12 @@
 .input-field {
     display: inline-flex !important;
 } */
+.btnDiv {
+    display: flex;
+    justify-content: center;
+}
+textarea.materialize-textarea {
+    overflow-y: auto;
+    resize: vertical;
+    min-height: 300px;
+}
