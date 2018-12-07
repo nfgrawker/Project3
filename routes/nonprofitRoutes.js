@@ -23,10 +23,15 @@ module.exports = function(app) {
         NonProfit.findOneAndUpdate(req.params.id, { 
             $set: { 
                 contactName: req.body.contactName ,
+                contactNumber: req.body.contactNumber, 
+                website: req.body.website,
+                description:req.body.description,
+                imageLink: req.body.image,
+                address: req.body.address,
             }
         }, function(err, result) {
              if (err) console.log(err);
-            res.send(result).end()
+            res.send('Updated: ' + result).end()
         })
     });
 
