@@ -23,7 +23,6 @@ const styles = theme => ({
 
 const StatBoxes = props => {
   const { classes } = props;
-  const followers = props.userinfo.followers;
   return (
     <div className={classes.root}>
       <Grid container spacing={24}>
