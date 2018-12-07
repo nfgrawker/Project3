@@ -18,6 +18,8 @@ import ReactImageFallback from "react-image-fallback";
 import NavLinks from "./NavLinks/NavLinks";
 import Logo from "./wonderFund_logo3.png"
 
+
+
 require("./Header.css");
 
 const styles = theme => ({
@@ -119,7 +121,7 @@ class Header extends React.Component {
         return (
           <li style={this.style}>
             <h6 style={this.style}>
-              <a href="/auth/google">Login</a>
+              <a href="http://localhost:3001/auth/google">Login</a>
             </h6>
           </li>
         );
@@ -180,7 +182,7 @@ class Header extends React.Component {
           </a>
         </MenuItem>
         <MenuItem onClick={this.handleMenuClose}>
-          <a href="/api/logout">
+          <a href="http://localhost:3000/api/logout">
             <p id="dropdown">Logout</p>
           </a>
         </MenuItem>
@@ -199,7 +201,11 @@ class Header extends React.Component {
           <NavLinks />
         </MenuItem>
         <MenuItem>
-         
+          <IconButton color="inherit">
+            <Badge badgeContent={4} color="secondary">
+              <MailIcon />
+            </Badge>
+          </IconButton>
           <p>Messages</p>
         </MenuItem>
         <MenuItem>
@@ -230,7 +236,7 @@ class Header extends React.Component {
         <Paper>
           <div className={classes.toolbar} />
         </Paper>
-        <AppBar
+        <AppBar iconElementLeft = {<img src='../assets/wfgLogo.png' alt="Logo" />}
           position="fixed"
           style={{
             backgroundColor: "#212121"
@@ -241,6 +247,7 @@ class Header extends React.Component {
               <img style={{width:'200px'}} src={Logo} />
             </span>
                   
+
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
               <NavLinks id="headerList" />
