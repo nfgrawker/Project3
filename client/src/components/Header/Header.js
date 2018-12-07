@@ -16,7 +16,6 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ReactImageFallback from "react-image-fallback";
 import NavLinks from "./NavLinks/NavLinks";
-import Logo from "./wonderFund_logo3.png"
 
 
 
@@ -242,11 +241,16 @@ class Header extends React.Component {
             backgroundColor: "#212121"
           }}
         >
-          <Toolbar title={this.props.title}>
-            <span> 
-              <img style={{width:'200px'}} src={Logo} />
-            </span>
-                  
+          <Toolbar >
+            <Typography
+              className={classes.title}
+              variant="h6"
+              color="inherit"
+              noWrap
+            >
+            
+        
+            </Typography>
 
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
