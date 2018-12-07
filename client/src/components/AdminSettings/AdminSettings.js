@@ -17,7 +17,6 @@ class UserSetting extends Component {
     description: ""
   };
 
-  // handle input values
   handleChange = prop => event => {
     this.setState({ [prop]: event.target.value });
   };
@@ -26,22 +25,20 @@ class UserSetting extends Component {
   handleFormSubmit(event) {
     event.preventDefault();
     let update = this.state;
-    let original = this.props.userinfo
     let updatedInfo = {
       _id: this.props.userinfo._id,
-      name: update.name || original.name,
-      address: update.address || original.address,
-      contactName: update.contactName || original.contactName,
-      contactNumber: update.contactNumber || original.contactNumber,
-      website: update.website || original.website,
-      imageLink: update.imageLink || original.imageLink,
-      description: update.description || original.description
+      name: update.name,
+      address: update.address,
+      contactName: update.contactName,
+      contactNumber: update.contactNumber,
+      website: update.website,
+      imageLink: update.imageLink,
+      description: update.description
     };
     console.log(updatedInfo);
     if (updatedInfo) {
       axios
         .put("/api/update/nonprofit/" + this.props.userinfo._id, updatedInfo)
-        .then(alert('Settings have been updated!'))
         .catch(err => console.log(err));
     } else {
       alert("this is wrong");
@@ -56,7 +53,6 @@ class UserSetting extends Component {
         <Paper className="genBox" >
           <div className="row container">
             {/* NonProfit Name */}
-            
             <h5>NonProfit</h5>
             <div className="col s12 m6 input-field ">
               <i className="material-icons prefix">keyboard_arrow_right</i>
@@ -85,7 +81,7 @@ class UserSetting extends Component {
           <div className="row container">
             <h5>Contact Info:</h5>
             {/* Contact Name */}
-            <div className="col s12 m6 input-field">
+            <div item className="col s12 m6 input-field">
               <i className="material-icons prefix">account_circle</i>
               <input
                 placeholder={user.contactName}
@@ -137,10 +133,11 @@ class UserSetting extends Component {
             {/* Description */}
             <div className="col s12 input-field">
               <i className="material-icons prefix">mode_edit</i>
-              <textarea rows="10"
+              <input
                 placeholder={user.description}
                 label="description"
                 type="text"
+                rows="5"
                 className="materialize-textarea"
                 onChange={this.handleChange("description")}
               />
@@ -148,11 +145,10 @@ class UserSetting extends Component {
           </div>
 
           {/* Submit Button */}
-          <div className="btnDiv">
+          <div>
             <Button
               onClick={this.handleFormSubmit.bind(this)}
               variant="outlined"
-              size="large"
             >
               Submit
             </Button>

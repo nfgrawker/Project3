@@ -19,9 +19,6 @@ const styles = theme => ({
   button: {
     margin: theme.spacing.unit
   },
-  itemSelected: {
-
-  },
   paper: {
     padding: theme.spacing.unit * 2,
     textAlign: "center",
@@ -34,8 +31,7 @@ class RaffleForm extends PureComponent {
     super(props);
     this.state = {
       prizes: [],
-      itemid: "",
-      selected: false,
+      checkeditem: "",
       selectedDate: new Date("2018-01-01T00:00:00.000Z"),
       startTime: new Date(),
       endTime: new Date()
@@ -71,14 +67,7 @@ class RaffleForm extends PureComponent {
     event.preventDefault();
     const btnKey = event.target.value;
     console.log(btnKey);
-    this.setState({ 
-      itemid: btnKey,
-      selected: true, 
-    });
-    if (this.state.selected === true){
-      //stuff
-    }
-
+    this.setState({ checkeditem: btnKey });
   }
 
   // handle raffle submit
@@ -88,7 +77,7 @@ class RaffleForm extends PureComponent {
     const iDate = moment(this.state.endTime).format("MM-DD-YYYY HH:mm:ss");
     let newRaffle = {
       nonProfit: this.props.userid,
-      prize: this.state.itemid,
+      prize: this.state.checkeditem,
       startTime: kDate,
       endTime: iDate
     };
@@ -112,7 +101,6 @@ class RaffleForm extends PureComponent {
           id="listButton"
           key={prize._id}
           value={prize._id}
-          selected={this.state.selected}
           onClick={this.handleOnClick}
         >
           <img className="buttonImg thumbnail" src={prize.image} />
@@ -131,12 +119,10 @@ class RaffleForm extends PureComponent {
       <div>
         <Paper>
           <form noValidate autoComplete="off">
-          <div className="container">
             <h5>Choose a prize:</h5>
             {this.loadAllPrizes()}
-          </div>
-            
-            <div className="dateDiv container">
+
+            <div className="dateDiv">
               {/* Start Date */}
               <Fragment>
                 <div className="picker">
@@ -144,9 +130,9 @@ class RaffleForm extends PureComponent {
                     name="startTime"
                     time={this.state.startTime}
                     value={this.state.startTime}
-                    disablePast autoOk
+                    disablePast
                     onChange={this.handleStartDateChange}
-                    helperText="Start Time"
+                    label="Start Time"
                     showTodayButton
                   />
                 </div>
@@ -159,9 +145,9 @@ class RaffleForm extends PureComponent {
                     name="endTime"
                     time={this.state.endTime}
                     value={this.state.endTime}
-                    disablePast autoOk
+                    disablePast
                     onChange={this.handleEndDateChange}
-                    helperText="End Time"
+                    label="End Time"
                     showTodayButton
                   />
                 </div>
@@ -169,9 +155,8 @@ class RaffleForm extends PureComponent {
             </div>
             
             {/* Submit Button */}
-            <div className="btnDiv">
+            <div className={classes.buttonDiv}>
               <Button
-                size="large"
                 onClick={this.handleFormSubmit}
                 variant="outlined"
                 className={classes.button}

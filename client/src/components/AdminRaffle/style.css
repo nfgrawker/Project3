@@ -27,10 +27,3 @@
 .dateDiv {
     display: flex;
 }
-.btnDiv {
-    display: flex;
-    justify-content: center;
-}
-.picker {
-    margin: 10px;
-}

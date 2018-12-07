@@ -25,9 +25,7 @@ const styles = theme => ({
     display: "flex"
   },
   welcome: {
-    textAlign: "center",
-    padding: "40px 10px",
-    
+    textAlign: 'center'
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1
@@ -146,7 +144,7 @@ class AdminPage extends Component {
 
         {/* Main Content */}
         <main className={classes.content}>
-          <h4 className={classes.welcome}>Welcome Back, {this.state.username}</h4>
+          <h4 className={classes.welcome}>Welcome Back {this.state.username}</h4>
           <AdminMain {...this.props}>
             {this.renderMainContent(this.props)}
           </AdminMain>
