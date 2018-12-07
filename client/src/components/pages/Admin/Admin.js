@@ -16,11 +16,16 @@ import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
 import RaffleTable from "../../AdminRaffle/RaffleTable";
 
+import image from "../AdminPage/jss/sidebar-2.jpg";
+
 // sidebar style
 const drawerWidth = 170;
 const styles = theme => ({
   root: {
     display: "flex"
+  },
+  welcome: {
+    textAlign: 'center'
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1
@@ -54,7 +59,8 @@ class AdminPage extends Component {
       image: "",
       website: "",
       description: "",
-      followers: 0
+      followers: 0,
+      raffleTime: ""
     };
     this.showContent = this.showContent.bind(this);
   }
@@ -73,14 +79,25 @@ class AdminPage extends Component {
         followers: res.data.followers
       });
     });
+    axios.get("/api/raffle/all/get").then(res => {
+      console.log(res.data);
+      for (let i = 0; i < res.data.length; i++) {
+        if (res.data[i].nonProfit === this.state.userid) {
+          console.log(res.data[i].endTime);
+          let raffleTime = res.data[i].endTime.slice(0, 19);
+          this.setState({ raffleTime: raffleTime });
+        }
+      }
+    });
   }
 
   // switch case to set main content
   renderMainContent() {
     const userInfo = {
-      userinfo: this.state.userinfo
+      userinfo: this.state.userinfo,
+      raffleTime: this.state.raffleTime
     };
-    const userId = {userid: this.state.userid};
+    const userId = { userid: this.state.userid };
 
     switch (this.state.linkValue) {
       case "dashboard":
@@ -88,9 +105,9 @@ class AdminPage extends Component {
       case "settings":
         return <Settings {...userInfo} />;
       case "raffles":
-        return <Raffles {...userId}/>;
+        return <Raffles {...userId} />;
       case "view":
-        return <AllRaffles  />;
+        return <AllRaffles />;
       default:
         return <Dashboard {...userInfo} />;
     }
@@ -109,6 +126,7 @@ class AdminPage extends Component {
           <CssBaseline />
           <AppBar position="fixed" className={classes.appBar} />
           <Drawer
+            image={image}
             className={classes.drawer}
             variant="permanent"
             classes={{
@@ -126,7 +144,7 @@ class AdminPage extends Component {
 
         {/* Main Content */}
         <main className={classes.content}>
-          <h4>Welcome Back {this.state.username}</h4>
+          <h4 className={classes.welcome}>Welcome Back {this.state.username}</h4>
           <AdminMain {...this.props}>
             {this.renderMainContent(this.props)}
           </AdminMain>
@@ -163,6 +181,7 @@ class Dashboard extends Component {
           followers={this.props.userinfo.followers}
         />
         <CurrentRaffle
+          raffleTime={this.props.raffleTime}
           user={this.props.userinfo.name}
           about={this.props.userinfo.description}
           image={this.props.userinfo.imageLink}
@@ -181,9 +200,11 @@ class Settings extends Component {
     };
   }
   render() {
-    return <div> 
-      <UserSetting {...this.props}/>
+    return (
+      <div>
+        <UserSetting {...this.props} />
       </div>
+    );
   }
 }
 
@@ -192,7 +213,7 @@ class Raffles extends Component {
   render() {
     return (
       <div>
-        <RaffleForm {...this.props}/>
+        <RaffleForm {...this.props} />
       </div>
     );
   }

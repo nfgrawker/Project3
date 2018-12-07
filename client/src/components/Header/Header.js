@@ -17,6 +17,8 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 import ReactImageFallback from "react-image-fallback";
 import NavLinks from "./NavLinks/NavLinks";
 
+
+
 require("./Header.css");
 
 const styles = theme => ({
@@ -233,21 +235,21 @@ class Header extends React.Component {
         <Paper>
           <div className={classes.toolbar} />
         </Paper>
-        <AppBar
+        <AppBar iconElementLeft = {<img src='../assets/wfgLogo.png' alt="Logo" />}
           position="fixed"
           style={{
             backgroundColor: "#212121"
           }}
         >
-          <Toolbar>
-            
+          <Toolbar >
             <Typography
               className={classes.title}
               variant="h6"
               color="inherit"
               noWrap
             >
-              <a href="/">WonderFund</a>
+            
+        
             </Typography>
 
             <div className={classes.grow} />

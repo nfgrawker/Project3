@@ -51,16 +51,12 @@ class RaffleForm extends PureComponent {
 
   //handle start date
   handleStartDateChange = date => {
-    // const kDate = moment(date).format("MM-DD-YYYY HH:mm:ss");
-    //console.log(kDate);
     this.setState({
-      // selectedDate: date,
       startTime: date
     });
   };
   //handle end date
   handleEndDateChange = date => {
-    // const iDate = moment(date).format("MM-DD-YYYY HH:mm:ss");
     this.setState({
       endTime: date
     });
@@ -101,7 +97,7 @@ class RaffleForm extends PureComponent {
     if (this.state.prizes.length) {
       const prizes = this.state.prizes;
       const listItems = prizes.map(prize => (
-        <Button
+        <Button type="button"
           id="listButton"
           key={prize._id}
           value={prize._id}
@@ -127,7 +123,7 @@ class RaffleForm extends PureComponent {
             {this.loadAllPrizes()}
 
             <div className="dateDiv">
-              <h5>Pick a start time:</h5>
+              {/* Start Date */}
               <Fragment>
                 <div className="picker">
                   <DateTimePicker
@@ -142,7 +138,7 @@ class RaffleForm extends PureComponent {
                 </div>
               </Fragment>
 
-              <h5>Pick an end time:</h5>
+              {/* End Date */}
               <Fragment>
                 <div className="picker">
                   <DateTimePicker
@@ -157,7 +153,8 @@ class RaffleForm extends PureComponent {
                 </div>
               </Fragment>
             </div>
-
+            
+            {/* Submit Button */}
             <div className={classes.buttonDiv}>
               <Button
                 onClick={this.handleFormSubmit}

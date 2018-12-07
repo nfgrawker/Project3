@@ -20,13 +20,15 @@ class Raffle extends Component {
 
 state = {
   isActive: true,
+  winner: null,
   endTime: "none",
   prizeDescription: "none",
   prizeImage: "none",
   prizeName: "none",
   nonProfitName: "none",
   nonProfitImage: "none",
-  nonProfitDescription: "none"
+  nonProfitDescription: "none",
+  currentTime: moment()
 };
 
 componentDidMount() {
@@ -36,7 +38,11 @@ axios.get('/api/raffle/'+this.props.match.params.id)
   .then(res => {
     console.log(res)
       
-      let endTime = moment(res.data.endTime)
+    if (res.data.winner.user.username) {
+      this.setState({
+        winner: res.data.winner.user.username,
+      })}
+    let endTime = moment(res.data.endTime)
       this.setState({
         endTime: endTime,
         prizeDescription: res.data.prize.description,
@@ -52,12 +58,15 @@ axios.get('/api/raffle/'+this.props.match.params.id)
 render() {
   const { classes, ...rest } = this.props;
 
-
   let activeSwitch;
-  if (this.state.isActive) {
+  if (this.state.currentTime >= this.state.endTime && this.state.winner === null) {
+    activeSwitch = <InactiveRaffle winner={"Picking Winner Soon"}/>
+  } 
+  else if (this.state.currentTime >= this.state.endTime) {
+    activeSwitch = <InactiveRaffle winner={this.state.winner}/>
+  }
+  else {
     activeSwitch = <ActiveRaffle endTime={this.state.endTime} id={this.props.match.params.id}/>
-  } else {
-    activeSwitch = <InactiveRaffle />
   }
 
 
