@@ -108,7 +108,7 @@ class RaffleForm extends PureComponent {
     if (this.state.prizes.length) {
       const prizes = this.state.prizes;
       const listItems = prizes.map(prize => (
-        <Button type="checkbox"
+        <Button type="button"
           id="listButton"
           key={prize._id}
           value={prize._id}
