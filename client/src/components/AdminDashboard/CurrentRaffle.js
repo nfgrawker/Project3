@@ -12,7 +12,7 @@ import CardHeader from "../pages/AdminPage/Card/CardHeader.jsx";
 import CardBody from "../pages/AdminPage/Card/CardBody.jsx";
 import CardFooter from "../pages/AdminPage/Card/CardFooter.jsx";
 import AccessTime from "@material-ui/icons/AccessTime";
-import ArrowUpward from "@material-ui/icons/ArrowUpward";
+import ArrowUpward from "@material-ui/icons/ArrowUpward"
 
 import {
   dailySalesChart,
