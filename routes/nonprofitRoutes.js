@@ -19,21 +19,21 @@ module.exports = function(app) {
         })
     });
 
-    app.put('/api/update/nonprofit/:id', function (req, res) {
-        NonProfit.findOneAndUpdate(req.params.id, { 
-            $set: { 
-                contactName: req.body.contactName ,
-                contactNumber: req.body.contactNumber, 
-                website: req.body.website,
-                description:req.body.description,
-                imageLink: req.body.image,
-                address: req.body.address,
-            }
-        }, function(err, result) {
-             if (err) console.log(err);
-            res.send('Updated: ' + result).end()
-        })
-    });
+    // app.put('/api/update/nonprofit/:id', function (req, res) {
+    //     NonProfit.findOneAndUpdate(req.params.id, { 
+    //         $set: { 
+    //             contactName: req.body.contactName ,
+    //             contactNumber: req.body.contactNumber, 
+    //             website: req.body.website,
+    //             description:req.body.description,
+    //             imageLink: req.body.image,
+    //             address: req.body.address,
+    //         }
+    //     }, function(err, result) {
+    //          if (err) console.log(err);
+    //         res.send('Updated: ' + result).end()
+    //     })
+    // });
 
     app.post("/api/create/nonprofit", function (req, res) {
         NonProfit.create({ imageLink: req.body.image, name: req.body.name, address: req.body.address,
