@@ -16,6 +16,8 @@ import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
 import RaffleTable from "../../AdminRaffle/RaffleTable";
 
+import image from "../AdminPage/jss/sidebar-2.jpg";
+
 // sidebar style
 const drawerWidth = 170;
 const styles = theme => ({
@@ -126,6 +128,7 @@ class AdminPage extends Component {
           <CssBaseline />
           <AppBar position="fixed" className={classes.appBar} />
           <Drawer
+            image={image}
             className={classes.drawer}
             variant="permanent"
             classes={{
