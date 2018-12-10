@@ -108,7 +108,7 @@ class RaffleForm extends PureComponent {
     if (this.state.prizes.length) {
       const prizes = this.state.prizes;
       const listItems = prizes.map(prize => (
-        <Button type="button"
+        <button type="button"
           id="listButton"
           key={prize._id}
           value={prize._id}
@@ -118,7 +118,7 @@ class RaffleForm extends PureComponent {
           <img className="buttonImg thumbnail" src={prize.image} />
           <div className="buttonDiv"> Item: {prize.name} </div>
           <div className="buttonDiv"> Quantity: {prize.quantity} </div>
-        </Button>
+        </button>
       ));
       return <div className="prizesContainer">{listItems}</div>;
     }
