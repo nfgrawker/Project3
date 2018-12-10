@@ -4,13 +4,11 @@ import axios from "axios";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 import Badge from "@material-ui/core/Badge";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
-import MenuIcon from "@material-ui/icons/Menu";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
@@ -236,7 +234,7 @@ class Header extends React.Component {
         <Paper>
           <div className={classes.toolbar} />
         </Paper>
-        <AppBar iconElementLeft = {<img src='./wonderFund_logo3.png' alt="Logo" />}
+        <AppBar 
           position="fixed"
           style={{
             backgroundColor: "#212121"
@@ -244,7 +242,7 @@ class Header extends React.Component {
         >
           <Toolbar title={this.props.title}>
             <span> 
-              <img style={{width:'200px'}} src={Logo} />
+              <a href="/"><img style={{width:'200px'}} src={Logo} /></a>
             </span>
                   
 
