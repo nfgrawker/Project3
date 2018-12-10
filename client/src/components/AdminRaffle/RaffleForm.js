@@ -93,7 +93,7 @@ class RaffleForm extends PureComponent {
       endTime: iDate
     };
     console.log(newRaffle);
-    if (this.state.checkeditem && this.state.startTime && this.state.endTime) {
+    if (newRaffle) {
       axios
         .post("/api/create/raffle", newRaffle)
         .then(this.loadAllPrizes())

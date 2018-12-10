@@ -4,6 +4,7 @@ import axios from "axios";
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
+import Typography from "@material-ui/core/Typography";
 
 // core components
 import GridContainer from "./sections/Grid/GridContainer.jsx";
@@ -72,6 +73,9 @@ class Home extends React.Component {
         </ParallaxTwo>
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
+          <Typography align="center">
+                <h2>Check out our current raffles!</h2>
+                </Typography>
           <RaffleCard raffle={this.state.raffle}/>
             <hr />
             <ContactSection /> 
