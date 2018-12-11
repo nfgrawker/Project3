@@ -21,20 +21,20 @@ class Raffle extends Component {
 state = {
   isActive: true,
   winner: null,
-  endTime: "none",
-  prizeDescription: "none",
-  prizeImage: "none",
-  prizeName: "none",
-  nonProfitName: "none",
-  nonProfitImage: "none",
-  nonProfitDescription: "none",
+  endTime: "",
+  prizeDescription: "",
+  prizeImage: "",
+  prizeName: "",
+  nonProfitName: "",
+  nonProfitImage: "",
+  nonProfitDescription: "",
   currentTime: moment()
 };
 
 componentDidMount() {
   console.log(this.props.match.params.id);
 
-axios.get('/api/raffle/'+this.props.match.params.id)
+axios.get('/api/raffle/' + this.props.match.params.id)
   .then(res => {
     console.log(res)
 

@@ -48,13 +48,13 @@ class RaffleCard extends Component {
                   <CardMedia
                     component="img"
                     className="media"
-                    // image={raffle.prize.image}
+                    image={raffle.prize.image}
                   />
                   <CardContent className="cardContent">
-                    {/* <Typography>{raffle.prize.name}</Typography> */}
+                    <Typography>{raffle.prize.name}</Typography>
                   </CardContent>
                   <CardActions>
-                    {/* <Typography>{raffle.prize.description}</Typography> */}
+                    <Typography>{raffle.prize.description}</Typography>
                     <Link to={`/raffle/${raffle._id}`}>
                       <Button size="small" color="primary">
                         Link
