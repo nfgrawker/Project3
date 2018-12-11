@@ -17,8 +17,9 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 
 class Raffle extends Component {
-
-state = {
+constructor(props){
+  super(props);
+this.state = {
   isActive: true,
   winner: null,
   endTime: "",
@@ -28,21 +29,25 @@ state = {
   nonProfitName: "",
   nonProfitImage: "",
   nonProfitDescription: "",
-  currentTime: moment()
+  currentTime: moment().unix()
 };
+}
+
 
 componentDidMount() {
   console.log(this.props.match.params.id);
 
 axios.get('/api/raffle/' + this.props.match.params.id)
   .then(res => {
-    console.log(res)
+    console.log(res);
+    //console.log(res.data.winner.user.username);
+    console.log(moment(res.data.endTime).unix());
 
-    if (typeof res.data.winner == undefined) {
+    if (res.data.winner != undefined || res.data.winner != null) {
       this.setState({
         winner: res.data.winner.user.username,
       })}
-    let endTime = moment(res.data.endTime)
+    let endTime = moment(res.data.endTime).unix();
       this.setState({
         endTime: endTime,
         prizeDescription: res.data.prize.description,
@@ -60,10 +65,11 @@ render() {
 
   let activeSwitch;
   if (this.state.currentTime >= this.state.endTime && this.state.winner === null) {
-    activeSwitch = <InactiveRaffle winner={"Picking Winner Soon"}/>
+    activeSwitch = <InactiveRaffle {...this.props} winner={"Picking Winner Soon"}/>
+    console.log(this.state.winner);
   } 
   else if (this.state.currentTime >= this.state.endTime) {
-    activeSwitch = <InactiveRaffle winner={this.state.winner}/>
+    activeSwitch = <InactiveRaffle {...this.props} winner={this.state.winner} />
   }
   else {
     activeSwitch = <ActiveRaffle endTime={this.state.endTime} id={this.props.match.params.id}/>
