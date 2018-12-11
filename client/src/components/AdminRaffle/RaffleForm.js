@@ -34,8 +34,7 @@ class RaffleForm extends PureComponent {
     super(props);
     this.state = {
       prizes: [],
-      itemid: "",
-      selected: false,
+      prizeId: undefined,
       selectedDate: new Date("2018-01-01T00:00:00.000Z"),
       startTime: new Date(),
       endTime: new Date()
@@ -50,17 +49,18 @@ class RaffleForm extends PureComponent {
         prizes: res.data
       });
     });
-    this.loadAllPrizes();
   }
 
   //handle start date
   handleStartDateChange = date => {
+    console.log(date);
     this.setState({
       startTime: date
     });
   };
   //handle end date
   handleEndDateChange = date => {
+    console.log(date);
     this.setState({
       endTime: date
     });
@@ -72,12 +72,11 @@ class RaffleForm extends PureComponent {
     const btnKey = event.target.value;
     console.log(btnKey);
     this.setState({ 
-      itemid: btnKey,
-      selected: true, 
+      prizeId : btnKey,
     });
-    if (this.state.selected === true){
-      //stuff
-    }
+    // if (this.state.selected === true){
+    //   //stuff
+    // }
 
   }
 
@@ -88,18 +87,18 @@ class RaffleForm extends PureComponent {
     const iDate = moment(this.state.endTime).format("MM-DD-YYYY HH:mm:ss");
     let newRaffle = {
       nonProfit: this.props.userid,
-      prize: this.state.itemid,
+      prize: this.state.prizeId,
       startTime: kDate,
       endTime: iDate
     };
     console.log(newRaffle);
-    if (newRaffle) {
-      axios
+    if (newRaffle.prize === undefined) {
+       alert("this is wrong");
+    } else {
+     axios
         .post("/api/create/raffle", newRaffle)
         .then(this.loadAllPrizes())
         .catch(err => console.log(err));
-    } else {
-      alert("this is wrong");
     }
   }
 
@@ -108,17 +107,16 @@ class RaffleForm extends PureComponent {
     if (this.state.prizes.length) {
       const prizes = this.state.prizes;
       const listItems = prizes.map(prize => (
-        <Button type="button"
-          id="listButton"
+        <button type="button"
+          className="listButton"
           key={prize._id}
           value={prize._id}
-          selected={this.state.selected}
           onClick={this.handleOnClick}
         >
           <img className="buttonImg thumbnail" src={prize.image} />
           <div className="buttonDiv"> Item: {prize.name} </div>
           <div className="buttonDiv"> Quantity: {prize.quantity} </div>
-        </Button>
+        </button>
       ));
       return <div className="prizesContainer">{listItems}</div>;
     }

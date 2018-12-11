@@ -28,7 +28,8 @@ module.exports = function(app) {
     });
 
     app.post("/api/create/raffle", function (req, res) {
-        Raffle.create({ prize: req.body.prize,
+        Raffle.create({ 
+            prize: req.body.prize,
             nonProfit: req.body.nonProfit,
             startTime: req.body.startTime,
             endTime: req.body.endTime
