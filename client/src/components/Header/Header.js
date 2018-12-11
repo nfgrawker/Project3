@@ -14,7 +14,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ReactImageFallback from "react-image-fallback";
 import NavLinks from "./NavLinks/NavLinks";
-import Logo from "./wonderFund_logo3.png"
+import Logo from "./wonderfundLogo.png"
 
 
 
