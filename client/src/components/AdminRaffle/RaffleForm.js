@@ -35,7 +35,7 @@ class RaffleForm extends PureComponent {
     this.state = {
       prizes: [],
       prizeId: undefined,
-      selectedDate: new Date("2018-01-01T00:00:00.000Z"),
+      //selectedDate: new Date("2018-01-01T00:00:00.000Z"),
       startTime: new Date(),
       endTime: new Date()
     };
@@ -83,7 +83,8 @@ class RaffleForm extends PureComponent {
   // handle raffle submit
   handleFormSubmit(event) {
     event.preventDefault();
-    const kDate = moment(this.state.startTime).format("MM-DD-YYYY HH:mm:ss");
+    const kDate = moment(this.state.startTime);
+    //const kDate = moment(this.state.startTime).format("MM-DD-YYYY HH:mm:ss");
     const iDate = moment(this.state.endTime).format("MM-DD-YYYY HH:mm:ss");
     let newRaffle = {
       nonProfit: this.props.userid,
@@ -113,7 +114,7 @@ class RaffleForm extends PureComponent {
           value={prize._id}
           onClick={this.handleOnClick}
         >
-          <img className="buttonImg thumbnail" src={prize.image} />
+          <img className="buttonImg thumbnail" src={prize.image} value={prize._id} />
           <div className="buttonDiv"> Item: {prize.name} </div>
           <div className="buttonDiv"> Quantity: {prize.quantity} </div>
         </button>

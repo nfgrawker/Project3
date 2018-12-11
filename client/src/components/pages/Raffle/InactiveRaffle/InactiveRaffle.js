@@ -10,10 +10,13 @@ import Countdown from "../../../CountdownTimer/"
 import rafflePageStyle from "../style/raffleStyle";
 
 class InactiveRaffle extends Component {
-
-  state = {
-    winner: "none"
+  constructor(props){
+    super(props);
+    this.state = {
+    winner: ""
   }
+  }
+  
 
 render() {
   const { classes, ...rest } = this.props;
@@ -29,7 +32,7 @@ render() {
       }}>
         This raffle has concluded
         <br />
-        <div style={{marginTop: 12}}>
+        <div {...this.props.children} style={{marginTop: 12}}>
           The raffle winner is:
           <br />
           <b>{this.props.winner}</b>
