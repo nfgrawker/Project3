@@ -26,8 +26,7 @@ const styles = theme => ({
   },
   welcome: {
     textAlign: "center",
-    padding: "40px 10px",
-    
+    padding: "40px 10px"
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1
@@ -81,16 +80,18 @@ class AdminPage extends Component {
         followers: res.data.followers
       });
     });
-    axios.get("/api/raffle/all/get").then(res => {
-      console.log(res.data);
-      for (let i = 0; i < res.data.length; i++) {
-        if (res.data[i].nonProfit === this.state.userid) {
-          console.log(res.data[i].endTime);
-          let raffleTime = res.data[i].endTime.slice(0, 19);
-          this.setState({ raffleTime: raffleTime });
+    if (this.state.checkeditem && this.state.startTime && this.state.endTime) {
+      axios.get("/api/raffle/all/get").then(res => {
+        console.log(res.data);
+        for (let i = 0; i < res.data.length; i++) {
+          if (res.data[i].nonProfit === this.state.userid) {
+            console.log(res.data[i].endTime);
+            let raffleTime = res.data[i].endTime.slice(0, 19);
+            this.setState({ raffleTime: raffleTime });
+          }
         }
-      }
-    });
+      });
+    }
   }
 
   // switch case to set main content
@@ -146,7 +147,9 @@ class AdminPage extends Component {
 
         {/* Main Content */}
         <main className={classes.content}>
-          <h4 className={classes.welcome}>Welcome Back, {this.state.username}</h4>
+          <h4 className={classes.welcome}>
+            Welcome Back, {this.state.username}
+          </h4>
           <AdminMain {...this.props}>
             {this.renderMainContent(this.props)}
           </AdminMain>
