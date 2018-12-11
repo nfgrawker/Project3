@@ -47,7 +47,7 @@ axios.get('/api/raffle/' + this.props.match.params.id)
       this.setState({
         winner: res.data.winner.user.username,
       })}
-    let endTime = moment(res.data.endTime).unix();
+    let endTime = moment(res.data.endTime);
       this.setState({
         endTime: endTime,
         prizeDescription: res.data.prize.description,
