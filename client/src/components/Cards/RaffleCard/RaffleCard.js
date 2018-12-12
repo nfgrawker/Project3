@@ -4,7 +4,6 @@ import classNames from "classnames";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
-import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -27,8 +26,8 @@ function shutter(i, els) {
 }
 var styles = {
   margin: "20px",
-  width: "300px",
-  height: "450px",
+  width: "340px",
+  height: "400px",
   display: "inline-block"
 };
 
@@ -36,6 +35,7 @@ const cards = [1, 2, 3];
 
 class RaffleCard extends Component {
   state = { index: 0 };
+
   render() {
     return (
       <React.Fragment>
@@ -49,12 +49,32 @@ class RaffleCard extends Component {
                     component="img"
                     className="media"
                     image={raffle.prize.image}
+                    height="228"
+                    width="400"
+                    overflow="hidden"
+                    minWidth="100%"
                   />
                   <CardContent className="cardContent">
-                    <Typography>{raffle.prize.name}</Typography>
+                  <Typography 
+                     style={{
+                      backgroundColor: "",
+                      fontWeight: "bold",
+                      fontSize: "1em",
+                      width: "258",
+                      height: "36"
+                    }}
+                    >{raffle.nonprofit.name}</Typography>
+                    <Typography 
+                     style={{
+                      backgroundColor: "",
+                      fontWeight: "bold",
+                      fontSize: "1em",
+                      width: "258",
+                      height: "36"
+                    }}
+                    >{raffle.prize.name}</Typography>
                   </CardContent>
                   <CardActions>
-                    <Typography>{raffle.prize.description}</Typography>
                     <Link to={`/raffle/${raffle._id}`}>
                       <Button size="small" color="primary">
                         Link
@@ -69,9 +89,5 @@ class RaffleCard extends Component {
     );
   }
 }
-
-RaffleCard.propTypes = {
-  classes: PropTypes.object.isRequired
-};
 
 export default RaffleCard;

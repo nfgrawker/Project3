@@ -10,11 +10,14 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
+import GridContainer from "../landing/sections/Grid/GridContainer.jsx";
+import GridItem from "../landing/sections/Grid/GridItem.jsx";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
-import axios from 'axios';
-import NonProfitCard from '../../Cards/NonProfitCard'
+import axios from "axios";
+import NonProfitCard from "../../Cards/NonProfitCard";
+import image from "../../assets/untitled.png";
 
 const styles = theme => ({
   icon: {
@@ -57,63 +60,83 @@ const styles = theme => ({
 
 class NonProfits extends React.Component {
   profile;
-state = {
-  auth: null,
-  anchorEl: null,
-  mobileMoreAnchorEl: null,
-  nonprofit:[]
-};
+  state = {
+    auth: null,
+    anchorEl: null,
+    mobileMoreAnchorEl: null,
+    nonprofit: []
+  };
 
-componentDidMount() {
-  
+  componentDidMount() {
+    axios.get("/api/nonprofit/all/get").then(res => {
+      this.setState({ nonprofit: res.data });
+      console.log(res.data);
+    });
+  }
 
-  axios.get('/api/nonprofit/all/get').then(res => {
-    this.setState({ nonprofit: res.data });
-    console.log(res.data);
-  });
-}
+  render() {
+    const { classes } = this.props;
+    return (
+      <React.Fragment>
+        <CssBaseline />
 
-render() {
-  const { classes } = this.props;
-  return (
-    <React.Fragment>
-      <CssBaseline />
-
-      <main>
-        <div className={classes.heroUnit}>
-          <div className={classes.heroContent}>
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
-              >
-              causes
-            </Typography>
-            <Typography
-              variant="h6"
-              align="center"
-              color="textSecondary"
-              paragraph
-              >
-              Check out all of the wonderful causes we’ve worked with, and
-              discover the ways they’re impacting the world. Click on a non
-              profit to begin a raffle in their name!
-            </Typography>
+        <main>
+          <div
+            style={{
+              backgroundImage:
+                "url(" +
+                "https://i2.wp.com/www.graciousparadise.org/wp-content/uploads/2016/12/happy_kids.jpg?resize=500%2C293" +
+                ")",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat"
+            }}
+            className={classes.heroUnit}
+          >
+            <div className={classes.heroContent}>
+              <div>
+                <Typography
+                  
+                  align="center"
+                  color="textPrimary"
+                  gutterBottom
+                  style={{
+                    color: "white",
+                    fontWeight:"bold",
+                    fontSize: "7em",
+                    width: "258",
+                    height: "36"
+                  }}
+                >
+                  causes
+                </Typography>
+              </div>
+              
+            </div>
           </div>
-        </div>
-        <div className={classNames(classes.layout, classes.cardGrid)}>
-          {/* End hero unit */}
-          <Grid container spacing={40}>
-          <NonProfitCard nonprofit={this.state.nonprofit}/>
-          </Grid>
-        </div>
-      </main>
-    </React.Fragment>
-  );
+          <div className={classNames(classes.layout, classes.cardGrid)}>
+          <Typography
+                variant="h6"
+                align="center"
+                color="textSecondary"
+                paragraph
+              >
+                Check out all of the wonderful causes we’ve worked with, and
+                discover the ways they’re impacting the world. Click on a non
+                profit to begin a raffle in their name!
+              </Typography>
+              <hr />
+              <br />
+        
+            <Grid container spacing={40}>
+            <br />
+              <NonProfitCard nonprofit={this.state.nonprofit} />
+            </Grid>
+          </div>
+        </main>
+      </React.Fragment>
+    );
+  }
 }
-}
-
 
 export default withStyles(styles)(NonProfits);

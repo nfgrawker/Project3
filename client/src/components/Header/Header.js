@@ -14,7 +14,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import ReactImageFallback from "react-image-fallback";
 import NavLinks from "./NavLinks/NavLinks";
-import Logo from "./wonderFund_logo3.png"
+import Logo from "./wonderfundLogo.png"
 
 
 
@@ -119,8 +119,7 @@ class Header extends React.Component {
         return (
           <li style={this.style}>
             <h6 style={this.style}>
-              <a href="http://localhost:3001/auth/google">Login</a>
-            </h6>
+            <a href="http://localhost:3001/auth/google">Login</a>            </h6>
           </li>
         );
       default:
@@ -180,8 +179,7 @@ class Header extends React.Component {
           </a>
         </MenuItem>
         <MenuItem onClick={this.handleMenuClose}>
-          <a href="http://localhost:3000/api/logout">
-            <p id="dropdown">Logout</p>
+        <a href="http://localhost:3000/api/logout">            <p id="dropdown">Logout</p>
           </a>
         </MenuItem>
       </Menu>

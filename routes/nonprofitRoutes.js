@@ -19,6 +19,8 @@ module.exports = function(app) {
         })
     });
 
+//Put rut to change admin settings on Admin page
+
     // app.put('/api/update/nonprofit/:id', function (req, res) {
     //     NonProfit.findOneAndUpdate(req.params.id, { 
     //         $set: { 

@@ -10,10 +10,10 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 function shutter(i, els) {
-  if (els.length === 0) return els
+  if (els.length === 0) return els;
   const wrapIndex = i => i % els.length;
   return [
     els[wrapIndex(i)],
@@ -28,8 +28,7 @@ function shutter(i, els) {
 var styles = {
   margin: "20px",
   width: "300px",
-  height: "450px",
-  overflow: "auto",
+  height: "240px",
   display: "inline-block"
 };
 
@@ -51,17 +50,41 @@ class NonProfitCard extends Component {
                     component="img"
                     className="media"
                     image={nonprofit.imageLink}
+                    height="150"
+                    width="298"
+                    overflow="hidden"
+                    minWidth="100%"
                   />
                   <CardContent className="cardContent">
-                    <Typography>{nonprofit.name}</Typography>
+                    <Typography
+                      style={{
+                        backgroundColor: "",
+                        fontWeight: "bold",
+                        fontSize: "1em",
+                        width: "258",
+                        height: "36"
+                      }}
+                    >
+                      {nonprofit.name}
+                    </Typography>
                   </CardContent>
                   <CardActions>
-                    <Typography>{nonprofit.description}</Typography>
-                    <Link to={`/prizes/${nonprofit._id}`}>
-                      <Button size="small" color="primary">
-                        Link
+                    <a href={`/prizes/${nonprofit._id}`}>
+                      <Button
+                        style={{
+                          position: "absolute",
+                          right: 0,
+                          fontSize: "1em",
+                          width: "298",
+                          height: "25",
+                          color: "#EA2786"
+                        }}
+                        size="small"
+                        color="primary"
+                      >
+                        learn more >
                       </Button>
-                    </Link>
+                    </a>
                   </CardActions>
                 </Card>
               ))

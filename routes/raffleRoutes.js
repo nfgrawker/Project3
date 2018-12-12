@@ -54,6 +54,7 @@ module.exports = function(app) {
                     console.log(raffles[i].winner)
                 }
             };
+            
             console.log("Winners has Run!")
             res.end()
         })
