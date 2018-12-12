@@ -60,7 +60,7 @@ class NonProfitCard extends Component {
                       style={{
                         backgroundColor: "",
                         fontWeight: "bold",
-                        fontSize: "1em",
+                        fontSize: "1.2em",
                         width: "258",
                         height: "36"
                       }}

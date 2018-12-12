@@ -20,7 +20,7 @@ module.exports = function(app) {
         })
     });
     app.get("/api/raffle/all/get", function(req,res){
-       Raffle.find({}).populate('prize')
+        Raffle.find({}).populate('prize').populate('nonProfit')
        .exec(function(err, raffles){
             res.send(raffles).end()
            console.log(raffles)
