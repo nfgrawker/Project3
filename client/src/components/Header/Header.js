@@ -119,8 +119,7 @@ class Header extends React.Component {
         return (
           <li style={this.style}>
             <h6 style={this.style}>
-              <a href="/auth/google">Login</a>
-            </h6>
+            <a href="http://localhost:3001/auth/google">Login</a>            </h6>
           </li>
         );
       default:
@@ -180,8 +179,7 @@ class Header extends React.Component {
           </a>
         </MenuItem>
         <MenuItem onClick={this.handleMenuClose}>
-          <a href="/api/logout">
-            <p id="dropdown">Logout</p>
+        <a href="http://localhost:3000/api/logout">            <p id="dropdown">Logout</p>
           </a>
         </MenuItem>
       </Menu>

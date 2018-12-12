@@ -59,7 +59,7 @@ class NonProfitCard extends Component {
                     <Typography
                       style={{
                         backgroundColor: "",
-                        fontWeight:"bold",
+                        fontWeight: "bold",
                         fontSize: "1em",
                         width: "258",
                         height: "36"
@@ -70,17 +70,20 @@ class NonProfitCard extends Component {
                   </CardContent>
                   <CardActions>
                     <a href={`/prizes/${nonprofit._id}`}>
-                      
-                        <Button  style={{
-                        position: 'absolute', right: 0,
-                        fontSize: "1em",
-                        width: "298",
-                        height: "25",
-                        color: "#EA2786"
-                      }} size="small" color="primary">
-                          learn more >
-                        </Button>
-                      
+                      <Button
+                        style={{
+                          position: "absolute",
+                          right: 0,
+                          fontSize: "1em",
+                          width: "298",
+                          height: "25",
+                          color: "#EA2786"
+                        }}
+                        size="small"
+                        color="primary"
+                      >
+                        learn more >
+                      </Button>
                     </a>
                   </CardActions>
                 </Card>
