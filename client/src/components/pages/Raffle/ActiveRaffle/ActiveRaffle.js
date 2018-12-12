@@ -27,9 +27,9 @@ render() {
         padding: "5px 5px 5px 5px",
         textAlign: "center"
       }}>
-        Time Reamining on this raffle:
+        Time remaining on this raffle:
         <br></br>
-        <div style={{marginTop: 12}}>
+        <div style={{marginTop: 12}} >
           <Countdown date={this.props.endTime} />
         </div> 
       </Typography>
