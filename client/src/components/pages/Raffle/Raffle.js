@@ -14,6 +14,7 @@ import rafflePageStyle from "./style/raffleStyle";
 import ActiveRaffle from "./ActiveRaffle";
 import InactiveRaffle from "./InactiveRaffle";
 import TicketsSold from "./TicketsSold";
+import NoWinner from "./NoWinner";
 
 import { Link } from 'react-router-dom'
 import axios from 'axios';
@@ -43,9 +44,6 @@ componentDidMount() {
 axios.get('/api/raffle/' + this.props.match.params.id)
   .then(res => {
     console.log(res);
-    // console.log(res.data.tickets.length);
-    // console.log(moment(res.data.endTime).add(6, 'hours'));
-
 
     if (res.data.winner != undefined || res.data.winner != null) {
       this.setState({
@@ -69,10 +67,13 @@ render() {
   const { classes, ...rest } = this.props;
 
   let activeSwitch;
-  if (this.state.currentTime >= this.state.endTime && this.state.winner === null) {
+  if (this.state.currentTime >= this.state.endTime && this.state.winner === null && this.state.ticketsSold > 0) {
     activeSwitch = <InactiveRaffle {...this.props} winner={"Picking Winner Soon"}/>
     console.log(this.state.winner);
-  } 
+  }
+  else if (this.state.currentTime >= this.state.endTime && this.state.winner === null && this.state.ticketsSold === 0) {
+    activeSwitch = <NoWinner />
+  }
   else if (this.state.currentTime >= this.state.endTime) {
     activeSwitch = <InactiveRaffle {...this.props} winner={this.state.winner} />
   }
