@@ -101,7 +101,7 @@ const CurrentRaffle = props => {
                <h4>Current Raffle </h4>
               </CardHeader>
             
-            <CountdownTimer date={props.raffleTime} />
+            <CountdownTimer date={props.raffleTime} className={"dashboardCountdown"} />
             <img className="raffle-img" src={props.image} />
           </Paper>
         </Grid>
