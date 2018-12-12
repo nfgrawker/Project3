@@ -15,6 +15,7 @@ import UserSetting from "../../AdminSettings/AdminSettings";
 import CurrentRaffle from "../../AdminDashboard/CurrentRaffle";
 import RaffleForm from "../../AdminRaffle/RaffleForm";
 import RaffleTable from "../../AdminRaffle/RaffleTable";
+import moment from 'moment';
 
 import image from "../AdminPage/jss/sidebar-2.jpg";
 
@@ -86,7 +87,7 @@ class AdminPage extends Component {
       for (let i = 0; i < res.data.length; i++) {
         if (res.data[i].nonProfit === this.state.userid) {
           console.log(res.data[i].endTime);
-          let raffleTime = res.data[i].endTime.slice(0, 19);
+          let raffleTime = moment(res.data[i].endTime).add(6, 'hours');
           this.setState({ raffleTime: raffleTime });
         }
       }

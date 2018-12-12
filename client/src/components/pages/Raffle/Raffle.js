@@ -13,6 +13,8 @@ import rafflePageStyle from "./style/raffleStyle";
 
 import ActiveRaffle from "./ActiveRaffle";
 import InactiveRaffle from "./InactiveRaffle";
+import TicketsSold from "./TicketsSold";
+
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
@@ -29,7 +31,8 @@ this.state = {
   nonProfitName: "",
   nonProfitImage: "",
   nonProfitDescription: "",
-  currentTime: moment().unix()
+  ticketsSold: 0,
+  currentTime: moment()
 };
 }
 
@@ -40,16 +43,18 @@ componentDidMount() {
 axios.get('/api/raffle/' + this.props.match.params.id)
   .then(res => {
     console.log(res);
-    //console.log(res.data.winner.user.username);
-    console.log(moment(res.data.endTime).unix());
+    // console.log(res.data.tickets.length);
+    // console.log(moment(res.data.endTime).add(6, 'hours'));
+
 
     if (res.data.winner != undefined || res.data.winner != null) {
       this.setState({
         winner: res.data.winner.user.username,
       })}
-    let endTime = moment(res.data.endTime);
+    let endTime = moment(res.data.endTime).add(6, 'hours');
       this.setState({
         endTime: endTime,
+        ticketsSold: res.data.tickets.length,
         prizeDescription: res.data.prize.description,
         prizeImage:res.data.prize.image,
         prizeName:res.data.prize.name,
@@ -120,6 +125,8 @@ render() {
               {this.state.prizeDescription}
             </Typography>
         </Paper>
+        
+        <TicketsSold ticketsSold={this.state.ticketsSold} />
         
         {activeSwitch}
 

@@ -35,7 +35,7 @@ const App = () => {
           <Route exact path="/nonprofits" component={NonProfits} />
           <Route exact path="/nonprofitcard" component={NonProfitCard} />
           <Route exact path="/prizes/:id" component={PrizePage} />
-          <Route exact path="/raffles" component={Raffles} />
+          <Route exact path="/(raffles|raffle)" component={Raffles} />
           <Route exact path="/raffle/:id" component={RafflePage} />
           <Route exact path="/paypal/:id" component={Paypal} />
           <Route exact path="/contact" component={Contact} />

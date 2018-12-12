@@ -78,7 +78,7 @@ class Countdown extends Component {
     const countDown = this.state;
 
     return (
-      <div className="Countdown">
+      <div className={this.props.className}>
         <span className="Countdown-col">
           <span className="Countdown-col-element">
               <strong>{this.addLeadingZeros(countDown.days)}</strong>
