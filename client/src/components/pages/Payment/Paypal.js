@@ -63,14 +63,14 @@ const styles = theme => ({
 function Pricing(props) {
 const tiers = [
   {
-    title: '10',
+    title: '10 Tickets',
     price: '1',
     buttonText: 'Checkout',
     buttonVariant: 'outlined',
     total:1
   },
   {
-    title: '100',
+    title: '100 Tickets',
     subheader: 'Most popular',
     price: '10',
     buttonText: 'Checkout',
@@ -78,7 +78,7 @@ const tiers = [
     total:10
   },
   {
-    title: '1000',
+    title: '1000 Tickets',
     price: '100',
     buttonText: 'Checkout',
     buttonVariant: 'outlined',
@@ -117,7 +117,7 @@ const tiers = [
       <main className={classes.layout}>
 
         <div className={classes.heroContent}>
-          <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+          <Typography component="h1" variant="h2" align="center" style={{color: "white"}} gutterBottom>
           How many raffle tickets do you want?
           </Typography>
 
@@ -126,7 +126,7 @@ const tiers = [
         <Grid container spacing={40} alignItems="flex-end">
           {tiers.map(tier => (
             // Enterprise card is full width at sm breakpoint
-            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4}>
+            <Grid item key={tier.title} xs={12} sm={tier.title === 'Enterprise' ? 12 : 6} md={4} style={{marginBottom: 12}}>
               <Card>
                 <CardHeader
                   title={tier.title}
@@ -138,7 +138,7 @@ const tiers = [
                 />
                 <CardContent>
                   <div className={classes.cardPricing}>
-                    <Typography component="h2" variant="h3" color="textPrimary">
+                    <Typography component="h2" variant="h3" color="textPrimary" >
                       ${tier.price}
                     </Typography>
                   </div>
