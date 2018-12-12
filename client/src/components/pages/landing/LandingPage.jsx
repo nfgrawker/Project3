@@ -71,15 +71,15 @@ class Home extends React.Component {
             </GridContainer>
           </div>
         </ParallaxTwo>
-        <div className={classNames(classes.main, classes.mainRaised)}>
-          <div className={classes.container}>
+       <br />
+          <div  align="center" className={classes.container}>
           <Typography align="center">
                 <h2>Check out our current raffles!</h2>
                 </Typography>
           <RaffleCard raffle={this.state.raffle}/>
             <hr />
             <ContactSection /> 
-          </div>
+          
         </div>
       </div>
     );

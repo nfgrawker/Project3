@@ -10,8 +10,6 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-import GridContainer from "../landing/sections/Grid/GridContainer.jsx";
-import GridItem from "../landing/sections/Grid/GridItem.jsx";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
@@ -128,7 +126,7 @@ class NonProfits extends React.Component {
               <hr />
               <br />
         
-            <Grid container spacing={40}>
+            <Grid align="center" container spacing={40}>
             <br />
               <NonProfitCard nonprofit={this.state.nonprofit} />
             </Grid>

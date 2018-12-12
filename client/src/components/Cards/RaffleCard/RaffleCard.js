@@ -26,8 +26,8 @@ function shutter(i, els) {
 }
 var styles = {
   margin: "20px",
-  width: "340px",
-  height: "400px",
+  width: "420px",
+  height: "340px",
   display: "inline-block"
 };
 
@@ -55,31 +55,44 @@ class RaffleCard extends Component {
                     minWidth="100%"
                   />
                   <CardContent className="cardContent">
-                  {/* <Typography 
-                     style={{
-                      backgroundColor: "",
-                      fontWeight: "bold",
-                      fontSize: "1em",
-                      width: "258",
-                      height: "36"
-                    }}
-                    >{raffle.nonprofit.name}</Typography> */}
-                    <Typography 
-                     style={{
-                      backgroundColor: "",
-                      fontWeight: "bold",
-                      fontSize: "1em",
-                      width: "258",
-                      height: "36"
-                    }}
-                    >{raffle.prize.name}</Typography>
+                    <Typography
+                      style={{
+                        color: "#00CAF2",
+                        fontSize: ".8em",
+                        width: "258",
+                        height: "36"
+                      }}
+                    >
+                      Support {raffle.nonProfit.name} and receive
+                    </Typography>
+                    <Typography
+                      style={{
+                        fontWeight: "bold",
+                        fontSize: "1.2em",
+                        width: "258",
+                        height: "36"
+                      }}
+                    >
+                      {raffle.prize.name}
+                    </Typography>
                   </CardContent>
                   <CardActions>
-                    <Link to={`/raffle/${raffle._id}`}>
-                      <Button size="small" color="primary">
-                        Link
+                    <a href={`/raffle/${raffle._id}`}>
+                      <Button
+                        style={{
+                          position: "absolute",
+                          right: 0,
+                          fontSize: "1em",
+                          width: "298",
+                          height: "25",
+                          color: "#EA2786"
+                        }}
+                        size="small"
+                        color="primary"
+                      >
+                        learn more >
                       </Button>
-                    </Link>
+                    </a>
                   </CardActions>
                 </Card>
               ))

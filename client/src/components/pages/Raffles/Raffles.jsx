@@ -16,7 +16,6 @@ import { withStyles } from "@material-ui/core/styles";
 import RaffleCard from "../../Cards/RaffleCard";
 import axios from "axios";
 
-
 const styles = theme => ({
   icon: {
     marginRight: theme.spacing.unit * 2
@@ -56,7 +55,7 @@ const styles = theme => ({
   }
 });
 class Raffles extends React.Component {
-    profile;
+  profile;
   state = {
     auth: null,
     anchorEl: null,
@@ -64,8 +63,6 @@ class Raffles extends React.Component {
   };
 
   componentDidMount() {
-    
-
     axios.get("/api/raffle/all/get").then(res => {
       this.setState({ raffle: res.data });
       console.log(res.data);
@@ -79,32 +76,50 @@ class Raffles extends React.Component {
         <CssBaseline />
 
         <main>
-          <div className={classes.heroUnit}>
+          <div
+            style={{
+              backgroundImage:
+                "url(" +
+                "https://static.vecteezy.com/system/resources/previews/000/104/601/original/golden-glitter-background-vector.jpg" +
+                ")",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat"
+            }}
+            className={classes.heroUnit}
+          >
             <div className={classes.heroContent}>
-              <Typography
-                component="h1"
-                variant="h2"
-                align="center"
-                color="textPrimary"
-                gutterBottom
-              >
-                Dream big. You could be next...
-              </Typography>
-              <Typography
-                variant="h6"
-                align="center"
-                color="textSecondary"
-                paragraph
-              >
-                Every Wonderfund campaign supports an incredible cause and gets
-                you the chance to win an amazing prize!
-              </Typography>
+              <div>
+                <Typography
+                  align="center"
+                  color="textPrimary"
+                  gutterBottom
+                  style={{
+                    color: "#00CAF2",
+                    fontWeight: "bold",
+                    fontSize: "7em",
+                    width: "258",
+                    height: "36"
+                  }}
+                >
+                  Dream big.
+                </Typography>
+              </div>
             </div>
           </div>
           <div className={classNames(classes.layout, classes.cardGrid)}>
+            <Typography
+              variant="h6"
+              align="center"
+              color="textSecondary"
+              paragraph
+            >
+              Every Wonderfund campaign supports an incredible cause and gets
+              you the chance to win an amazing prize!
+            </Typography>
             {/* End hero unit */}
-            <Grid container spacing={40}>
-            <RaffleCard raffle={this.state.raffle}/>
+            <Grid align="center" container spacing={40}>
+              <RaffleCard raffle={this.state.raffle} />
             </Grid>
           </div>
         </main>
