@@ -55,7 +55,7 @@ class RaffleCard extends Component {
                     minWidth="100%"
                   />
                   <CardContent className="cardContent">
-                  <Typography 
+                  {/* <Typography 
                      style={{
                       backgroundColor: "",
                       fontWeight: "bold",
@@ -63,7 +63,7 @@ class RaffleCard extends Component {
                       width: "258",
                       height: "36"
                     }}
-                    >{raffle.nonprofit.name}</Typography>
+                    >{raffle.nonprofit.name}</Typography> */}
                     <Typography 
                      style={{
                       backgroundColor: "",
